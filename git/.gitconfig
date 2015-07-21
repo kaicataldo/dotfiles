@@ -1,0 +1,60 @@
+[user]
+	name = Kai Cataldo
+	email = kaicataldo@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+  editor = subl -n -w
+	excludesfile = ~/.gitignore_global
+[hub]
+  protocol = ssh
+[alias]
+    # Add
+  aa = add --all
+
+  # Commit
+  ci = commit -m
+
+  # Branch
+  br = branch
+
+  # Checkout
+  co = checkout
+  cb = checkout -b
+
+  # Diff
+  d = diff
+
+  # Merge
+  m = merge
+
+  # Fetch
+  fu = fetch upstream
+
+  # Status
+    st = status
+
+  # Pull
+  pum = pull upstream master
+  preb = pull --rebase upstream master
+
+  # Push
+  p = push
+  pom = push origin master
+  poh = push origin head
+
+  # SHA of latest commit
+  sha = !"echo 'Copying HEAD SHA...' && git rev-parse HEAD | tr -d '\n' | pbcopy"
+
+  # Misc
+  unstage = reset HEAD --
+  amend = commit --amend
+  show-aliases = config --get-regexp alias
+  discard = checkout --
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
