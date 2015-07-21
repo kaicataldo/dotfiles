@@ -1,15 +1,15 @@
 [user]
-	name = Kai Cataldo
-	email = kaicataldo@gmail.com
+  name = Kai Cataldo
+  email = kaicataldo@gmail.com
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [core]
   editor = subl -n -w
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [hub]
   protocol = ssh
 [alias]
-    # Add
+  # Add
   aa = add --all
 
   # Commit
@@ -51,7 +51,6 @@
   amend = commit --amend
   show-aliases = config --get-regexp alias
   discard = checkout --
-
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
