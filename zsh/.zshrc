@@ -5,7 +5,7 @@ export SHELL=/bin/zsh
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Default editor
-export EDITOR='subl -n -w'
+export EDITOR='atom -n -w'
 
 # Default user
 export DEFAULT_USER=kaicataldo
@@ -33,7 +33,3 @@ fi
 
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# Shows/Hides hidden files in Finder
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'

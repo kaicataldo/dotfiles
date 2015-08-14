@@ -1,22 +1,24 @@
 [user]
   name = Kai Cataldo
   email = kaicataldo@gmail.com
-[credential]
-  helper = osxkeychain
 [core]
-  editor = subl -n -w
+  editor = atom -n -w
   excludesfile = ~/.gitignore_global
-[hub]
-  protocol = ssh
 [alias]
-  # Add
+  # Add all
   aa = add --all
 
   # Commit
   ci = commit -m
+  ca = !git add --all && git commit -m
+  amend = commit --amend
+  amend-all = !git add --all && git commit --amend --reuse-message=HEAD
+
+  # Clone
+  cl = clone
 
   # Branch
-  br = branch
+  br = branch -v
 
   # Checkout
   co = checkout
@@ -24,36 +26,48 @@
 
   # Diff
   d = diff
+  dc = diff --cached
+  df = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
   # Merge
   m = merge
 
-  # Fetch
-  fu = fetch upstream
-
-  # Status
-    st = status
-
   # Pull
-  pum = pull upstream master
-  preb = pull --rebase upstream master
+  pl = pull
+  plum = pull upstream master
+  preb = !git fetch upstream master && git rebase upstream/master
 
   # Push
   p = push
   pom = push origin master
   poh = push origin head
 
+  # Stash
+  ss = stash
+  ssp = stash pop
+
+  # Reset
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+
+  # Remote
+  r = remote -v
+
+  # Status/Logging
+  s = status -sb
+  st = status
+  hist = log --graph --pretty=format:'%C(red)%h%Creset %C(green)%cr %C(yellow)%d%Creset %s %C(magenta)[%an]%Creset' --abbrev-commit --date=relative
+
   # SHA of latest commit
   sha = !"echo 'Copying HEAD SHA...' && git rev-parse HEAD | tr -d '\n' | pbcopy"
 
-  # Misc
-  unstage = reset HEAD --
-  amend = commit --amend
-  show-aliases = config --get-regexp alias
-  discard = checkout --
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+  #Misc
+  aliases = config --get-regexp alias
+[credential]
+  helper = osxkeychain
+[hub]
+  protocol = ssh
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
