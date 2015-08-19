@@ -2,7 +2,7 @@
   name = Kai Cataldo
   email = kaicataldo@gmail.com
 [core]
-  editor = atom -n -w
+  editor = subl -n -w
   excludesfile = ~/.gitignore_global
 [alias]
   # Add all
@@ -67,7 +67,9 @@
   helper = osxkeychain
 [hub]
   protocol = ssh
-[filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true

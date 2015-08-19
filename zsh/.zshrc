@@ -5,7 +5,7 @@ export SHELL=/bin/zsh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Default editor
-export EDITOR='atom -n -w'
+export EDITOR='subl -n -w'
 
 # Default user
 export DEFAULT_USER=kaicataldo
