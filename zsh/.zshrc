@@ -14,7 +14,7 @@ export DEFAULT_USER=kaicataldo
 ZSH_THEME="kai-agnoster"
 
 # oh-my-zsh plugins
-plugins=(git brew)
+plugins=(git brew npm)
 
 # Source oh-my-zsh
 export ZSH=/Users/kaicataldo/.oh-my-zsh
