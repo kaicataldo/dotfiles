@@ -19,3 +19,8 @@ plugins=(git brew npm)
 # Source oh-my-zsh
 export ZSH=/Users/kaicataldo/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Go
+export GOPATH=$HOME/projects/go
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$PATH:/usr/local/opt/go/libexec/bin"
