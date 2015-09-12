@@ -2,7 +2,7 @@
   name = Kai Cataldo
   email = kaicataldo@gmail.com
 [core]
-  editor = subl -n -w
+  editor = vim
   excludesfile = ~/.gitignore_global
 [alias]
   # Add all
