@@ -3,7 +3,6 @@ tap 'homebrew/dupes'
 tap 'homebrew/php'
 
 brew 'git'
-brew 'zsh'
 brew 'vim'
 
 brew 'go'

@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
-DOTFILES_DIR=$HOME/projects/dotfiles
+# Warn user this script will overwrite current dotfiles
+while true; do
+    read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
-# # Pull latest files from GitHub
+# Get the dotfiles directory's absolute path
+DOTFILES_DIR=$(cd $(dirname $0) ; pwd -P)
+
+# Pull latest files from GitHub
+cd "${DOTFILES_DIR}"
 git pull origin master
-git submodule update --init --recursive
+git submodule update --init --recursive # pull latest versions of vendor submodules
 
 # Create .zsh/functions directory if doesn't exit
 if [ ! -e $DOTFILES_DIR/zsh/.zsh/functions ]
@@ -14,16 +26,16 @@ fi
 
 # All the symlinks
 # Pure Prompt
-ln -s $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
-ln -s $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
+ln -sf $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
+ln -sf $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
 
 # Git
-ln -s $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
-ln -s $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
+ln -sf $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
+ln -sf $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 
 # Ruby
-ln -s $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
+ln -sf $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
 # zsh
-ln -sn $DOTFILES_DIR/zsh/.zsh ~/.zsh
-ln -s $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
+ln -snf $DOTFILES_DIR/zsh/.zsh ~/.zsh
+ln -sf $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
