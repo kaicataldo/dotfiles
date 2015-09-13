@@ -2,19 +2,19 @@
 
 # Warn user this script will overwrite current dotfiles
 while true; do
-    read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
+  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+  case $yn in
+    [Yy]* ) break;;
+    [Nn]* ) exit;;
+    * ) echo "Please answer yes or no.";;
+  esac
 done
 
 # Get the dotfiles directory's absolute path
-DOTFILES_DIR=$(cd $(dirname $0) ; pwd -P)
+DOTFILES_DIR=$(cd $(dirname $0); pwd -P)
 
 # Pull latest files from GitHub
-cd "${DOTFILES_DIR}"
+cd $DOTFILES_DIR
 git pull origin master
 git submodule update --init --recursive # pull latest versions of vendor submodules
 
