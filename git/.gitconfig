@@ -61,7 +61,10 @@
   # SHA of latest commit
   sha = !"echo 'Copying HEAD SHA...' && git rev-parse HEAD | tr -d '\n' | pbcopy"
 
-  #Misc
+  # Submodules
+  subpl = submodule update --init --recursive
+
+  # Misc
   aliases = config --get-regexp alias
 [credential]
   helper = osxkeychain
