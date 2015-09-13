@@ -134,7 +134,7 @@ prompt_agnoster_main() {
 prompt_agnoster_precmd() {
   vcs_info
   PROMPT='%{%f%b%k%}$(prompt_agnoster_main)
-» '
+$ '
 }
 
 prompt_agnoster_setup() {
