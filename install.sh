@@ -2,9 +2,15 @@
 
 DOTFILES_DIR=$HOME/projects/dotfiles
 
-# Pull latest files from GitHub
+# # Pull latest files from GitHub
 git pull origin master
 git submodule update --init --recursive
+
+# Create .zsh/functions directory if doesn't exit
+if [ ! -e $DOTFILES_DIR/zsh/.zsh/functions ]
+then
+  mkdir $DOTFILES_DIR/zsh/.zsh/functions
+fi
 
 # All the symlinks
 # Pure Prompt

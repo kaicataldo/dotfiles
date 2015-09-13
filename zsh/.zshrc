@@ -12,5 +12,6 @@ source $ZSH/aliases.zsh
 
 # Local configs ignored by git
 if [[ -a ~/.localrc ]]
-  then source ~/.localrc
+then
+  source ~/.localrc
 fi
