@@ -1,9 +1,10 @@
 # dotfiles
 
-This is (as always) a work in progress.
+My dotfiles repo! This is (as always) a work in progress.
 
 TODO:
-* Autocompletion
-* Configs
+* ~~Autocompletion~~
+* ~~Configs~~
 * ~~Install script~~
+* More dotfiles!!!
 * ???
