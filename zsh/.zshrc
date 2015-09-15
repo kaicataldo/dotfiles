@@ -10,7 +10,7 @@ source $ZSH/initialize.zsh
 source $ZSH/completion.zsh
 source $ZSH/aliases.zsh
 
-# Local configs ignored by git
+# Source local config file specific to machine if it exists
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
