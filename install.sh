@@ -36,6 +36,9 @@ ln -sf $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 # Ruby
 ln -sf $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
+# Vim
+ln -sf $DOTFILES_DIR/vim/.vimrc ~/.vimrc
+
 # zsh
 ln -snf $DOTFILES_DIR/zsh/.zsh ~/.zsh
 ln -sf $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
