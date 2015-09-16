@@ -10,11 +10,7 @@ promptinit && prompt pure # Initialize Pure prompt
 export PATH="/usr/local/sbin:$PATH"
 
 # nvm
-export NVM_DIR=$HOME/.nvm
-[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh
-
-# rbenv
-eval "$(rbenv init - --no-rehash)"
+. $HOME/.nvm/nvm.sh
 
 # Go
 export GOPATH=$HOME/projects/go
