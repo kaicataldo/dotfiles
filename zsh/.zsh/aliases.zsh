@@ -1,6 +1,8 @@
 # General
 alias c='clear'
 alias h='history'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # Directory Info
 alias ll='ls -lFh'
