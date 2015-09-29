@@ -4,6 +4,9 @@ alias h='history'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+# Git
+alias g='git'
+
 # Directory Info
 alias ll='ls -lFh'
 alias la='ls -lAFh' # List all files (inlcuding hidden)

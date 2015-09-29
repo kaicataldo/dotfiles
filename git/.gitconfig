@@ -18,7 +18,8 @@
   cl = clone
 
   # Branch
-  br = branch -v
+  br = branch
+  b = branch -v
 
   # Checkout
   co = checkout
@@ -54,6 +55,8 @@
   r = remote -v
 
   # Status/Logging
+  l = log
+  lp = log -p
   s = status -sb
   st = status
   hist = log --graph --pretty=format:'%C(red)%h%Creset %C(green)%cr %C(yellow)%d%Creset %s %C(magenta)[%an]%Creset' --abbrev-commit --date=relative
