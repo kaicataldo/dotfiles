@@ -3,6 +3,7 @@ export SHELL=/bin/zsh
 export EDITOR='atom --wait'
 
 # Colors
+export TERM=xterm-256color
 export CLICOLOR=1
 
 # History

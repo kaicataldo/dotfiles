@@ -4,6 +4,9 @@ alias h='history'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+# Vim
+alias vim='mvim -v'
+
 # Git
 alias g='git'
 
