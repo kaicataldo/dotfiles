@@ -18,10 +18,25 @@ cd $DOTFILES_DIR
 git pull origin master
 git submodule update --init --recursive # pull latest versions of vendor submodules
 
-# Create .zsh/functions directory if doesn't exit
-if [ ! -e $DOTFILES_DIR/zsh/.zsh/functions ]
-then
-  mkdir $DOTFILES_DIR/zsh/.zsh/functions
+# Create directories if they don't exist
+createDir() {
+  if [[ ! -e $1 ]]; then
+      mkdir $1
+  elif [[ ! -d $1 ]]; then
+      echo "${1} already exists but is not a directory"
+  fi
+}
+
+createDir $DOTFILES_DIR/zsh/.zsh/functions
+createDir ~/.vim
+createDir ~/.vim/bundle
+createDir ~/.vim/backup
+createDir ~/.vim/swp
+createDir ~/.vim/undo
+
+# Git clone NeoBundle
+if [[ ! -e ~/.vim/bundle/neobundle.vim ]]; then
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
 # All the symlinks
