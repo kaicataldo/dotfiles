@@ -1,52 +1,48 @@
-" NeoBundle
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
+" General
+set number
+set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h13
+set guioptions-=r " Hide scrollbars
+set guioptions-=L
+syntax on
+set backspace=indent,eol,start
+set t_Co=256
+set background=dark
 
+" NeoBundle
 if has('vim_starting')
   if &compatible
-   set nocompatible               " Be iMproved
+   set nocompatible
   endif
 
-  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-
- " Let NeoBundle manage NeoBundle
-  NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'flazz/vim-colorschemes'
 
 call neobundle#end()
-
-" Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" Plugins config
+" Bundles config
+" vim-airline
 let g:airline_powerline_fonts = 1
-
-" Config
-set number
-set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h13
-" Hide scrollbars
-set guioptions-=r
-set guioptions-=L
-
-" Colors
-syntax enable
-set t_Co=256
-set background=dark
 let g:airline_theme='base16'
+" base16-vim
 let base16colorspace=256
+" NERDTree
+let NERDTreeShowHidden=1
+" Color Scheme
 colorscheme base16-ocean
 
 " Key Mappings
+let mapleader=","
 imap jj <esc>
+" NERDTree
+map <leader>n :NERDTreeToggle<CR>
