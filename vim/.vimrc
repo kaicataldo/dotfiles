@@ -19,7 +19,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Bundles
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'chriskempson/base16-vim'
 
 call neobundle#end()
@@ -33,7 +32,6 @@ NeoBundleCheck
 
 " Plugins config
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
 
 " Config
 set number
@@ -44,9 +42,9 @@ set guioptions-=L
 
 " Colors
 syntax enable
-set term=screen-256color
 set t_Co=256
 set background=dark
+let g:airline_theme='base16'
 let base16colorspace=256
 colorscheme base16-ocean
 

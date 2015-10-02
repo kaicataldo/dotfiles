@@ -4,3 +4,6 @@
 [submodule "zsh/.zsh/vendor/z"]
 	path = zsh/.zsh/vendor/z
 	url = git@github.com:rupa/z.git
+[submodule "zsh/.zsh/vendor/base16-shell"]
+	path = zsh/.zsh/vendor/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
