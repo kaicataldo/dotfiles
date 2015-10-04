@@ -18,8 +18,8 @@
   cl = clone
 
   # Branch
-  br = branch
-  b = branch -v
+  b = branch
+  br = branch -v
 
   # Checkout
   co = checkout
