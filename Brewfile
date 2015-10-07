@@ -9,6 +9,8 @@ brew 'go'
 brew 'php56'
 brew 'python'
 brew 'python3'
+brew 'rbenv'
+brew 'ruby-build'
 
 brew 'hub'
 brew 'tree'
