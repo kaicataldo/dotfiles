@@ -4,7 +4,9 @@ alias h='history'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias vim='mvim -v'
+if [[ $OSTYPE == 'darwin14.0' ]]; then
+  alias vim='mvim -v'
+fi
 
 # Git
 alias g='git'
