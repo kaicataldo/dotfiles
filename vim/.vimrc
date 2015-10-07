@@ -17,19 +17,27 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'flazz/vim-colorschemes'
   NeoBundle 'sjl/vitality.vim'
   NeoBundle 'airblade/vim-gitgutter'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'kien/ctrlp.vim'
 
 call neobundle#end()
 NeoBundleCheck
 
 " === General Config ===
 set t_Co=256
+set encoding=utf-8
+set smarttab
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set number
 set backspace=indent,eol,start
+set smartcase
+set ignorecase
+set incsearch
+set hlsearch
 set background=dark
-set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h13
+set guifont=Inconsolata\ for\ Powerline:h14
 set guioptions-=r " Hide scrollbars
 set guioptions-=L
 
@@ -55,7 +63,7 @@ let NERDTreeShowHidden=1
 colorscheme base16-ocean
 
 " === Key Mappings ===
-let mapleader=","
+let mapleader=" "
 imap jj <esc>
 
 " Line navigation ignores line wrap
