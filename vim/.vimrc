@@ -17,8 +17,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'flazz/vim-colorschemes'
   NeoBundle 'sjl/vitality.vim'
   NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'othree/yajs.vim'
   NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'scrooloose/syntastic'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'ntpeters/vim-better-whitespace'
 
 call neobundle#end()
 NeoBundleCheck
@@ -37,7 +40,7 @@ set ignorecase
 set incsearch
 set hlsearch
 set background=dark
-set guifont=Inconsolata\ for\ Powerline:h14
+set guifont=Inconsolata\ for\ Powerline:h16
 set guioptions-=r " Hide scrollbars
 set guioptions-=L
 
@@ -55,6 +58,9 @@ let g:airline_theme='base16'
 
 " base16-vim
 let base16colorspace=256
+
+" ctrlp
+set wildignore+=*/node_modules/*
 
 " NERDTree
 let NERDTreeShowHidden=1
