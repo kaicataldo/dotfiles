@@ -40,7 +40,7 @@ set ignorecase
 set incsearch
 set hlsearch
 set background=dark
-set guifont=Inconsolata\ for\ Powerline:h16
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
 set guioptions-=r " Hide scrollbars
 set guioptions-=L
 
