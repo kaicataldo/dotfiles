@@ -4,6 +4,7 @@ tap 'homebrew/php'
 
 brew 'git'
 brew 'macvim'
+brew 'tmux'
 
 brew 'go'
 brew 'php56'
