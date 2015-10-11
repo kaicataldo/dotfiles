@@ -25,6 +25,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'junegunn/goyo.vim'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'tpope/vim-surround'
+  NeoBundle 'mxw/vim-jsx'
 
 call neobundle#end()
 NeoBundleCheck
@@ -35,6 +36,13 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
+
+" Syntastic
+let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'jscs']
+
+" vim-jsx
+" Allow JSX in normal JS files
+let g:jsx_ext_required=0
 
 " base16-vim
 let base16colorspace=256
