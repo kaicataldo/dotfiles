@@ -11,7 +11,8 @@ while true; do
 done
 
 # Get the dotfiles directory's absolute path
-DOTFILES_DIR=$(cd $(dirname $0); pwd -P)
+SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
+DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Pull latest files from GitHub
 cd $DOTFILES_DIR
