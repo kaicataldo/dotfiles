@@ -17,7 +17,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'flazz/vim-colorschemes'
   NeoBundle 'sjl/vitality.vim'
   NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'othree/yajs.vim'
   NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'tpope/vim-fugitive'
@@ -25,6 +24,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'junegunn/goyo.vim'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'tpope/vim-surround'
+  NeoBundle 'jelera/vim-javascript-syntax'
+  NeoBundle 'pangloss/vim-javascript'
   NeoBundle 'mxw/vim-jsx'
 
 call neobundle#end()
@@ -37,8 +38,15 @@ let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
+" CtrlP
+let g:ctrlp_cmd = ':CtrlPMRU'
+let g:ctrlp_dont_split = 'nerdtree'
+
+" NERDTree
+let NERDTreeShowHidden=1
+
 " Syntastic
-let g:syntastic_javascript_checkers = ['eslint', 'jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 
 " vim-jsx
 " Allow JSX in normal JS files
@@ -47,13 +55,6 @@ let g:jsx_ext_required=0
 " base16-vim
 let base16colorspace=256
 colorscheme base16-ocean
-
-" CtrlP
-let g:ctrlp_cmd = ':CtrlPMRU'
-let g:ctrlp_dont_split = 'nerdtree'
-
-" NERDTree
-let NERDTreeShowHidden=1
 
 " === General settings ===
 filetype plugin indent on
@@ -68,11 +69,17 @@ syntax on
 set t_Co=256
 set background=dark
 
+" Status line
+set laststatus=2
+
 " Tabs
 set smarttab
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Indentation
+set smartindent
 
 " Search
 set smartcase
@@ -91,7 +98,7 @@ set splitbelow
 set splitright
 
 " === GUI ===
-set guifont=Inconsolata\ for\ Powerline:h16
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
 
 " Hide scrollbars
 set guioptions-=r
