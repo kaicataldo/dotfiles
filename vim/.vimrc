@@ -27,6 +27,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'jelera/vim-javascript-syntax'
   NeoBundle 'pangloss/vim-javascript'
   NeoBundle 'mxw/vim-jsx'
+  NeoBundle 'scrooloose/nerdcommenter'
 
 call neobundle#end()
 NeoBundleCheck
