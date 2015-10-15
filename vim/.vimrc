@@ -40,8 +40,8 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
 " CtrlP
-let g:ctrlp_cmd = ':CtrlPMRU'
-let g:ctrlp_dont_split = 'nerdtree'
+let g:ctrlp_cmd = ':CtrlPMixed'
+let g:ctrlp_dont_split = 'NERD'
 
 " NERDTree
 let NERDTreeShowHidden=1
