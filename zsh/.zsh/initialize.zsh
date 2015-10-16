@@ -11,7 +11,7 @@ BASE16_SHELL=$ZSH/vendor/base16-shell/base16-ocean.dark.sh
 . $ZSH/vendor/z/z.sh
 
 # Homebrew
-if [[ $OSTYPE == 'darwin14.0' ]]; then
+if [[ $OSTYPE == darwin* ]]; then
   export PATH=/usr/local/sbin:$PATH
 fi
 
