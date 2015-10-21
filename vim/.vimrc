@@ -28,6 +28,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'pangloss/vim-javascript'
   NeoBundle 'mxw/vim-jsx'
   NeoBundle 'scrooloose/nerdcommenter'
+  NeoBundle 'othree/html5.vim'
+  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'qpkorr/vim-bufkill'
 
 call neobundle#end()
 NeoBundleCheck
@@ -41,10 +44,12 @@ let g:airline#extensions#tabline#fnamemod=':t'
 
 " CtrlP
 let g:ctrlp_cmd = ':CtrlPMixed'
+let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_dont_split = 'NERD'
 
 " NERDTree
 let NERDTreeShowHidden=1
+let g:NERDTreeChDirMode=2
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
