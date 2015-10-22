@@ -104,7 +104,8 @@ set splitbelow
 set splitright
 
 " === GUI ===
-set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
+set linespace=1
 
 " Hide scrollbars
 set guioptions-=r
