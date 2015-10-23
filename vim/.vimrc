@@ -31,6 +31,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'othree/html5.vim'
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'qpkorr/vim-bufkill'
+  NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 
 call neobundle#end()
 NeoBundleCheck
@@ -104,7 +105,7 @@ set splitbelow
 set splitright
 
 " === GUI ===
-set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h12
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14
 set linespace=1
 
 " Hide scrollbars
@@ -115,7 +116,7 @@ set guioptions-=L
 set vb t_vb=
 
 " === Key mappings ===
-let mapleader=","
+let mapleader = "\<Space>"
 imap jj <esc>
 
 " Line navigation ignores line wrap
@@ -139,8 +140,11 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle<CR>
+
+" numbertoggle
+let g:NumberToggleTrigger='<leader>n'
 
 "Better Whitespace
-nmap <leader>w :StripWhitespace <CR>
+nmap <leader>w :StripWhitespace<CR>
 
