@@ -13,3 +13,6 @@
 [submodule "terminal/fonts"]
 	path = terminal/fonts
 	url = https://github.com/powerline/fonts
+[submodule "terminal/base16-gnome-terminal"]
+	path = terminal/base16-gnome-terminal
+	url = git@github.com:chriskempson/base16-gnome-terminal.git
