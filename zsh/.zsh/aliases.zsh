@@ -4,10 +4,6 @@ alias h='history'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-if [[ $OSTYPE == 'darwin14.0' ]]; then
-  alias vim='mvim -v'
-fi
-
 # Git
 alias g='git'
 
@@ -33,3 +29,13 @@ alias npmls='npm ls --depth=0'
 # Finder
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+# Applications
+if [[ $OSTYPE == darwin* ]]; then
+  alias vim='mvim -v'
+fi
+
+if [[ $OSTYPE == 'linux-gnu' ]]; then
+  alias chrome='google-chrome-stable --force-device-scale-factor=1 &'
+  alias chromium='chromium-browser --force-device-scale-factor=1 &'
+fi
