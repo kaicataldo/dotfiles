@@ -1,7 +1,11 @@
 # Load zsh modules
 autoload -U compinit promptinit
 compinit # Initialize completion
-promptinit && prompt pure # Initialize Pure prompt
+promptinit # Initialize Pure prompt
+
+# Pure Prompt
+PURE_PROMPT_SYMBOL=$
+prompt pure
 
 # Base16 Shell
 BASE16_SHELL=$ZSH/vendor/base16-shell/base16-ocean.dark.sh

@@ -61,7 +61,6 @@ let g:jsx_ext_required=0
 
 " base16-vim
 let base16colorspace=256
-colorscheme base16-ocean
 
 " === General settings ===
 filetype plugin indent on
@@ -70,11 +69,13 @@ set encoding=utf-8
 set number
 set cursorline
 set backspace=indent,eol,start
+set mouse=a
 
 " Colors
 syntax on
 set t_Co=256
 set background=dark
+colorscheme base16-ocean
 
 " Status line
 set laststatus=2
@@ -87,6 +88,10 @@ set expandtab
 
 " Indentation
 set smartindent
+
+" Folding
+set foldmethod=indent
+set nofoldenable
 
 " Search
 set smartcase
@@ -105,7 +110,7 @@ set splitbelow
 set splitright
 
 " === GUI ===
-set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h13
+set guifont=Inconsolata\ for\ Powerline:h16
 set linespace=1
 
 " Hide scrollbars
@@ -145,6 +150,9 @@ map <leader>t :NERDTreeToggle<CR>
 " numbertoggle
 let g:NumberToggleTrigger='<leader>n'
 
-"Better Whitespace
+" Better Whitespace
 nmap <leader>w :StripWhitespace<CR>
 
+" Toggle paste mode
+map <F6> :set invpaste<CR>
+set pastetoggle=<F6>
