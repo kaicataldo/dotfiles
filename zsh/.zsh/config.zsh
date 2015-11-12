@@ -1,6 +1,6 @@
 # Defaults
 export SHELL=/bin/zsh
-export EDITOR='atom --wait'
+export EDITOR='vim'
 
 # Colors
 export TERM=xterm-256color

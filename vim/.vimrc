@@ -15,6 +15,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'bling/vim-airline'
   NeoBundle 'chriskempson/base16-vim'
   NeoBundle 'flazz/vim-colorschemes'
+  NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'sjl/vitality.vim'
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'kien/ctrlp.vim'
@@ -39,7 +40,7 @@ NeoBundleCheck
 " === Bundles config ===
 " vim-airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='base16'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
@@ -59,9 +60,6 @@ let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 " Allow JSX in normal JS files
 let g:jsx_ext_required=0
 
-" base16-vim
-let base16colorspace=256
-
 " === General settings ===
 filetype plugin indent on
 set cursorline
@@ -75,7 +73,7 @@ set mouse=a
 syntax on
 set t_Co=256
 set background=dark
-colorscheme base16-ocean
+colorscheme solarized
 
 " Status line
 set laststatus=2
@@ -156,3 +154,6 @@ nmap <leader>w :StripWhitespace<CR>
 " Toggle paste mode
 map <F6> :set invpaste<CR>
 set pastetoggle=<F6>
+
+" Toggle Solarized light/dark
+call togglebg#map("<F4>")
