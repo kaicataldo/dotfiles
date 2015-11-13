@@ -13,3 +13,12 @@
 [submodule "terminal/gnome-terminal-colors-solarized"]
 	path = terminal/gnome-terminal-colors-solarized
 	url = git@github.com:Anthony25/gnome-terminal-colors-solarized.git
+[submodule "terminal/base16-iterm2"]
+	path = terminal/base16-iterm2
+	url = git@github.com:chriskempson/base16-iterm2.git
+[submodule "terminal/base16-gnome-terminal"]
+	path = terminal/base16-gnome-terminal
+	url = git@github.com:chriskempson/base16-gnome-terminal.git
+[submodule "zsh/.zsh/vendor/base16-shell"]
+	path = zsh/.zsh/vendor/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
