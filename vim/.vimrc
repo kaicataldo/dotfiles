@@ -10,7 +10,7 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
 
-  " Bundles
+  " Plugins
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'bling/vim-airline'
   NeoBundle 'chriskempson/base16-vim'
@@ -33,11 +33,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'qpkorr/vim-bufkill'
   NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+  NeoBundle 'Raimondi/delimitMate'
+  NeoBundle 'rking/ag.vim'
+  NeoBundle 'mileszs/ack.vim'
 
 call neobundle#end()
 NeoBundleCheck
 
-" === Bundles config ===
+" === Plugins Config ===
 " vim-airline
 let g:airline_powerline_fonts=1
 let g:airline_theme='base16'
@@ -45,19 +48,23 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
 " CtrlP
-let g:ctrlp_cmd = ':CtrlPMixed'
+let g:ctrlp_cmd=':CtrlPMixed'
 let g:ctrlp_working_path_mode='rw'
-let g:ctrlp_dont_split = 'NERD'
+let g:ctrlp_dont_split='NERD'
 
 " NERDTree
 let NERDTreeShowHidden=1
 let g:NERDTreeChDirMode=2
 
+" ag.vim
+let g:ag_working_path_mode='r'
+let g:ag_highlight=1
+let g:ag_mapping_message=0
+
 " Syntastic
-let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
+let g:syntastic_javascript_checkers=['jshint', 'jscs', 'eslint']
 
 " vim-jsx
-" Allow JSX in normal JS files
 let g:jsx_ext_required=0
 
 " base16-vim
@@ -122,8 +129,8 @@ set guioptions-=L
 set vb t_vb=
 
 " === Key mappings ===
-let mapleader = "\<Space>"
-imap jj <esc>
+let mapleader="\<Space>"
+imap jj <Esc>
 
 " Line navigation ignores line wrap
 nnoremap j gj
@@ -132,12 +139,12 @@ vnoremap j gj
 vnoremap k gk
 
 " Buffer navigation
-nnoremap <leader>k :bnext<CR>
-nnoremap <leader>j :bprevious<CR>
+nnoremap <Leader>k :bnext<CR>
+nnoremap <Leader>j :bprevious<CR>
 
 " Tab navigation
-nnoremap <leader>K :tabn<CR>
-nnoremap <leader>J :tabp<CR>
+nnoremap <Leader>K :tabn<CR>
+nnoremap <Leader>J :tabp<CR>
 
 " Split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -146,17 +153,36 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
-map <leader>t :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 
 " numbertoggle
-let g:NumberToggleTrigger='<leader>n'
+let g:NumberToggleTrigger='<Leader>n'
 
 " Better Whitespace
-nmap <leader>w :StripWhitespace<CR>
+nmap <Leader>w :StripWhitespace<CR>
 
 " Toggle paste mode
 map <F6> :set invpaste<CR>
 set pastetoggle=<F6>
 
-" Toggle Solarized light/dark
-call togglebg#map("<F4>")
+" === The Silver Searcher ===
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching=0
+
+  " Ag shotcut
+  nnoremap <C-a> :Ag!<Space>
+  nnoremap <Leader>a :Ag! <cword><CR>
+endif
+
