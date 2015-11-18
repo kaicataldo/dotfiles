@@ -36,6 +36,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'Raimondi/delimitMate'
   NeoBundle 'rking/ag.vim'
   NeoBundle 'mileszs/ack.vim'
+  NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 NeoBundleCheck
