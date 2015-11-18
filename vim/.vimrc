@@ -162,6 +162,9 @@ let g:NumberToggleTrigger='<Leader>n'
 " Better Whitespace
 nmap <Leader>w :StripWhitespace<CR>
 
+" Clear Highlighing
+nnoremap <silent> <leader>h :nohlsearch<CR>
+
 " Toggle paste mode
 map <F6> :set invpaste<CR>
 set pastetoggle=<F6>
