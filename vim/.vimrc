@@ -79,6 +79,7 @@ set number
 set cursorline
 set backspace=indent,eol,start
 set mouse=a
+set clipboard=unnamed
 
 " Colors
 syntax on
