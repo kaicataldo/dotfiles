@@ -19,7 +19,8 @@ if [[ $OSTYPE == darwin* ]]; then
 fi
 
 # nvm
-. $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # rbenv
 if [[ $OSTYPE == 'linux-gnu' ]]; then
