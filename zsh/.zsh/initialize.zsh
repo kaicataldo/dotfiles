@@ -20,14 +20,19 @@ fi
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# rbenv
-if [[ $OSTYPE == 'linux-gnu' ]]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  . "$NVM_DIR/nvm.sh"
 fi
 
-eval "$(rbenv init -)"
+# rbenv
+if [[ -s "$HOME/.rbenv" ]]; then
+  if [[ $OSTYPE == 'linux-gnu' ]]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+  fi
+
+  eval "$(rbenv init -)"
+fi
 
 # Go
 export GOPATH=$HOME/Projects/go
