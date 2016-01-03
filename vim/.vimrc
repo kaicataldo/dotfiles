@@ -73,6 +73,7 @@ let base16colorspace=256
 
 " === General settings ===
 filetype plugin indent on
+syntax on
 set cursorline
 set encoding=utf-8
 set number
@@ -82,10 +83,9 @@ set mouse=a
 set clipboard=unnamed
 
 " Colors
-syntax on
 set t_Co=256
 set background=dark
-colorscheme base16-flat
+colorscheme base16-ocean
 
 " Status line
 set laststatus=2
@@ -119,15 +119,8 @@ set undodir=~/.vim/undo//
 set splitbelow
 set splitright
 
-" === GUI ===
-set guifont=Inconsolata\ for\ Powerline:h16
-
-" Hide scrollbars
-set guioptions-=r
-set guioptions-=L
-
 " No beeping
-set vb t_vb=
+set noeb vb t_vb=
 
 " === Key mappings ===
 let mapleader="\<Space>"

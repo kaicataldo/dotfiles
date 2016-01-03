@@ -53,6 +53,7 @@ ln -sf $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
 # Vim
 ln -sf $DOTFILES_DIR/vim/.vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
 
 # zsh
 ln -snf $DOTFILES_DIR/zsh/.zsh ~/.zsh
