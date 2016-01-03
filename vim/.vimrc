@@ -13,8 +13,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   " Plugins
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'bling/vim-airline'
-  NeoBundle 'chriskempson/base16-vim'
   NeoBundle 'flazz/vim-colorschemes'
+  NeoBundle 'chriskempson/base16-vim'
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'sjl/vitality.vim'
   NeoBundle 'airblade/vim-gitgutter'
@@ -44,7 +44,7 @@ NeoBundleCheck
 " === Plugins Config ===
 " vim-airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='base16'
+let g:airline_theme='zenburn'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
@@ -85,7 +85,7 @@ set clipboard=unnamed
 syntax on
 set t_Co=256
 set background=dark
-colorscheme base16-ocean
+colorscheme base16-flat
 
 " Status line
 set laststatus=2
@@ -121,7 +121,6 @@ set splitright
 
 " === GUI ===
 set guifont=Inconsolata\ for\ Powerline:h16
-set linespace=1
 
 " Hide scrollbars
 set guioptions-=r
