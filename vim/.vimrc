@@ -43,10 +43,14 @@ NeoBundleCheck
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_powerline_fonts=1
 let g:airline_theme='zenburn'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'
@@ -63,7 +67,24 @@ let g:ag_highlight=1
 let g:ag_mapping_message=0
 
 " Syntastic
-let g:syntastic_javascript_checkers=['jshint', 'jscs', 'eslint']
+" Load correct JS linter depending on config file in project (default is ESLint)
+function! SyntasticJSCheckers(checker_options, default)
+  let checkers=[]
+
+  for checker in a:checker_options
+    if findfile('.' . checker . 'rc', '.;') != ''
+      call add(checkers, checker)
+    endif
+  endfor
+
+  if len(checkers) == 0
+    call add(checkers, a:default)
+  endif
+
+  let g:syntastic_javascript_checkers=checkers
+endfunction
+
+au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'eslint')
 
 " vim-jsx
 let g:jsx_ext_required=0
@@ -79,8 +100,8 @@ set encoding=utf-8
 set number
 set cursorline
 set backspace=indent,eol,start
-set mouse=a
-set clipboard=unnamed
+set clipboard=unnamed " Use system clipboard
+set mouse=a " Enable mouse in terminal Vim
 
 " Colors
 set t_Co=256

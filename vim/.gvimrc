@@ -2,7 +2,7 @@
 colorscheme base16-ocean
 
 " Font
-set guifont=Inconsolata\ for\ Powerline:h16
+set guifont=Inconsolata-g\ for\ Powerline:h15
 
 " vim-airline
 let g:airline_theme='zenburn'
