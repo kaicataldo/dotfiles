@@ -37,6 +37,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'rking/ag.vim'
   NeoBundle 'mileszs/ack.vim'
   NeoBundle 'fatih/vim-go'
+  NeoBundle 'Yggdroot/indentLine'
+  NeoBundle 'tpope/vim-endwise'
 
 call neobundle#end()
 NeoBundleCheck
@@ -104,7 +106,6 @@ set clipboard=unnamed " Use system clipboard
 set mouse=a " Enable mouse in terminal Vim
 
 " Colors
-set t_Co=256
 set background=dark
 colorscheme base16-ocean
 
