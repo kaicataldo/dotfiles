@@ -25,7 +25,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'junegunn/goyo.vim'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'tpope/vim-surround'
-  NeoBundle 'jelera/vim-javascript-syntax'
   NeoBundle 'pangloss/vim-javascript'
   NeoBundle 'mxw/vim-jsx'
   NeoBundle 'scrooloose/nerdcommenter'
@@ -169,10 +168,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
-map <Leader>t :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 " numbertoggle
-let g:NumberToggleTrigger='<Leader>n'
+let g:NumberToggleTrigger='<Leader>0'
 
 " Better Whitespace
 nmap <Leader>w :StripWhitespace<CR>
@@ -181,8 +180,7 @@ nmap <Leader>w :StripWhitespace<CR>
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Toggle paste mode
-map <F6> :set invpaste<CR>
-set pastetoggle=<F6>
+set pastetoggle=<Leader>v
 
 " === The Silver Searcher ===
 if executable('ag')
