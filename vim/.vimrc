@@ -11,40 +11,49 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Plugins
+  " Editor Features
   NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
   NeoBundle 'bling/vim-airline'
-  NeoBundle 'flazz/vim-colorschemes'
-  NeoBundle 'chriskempson/base16-vim'
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'sjl/vitality.vim'
-  NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'ntpeters/vim-better-whitespace'
-  NeoBundle 'junegunn/goyo.vim'
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'mxw/vim-jsx'
-  NeoBundle 'scrooloose/nerdcommenter'
-  NeoBundle 'othree/html5.vim'
-  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'ctrlpvim/ctrlp.vim'
+  NeoBundle 'mileszs/ack.vim'
+  NeoBundle 'rking/ag.vim'
+  NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'qpkorr/vim-bufkill'
   NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+  NeoBundle 'sjl/vitality.vim'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'junegunn/goyo.vim'
+  NeoBundle 'scrooloose/nerdcommenter'
+  NeoBundle 'tpope/vim-surround'
   NeoBundle 'Raimondi/delimitMate'
-  NeoBundle 'rking/ag.vim'
-  NeoBundle 'mileszs/ack.vim'
-  NeoBundle 'fatih/vim-go'
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'ntpeters/vim-better-whitespace'
 
+  " Language/Syntax
+  NeoBundle 'jelera/vim-javascript-syntax'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'mxw/vim-jsx'
+  NeoBundle 'fatih/vim-go'
+  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'othree/html5.vim'
+  NeoBundle 'cakebaker/scss-syntax.vim'
+  NeoBundle 'elzr/vim-json'
+  NeoBundle 'ekalinin/Dockerfile.vim'
+
+  " Color Schemes
+  NeoBundle 'chriskempson/base16-vim'
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'w0ng/vim-hybrid'
+  NeoBundle 'tomasr/molokai'
 call neobundle#end()
 NeoBundleCheck
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme='zenburn'
+let g:airline_theme='hybridline'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline_powerline_fonts=1
@@ -67,6 +76,10 @@ let g:ag_working_path_mode='r'
 let g:ag_highlight=1
 let g:ag_mapping_message=0
 
+" indentLine
+let g:indentLine_enabled=0
+let g:indentLine_char='┆'
+
 " Syntastic
 " Load correct JS linter depending on config file in project (default is ESLint)
 function! SyntasticJSCheckers(checker_options, default)
@@ -87,15 +100,19 @@ endfunction
 
 au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'eslint')
 
-" vim-jsx
+"vim-javascript
+let g:javascript_ignore_javaScriptdoc=1
+
+"vim-jsx
 let g:jsx_ext_required=0
 
-" base16-vim
-let base16colorspace=256
+" vim-hybrid
+let g:hybrid_custom_term_colors=1
+let g:hybrid_reduced_contrast=1
 
 " === General settings ===
 filetype plugin indent on
-syntax on
+syntax enable
 set cursorline
 set encoding=utf-8
 set number
@@ -106,7 +123,7 @@ set mouse=a " Enable mouse in terminal Vim
 
 " Colors
 set background=dark
-colorscheme base16-ocean
+colorscheme hybrid
 
 " Status line
 set laststatus=2
@@ -168,19 +185,22 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
-map <Leader>n :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " numbertoggle
 let g:NumberToggleTrigger='<Leader>0'
+
+" indentLine
+map <silent> <Leader>l :IndentLinesToggle<CR>
 
 " Better Whitespace
 nmap <Leader>w :StripWhitespace<CR>
 
 " Clear Highlighing
-nnoremap <silent> <leader>h :nohlsearch<CR>
+nnoremap <silent> <Leader>h :nohlsearch<CR>
 
 " Toggle paste mode
-set pastetoggle=<Leader>v
+set pastetoggle=<F6>
 
 " === The Silver Searcher ===
 if executable('ag')

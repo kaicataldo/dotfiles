@@ -1,15 +1,18 @@
 " Colors
-colorscheme base16-ocean
+colorscheme hybrid
 
 " Font
-set guifont=Inconsolata-g\ for\ Powerline:h14
+set guifont=Inconsolata-dz\ for\ Powerline:h14
 
 " vim-airline
-let g:airline_theme='zenburn'
+let g:airline_theme='hybridline'
 
 " Hide scrollbars
 set guioptions-=r
 set guioptions-=L
+
+" Space between lines
+set linespace=2
 
 " No beeping
 set vb t_vb=
