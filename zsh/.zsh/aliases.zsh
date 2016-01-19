@@ -4,8 +4,9 @@ alias h='history'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-# Git
+# Applications
 alias g='git'
+alias dm='docker-machine'
 
 # Directory Info
 alias ll='ls -lFh'

@@ -42,6 +42,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'cakebaker/scss-syntax.vim'
   NeoBundle 'elzr/vim-json'
   NeoBundle 'ekalinin/Dockerfile.vim'
+  NeoBundle 'kchmck/vim-coffee-script'
 
   " Color Schemes
   NeoBundle 'chriskempson/base16-vim'
