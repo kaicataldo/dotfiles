@@ -43,6 +43,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'elzr/vim-json'
   NeoBundle 'ekalinin/Dockerfile.vim'
   NeoBundle 'kchmck/vim-coffee-script'
+  NeoBundle 'mustache/vim-mustache-handlebars'
 
   " Color Schemes
   NeoBundle 'chriskempson/base16-vim'
