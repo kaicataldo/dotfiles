@@ -108,6 +108,9 @@ let g:javascript_ignore_javaScriptdoc=1
 "vim-jsx
 let g:jsx_ext_required=0
 
+"vim-json
+let g:vim_json_syntax_conceal = 0
+
 " vim-hybrid
 let g:hybrid_custom_term_colors=1
 let g:hybrid_reduced_contrast=1
