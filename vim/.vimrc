@@ -15,6 +15,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'Xuyuanp/nerdtree-git-plugin'
   NeoBundle 'bling/vim-airline'
+  NeoBundle 'vim-airline/vim-airline-themes'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'ctrlpvim/ctrlp.vim'
   NeoBundle 'mileszs/ack.vim'
@@ -84,7 +85,7 @@ let g:indentLine_char='┆'
 
 " Syntastic
 " Load correct JS linter depending on config file in project (default is ESLint)
-function! SyntasticJSCheckers(checker_options, default)
+function! SyntasticJSCheckers(checker_options)
   let checkers=[]
 
   for checker in a:checker_options
@@ -93,14 +94,10 @@ function! SyntasticJSCheckers(checker_options, default)
     endif
   endfor
 
-  if len(checkers) == 0
-    call add(checkers, a:default)
-  endif
-
   let g:syntastic_javascript_checkers=checkers
 endfunction
 
-au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'eslint')
+au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
 "vim-javascript
 let g:javascript_ignore_javaScriptdoc=1
