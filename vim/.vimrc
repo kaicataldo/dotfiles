@@ -84,8 +84,8 @@ let g:indentLine_enabled=0
 let g:indentLine_char='┆'
 
 " Syntastic
-" Load correct JS linter depending on config file in project (default is ESLint)
-function! SyntasticJSCheckers(checker_options)
+" Load JS linter based on config file in project
+function! SyntasticJSCheckers(checker_options, default)
   let checkers=[]
 
   for checker in a:checker_options
@@ -94,10 +94,14 @@ function! SyntasticJSCheckers(checker_options)
     endif
   endfor
 
+  if len(checkers) == 0
+    call add(checkers, a:default)
+  endif
+
   let g:syntastic_javascript_checkers=checkers
 endfunction
 
-au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
+au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'standard')
 
 "vim-javascript
 let g:javascript_ignore_javaScriptdoc=1
