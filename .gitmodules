@@ -22,3 +22,6 @@
 [submodule "zsh/.zsh/vendor/base16-shell"]
 	path = zsh/.zsh/vendor/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
+[submodule "terminal/hack-font"]
+	path = terminal/hack-font
+	url = git@github.com:chrissimpkins/Hack.git
