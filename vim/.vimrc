@@ -101,7 +101,7 @@ function! SyntasticJSCheckers(checker_options, default)
   let g:syntastic_javascript_checkers=checkers
 endfunction
 
-au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'standard')
+au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'eslint')
 
 "vim-javascript
 let g:javascript_ignore_javaScriptdoc=1

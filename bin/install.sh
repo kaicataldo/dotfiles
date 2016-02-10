@@ -48,6 +48,9 @@ ln -sf $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/funct
 ln -sf $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 
+# JavaScript
+ln -sf $DOTFILES_DIR/javascript/.eslintrc ~/.eslintrc
+
 # Ruby
 ln -sf $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
