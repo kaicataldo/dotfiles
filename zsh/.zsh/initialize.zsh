@@ -34,3 +34,8 @@ fi
 export GOPATH=$HOME/Projects/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# Archey
+if [[ $OSTYPE == darwin* && -s "/usr/local/bin/archey" ]]; then
+  archey --offline
+fi
