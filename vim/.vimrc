@@ -85,23 +85,25 @@ let g:indentLine_char='┆'
 
 " Syntastic
 " Load JS linter based on config file in project
-function! SyntasticJSCheckers(checker_options, default)
-  let checkers=[]
+" ...Now with locally installed linters only!
+function! SyntasticJSCheckers(checker_options)
+  let l:checkers=[]
+  " system appends ^@ to the returned string for some reason ¯\_(ツ)_/¯
+  silent let l:project_root=substitute(system('git rev-parse --show-toplevel'), '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
-  for checker in a:checker_options
-    if findfile('.' . checker . 'rc', '.;') != ''
+  for l:checker in a:checker_options
+    if findfile('.' . checker . 'rc', ';' . project_root) != ''
+      let l:local_checker=string(project_root . '/node_modules/.bin/' . checker)
+
       call add(checkers, checker)
+      execute 'let g:syntastic_javascript_' . checker . '_exec=' . local_checker
     endif
   endfor
-
-  if len(checkers) == 0
-    call add(checkers, a:default)
-  endif
 
   let g:syntastic_javascript_checkers=checkers
 endfunction
 
-au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'], 'eslint')
+au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
 "vim-javascript
 let g:javascript_ignore_javaScriptdoc=1
