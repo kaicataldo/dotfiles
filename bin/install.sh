@@ -22,6 +22,7 @@ git submodule update --init --recursive # pull latest versions of vendor submodu
 createDir() {
   if [[ ! -e $1 ]]; then
       mkdir $1
+      echo "${1} directory created"
   elif [[ ! -d $1 ]]; then
       echo "${1} already exists but is not a directory"
   fi
@@ -37,24 +38,31 @@ createDir ~/.vim/undo
 # Git clone NeoBundle
 if [[ ! -e ~/.vim/bundle/neobundle.vim ]]; then
   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  echo "NeoBundle installed"
 fi
+
+# Symlink and report creation of link
+createSymlink() {
+  ln -sfn $1 $2
+  echo "Symlinked ${1} -> ${2}"
+}
 
 # All the symlinks
 # Pure Prompt
-ln -sf $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
-ln -sf $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
+createSymlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
+createSymlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
 
 # Git
-ln -sf $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
-ln -sf $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
+createSymlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
+createSymlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 
 # Ruby
-ln -sf $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
+createSymlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
 # Vim
-ln -sf $DOTFILES_DIR/vim/.vimrc ~/.vimrc
-ln -sf $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
+createSymlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
+createSymlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
 
 # zsh
-ln -snf $DOTFILES_DIR/zsh/.zsh ~/.zsh
-ln -sf $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
+createSymlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
+createSymlink $DOTFILES_DIR/zsh/.zsh ~/.zsh
