@@ -9,7 +9,7 @@
   aa = add --all
 
   # Commit
-  ci = commit -m
+  cm = commit -m
   ca = !git add --all && git commit -m
   amend = commit --amend
   amend-all = !git add --all && git commit --amend --reuse-message=HEAD
@@ -19,7 +19,6 @@
 
   # Branch
   b = branch
-  br = branch -v
 
   # Checkout
   co = checkout
@@ -35,7 +34,7 @@
 
   # Pull
   pl = pull
-  plum = pull upstream master
+  pum = pull upstream master
   preb = !git fetch upstream master && git rebase upstream/master
 
   # Push
