@@ -32,6 +32,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'tpope/vim-endwise'
   NeoBundle 'ntpeters/vim-better-whitespace'
+  NeoBundle 'godlygeek/tabular'
 
   " Language/Syntax
   NeoBundle 'jelera/vim-javascript-syntax'
@@ -45,12 +46,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'ekalinin/Dockerfile.vim'
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'mustache/vim-mustache-handlebars'
+  NeoBundle 'plasticboy/vim-markdown'
 
   " Color Schemes
-  NeoBundle 'chriskempson/base16-vim'
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'tomasr/molokai'
 call neobundle#end()
 NeoBundleCheck
 
