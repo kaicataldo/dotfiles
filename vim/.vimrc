@@ -22,7 +22,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'rking/ag.vim'
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'qpkorr/vim-bufkill'
-  NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
   NeoBundle 'sjl/vitality.vim'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'junegunn/goyo.vim'
@@ -195,9 +194,6 @@ nnoremap <C-H> <C-W><C-H>
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" numbertoggle
-let g:NumberToggleTrigger='<Leader>0'
-
 " indentLine
 map <silent> <Leader>l :IndentLinesToggle<CR>
 
@@ -209,6 +205,17 @@ nnoremap <silent> <Leader>h :nohlsearch<CR>
 
 " Toggle paste mode
 set pastetoggle=<F6>
+
+" Relative Number Toggle
+function! NumberToggle()
+  if (&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === The Silver Searcher ===
 if executable('ag')
