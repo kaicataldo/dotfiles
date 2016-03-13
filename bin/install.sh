@@ -16,7 +16,8 @@ DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Pull latest files from GitHub
 cd $DOTFILES_DIR
-git submodule update --init --recursive # pull latest versions of vendor submodules
+git submodule foreach git pull origin master # pull latest versions of vendor submodules
+
 
 # Create directories if they don't exist
 createDir() {
