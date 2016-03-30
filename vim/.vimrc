@@ -232,7 +232,7 @@ if executable('ag')
   let g:ctrlp_use_caching=0
 
   " Ag shotcut
-  nnoremap <C-a> :Ag!<Space>
-  nnoremap <Leader>a :Ag! <cword><CR>
+  nnoremap <Leader>a :Ag!<Space>
+  nnoremap <Leader>A :Ag! <cword><CR>
 endif
 
