@@ -120,10 +120,8 @@ let g:hybrid_reduced_contrast=1
 " === General settings ===
 filetype plugin indent on
 syntax enable
-set cursorline
 set encoding=utf-8
 set number
-set cursorline
 set backspace=indent,eol,start
 set clipboard=unnamed " Use system clipboard
 set mouse=a " Enable mouse in terminal Vim
