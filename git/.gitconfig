@@ -34,8 +34,9 @@
 
   # Pull
   pl = pull
-  pum = pull upstream master
-  preb = !git fetch upstream master && git rebase upstream/master
+  plom = pull origin master
+  plum = pull upstream master
+  preb = !git fetch upstream && git rebase upstream/master
 
   # Push
   p = push
