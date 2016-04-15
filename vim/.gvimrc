@@ -19,3 +19,6 @@ set vb t_vb=
 
 " Disable dialog popups
 set guioptions+=c
+
+" Config
+:set cursorline
