@@ -9,11 +9,6 @@ prompt pure
 # z
 . $ZSH/vendor/z/z.sh
 
-# Homebrew
-if [[ $OSTYPE == darwin* ]]; then
-  export PATH=/usr/local/sbin:$PATH
-fi
-
 # nvm
 export NVM_DIR=$HOME/.nvm
 
