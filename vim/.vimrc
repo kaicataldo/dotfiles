@@ -32,11 +32,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'terryma/vim-multiple-cursors'
+  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Language/Syntax
-  NeoBundle 'jelera/vim-javascript-syntax'
-  NeoBundle 'pangloss/vim-javascript'
+  NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
   NeoBundle 'mxw/vim-jsx'
+  NeoBundle 'moll/vim-node'
   NeoBundle 'fatih/vim-go'
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'othree/html5.vim'
@@ -46,6 +48,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'mustache/vim-mustache-handlebars'
   NeoBundle 'plasticboy/vim-markdown'
+  NeoBundle 'vim-jsbeautify'
+  NeoBundle 'othree/javascript-libraries-syntax.vim'
 
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
@@ -82,6 +86,20 @@ let g:ag_mapping_message=0
 let g:indentLine_enabled=0
 let g:indentLine_char='┆'
 
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" tern_for_vim
+if neobundle#tap('ternjs/tern_for_vim') == 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType javascript.jsx setlocal omnifunc=tern#Complete
+endif
+
 " Syntastic
 " Set to use locally installed linters only
 function! SetPathSyntasticJSCheckers(checkers)
@@ -97,9 +115,6 @@ function! SetPathSyntasticJSCheckers(checkers)
 endfunction
 
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
-
-"vim-javascript
-let g:javascript_ignore_javaScriptdoc=1
 
 "vim-jsx
 let g:jsx_ext_required=0
@@ -182,8 +197,31 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Autocomplete
+autocmd CompleteDone * pclose
+
 " NERDTree
-map <Leader>t :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
+
+" neocomplete
+" Return key selects option
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+
+" Close popup menu
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>""
+
+" Smart tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction "}}}
 
 " indentLine
 map <silent> <Leader>l :IndentLinesToggle<CR>
