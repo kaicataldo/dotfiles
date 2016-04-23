@@ -10,6 +10,9 @@ set linespace=4
 " vim-airline
 let g:airline_theme='hybridline'
 
+" vim multiple cursors
+set selection=inclusive
+
 " Hide scrollbars
 set guioptions-=r
 set guioptions-=L

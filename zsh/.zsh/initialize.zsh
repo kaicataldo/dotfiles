@@ -9,6 +9,9 @@ prompt pure
 # z
 . $ZSH/vendor/z/z.sh
 
+# Homebrew
+export PATH="/usr/local/sbin:$PATH"
+
 # nvm
 export NVM_DIR=$HOME/.nvm
 

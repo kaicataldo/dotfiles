@@ -18,7 +18,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'vim-airline/vim-airline-themes'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'ctrlpvim/ctrlp.vim'
-  NeoBundle 'mileszs/ack.vim'
   NeoBundle 'rking/ag.vim'
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'qpkorr/vim-bufkill'
@@ -32,6 +31,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'tpope/vim-endwise'
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
+  NeoBundle 'terryma/vim-multiple-cursors'
 
   " Language/Syntax
   NeoBundle 'jelera/vim-javascript-syntax'
@@ -83,26 +83,20 @@ let g:indentLine_enabled=0
 let g:indentLine_char='┆'
 
 " Syntastic
-" Load JS linter based on config file in project
-" ...Now with locally installed linters only!
-function! SyntasticJSCheckers(checker_options)
-  let l:checkers=[]
+" Set to use locally installed linters only
+function! SetPathSyntasticJSCheckers(checkers)
   " system appends ^@ to the returned string for some reason ¯\_(ツ)_/¯
-  silent let l:project_root=substitute(system('git rev-parse --show-toplevel'), '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+  silent let l:project_root = substitute(system('git rev-parse --show-toplevel'), '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
-  for l:checker in a:checker_options
-    if findfile('.' . checker . 'rc', ';' . project_root) != ''
-      let l:local_checker=string(project_root . '/node_modules/.bin/' . checker)
-
-      call add(checkers, checker)
-      execute 'let g:syntastic_javascript_' . checker . '_exec=' . local_checker
-    endif
+  for l:checker in a:checkers
+    let l:checker_path = string(project_root . '/node_modules/.bin/' . checker)
+    execute 'let g:syntastic_javascript_' . checker . '_exec=' . checker_path
   endfor
 
-  let g:syntastic_javascript_checkers=checkers
+  let g:syntastic_javascript_checkers = a:checkers
 endfunction
 
-au Filetype javascript call SyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
+au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
 "vim-javascript
 let g:javascript_ignore_javaScriptdoc=1
@@ -189,7 +183,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 
 " indentLine
 map <silent> <Leader>l :IndentLinesToggle<CR>
@@ -216,9 +210,6 @@ nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === The Silver Searcher ===
 if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
     \ --ignore .git
@@ -231,7 +222,7 @@ if executable('ag')
   let g:ctrlp_use_caching=0
 
   " Ag shotcut
-  nnoremap <Leader>f :Ag!<Space>
-  nnoremap <Leader>F :Ag! <cword><CR>
+  nnoremap \ :Ag!<Space>
+  nnoremap K :Ag! <cword><CR>
 endif
 
