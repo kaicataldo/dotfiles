@@ -36,7 +36,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Language/Syntax
-  NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+  NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript', 'javascript.jsx']}}
+  NeoBundleLazy 'gavocanov/vim-js-indent', {'autoload':{'filetypes':['javascript', 'javascript.jsx']}}
   NeoBundle 'mxw/vim-jsx'
   NeoBundle 'moll/vim-node'
   NeoBundle 'fatih/vim-go'
@@ -50,6 +51,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'plasticboy/vim-markdown'
   NeoBundle 'vim-jsbeautify'
   NeoBundle 'othree/javascript-libraries-syntax.vim'
+  NeoBundle 'othree/jsdoc-syntax.vim'
 
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
@@ -116,10 +118,10 @@ endfunction
 
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
-"vim-jsx
+" vim-jsx
 let g:jsx_ext_required=0
 
-"vim-json
+" vim-json
 let g:vim_json_syntax_conceal = 0
 
 " vim-hybrid
