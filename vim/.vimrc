@@ -21,7 +21,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'rking/ag.vim'
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'qpkorr/vim-bufkill'
-  NeoBundle 'sjl/vitality.vim'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'junegunn/goyo.vim'
   NeoBundle 'scrooloose/nerdcommenter'
@@ -31,7 +30,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'tpope/vim-endwise'
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
-  NeoBundle 'terryma/vim-multiple-cursors'
   NeoBundle 'Shougo/neocomplete.vim'
   NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
@@ -203,7 +201,7 @@ nnoremap <C-H> <C-W><C-H>
 autocmd CompleteDone * pclose
 
 " NERDTree
-map <C-t> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " neocomplete
 " Return key selects option
