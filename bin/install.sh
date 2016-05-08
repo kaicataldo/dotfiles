@@ -64,6 +64,9 @@ createSymlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 createSymlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
 createSymlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
 
+# tmux
+createSymlink $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
+
 # zsh
 createSymlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
 createSymlink $DOTFILES_DIR/zsh/.zsh ~/.zsh
