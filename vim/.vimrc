@@ -31,11 +31,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundle 'Shougo/deoplete.nvim'
   NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Language/Syntax
-  NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript', 'javascript.jsx']}}
-  NeoBundleLazy 'gavocanov/vim-js-indent', {'autoload':{'filetypes':['javascript', 'javascript.jsx']}}
+  NeoBundle 'othree/yajs.vim'
+  NeoBundle 'othree/es.next.syntax.vim'
+  NeoBundle 'othree/javascript-libraries-syntax.vim'
+  NeoBundle 'othree/jsdoc-syntax.vim'
   NeoBundle 'mxw/vim-jsx'
   NeoBundle 'moll/vim-node'
   NeoBundle 'fatih/vim-go'
@@ -48,8 +51,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'mustache/vim-mustache-handlebars'
   NeoBundle 'plasticboy/vim-markdown'
   NeoBundle 'vim-jsbeautify'
-  NeoBundle 'othree/javascript-libraries-syntax.vim'
-  NeoBundle 'othree/jsdoc-syntax.vim'
 
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
@@ -86,8 +87,13 @@ let g:ag_mapping_message=0
 let g:indentLine_enabled=0
 let g:indentLine_char='┆'
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
+" neocomplete/deoplete
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+else
+  let g:neocomplete#enable_at_startup = 1
+endif
+
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS

@@ -23,3 +23,7 @@ alias localrc="if [[ -a ~/.localrc ]]; then ${EDITOR} ~/.localrc; fi"
 
 # npm
 alias npmls="npm ls --depth=0"
+
+if [[ $OSTYPE == darwin* && -s /usr/local/bin/nvim ]]; then
+  alias vim="nvim"
+fi
