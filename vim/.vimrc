@@ -55,6 +55,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'w0ng/vim-hybrid'
+  NeoBundle 'mhartington/oceanic-next'
+  NeoBundle 'flazz/vim-colorschemes'
 call neobundle#end()
 NeoBundleCheck
 
@@ -64,10 +66,6 @@ let g:airline_theme='hybridline'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'
@@ -85,7 +83,7 @@ let g:ag_mapping_message=0
 
 " indentLine
 let g:indentLine_enabled=0
-let g:indentLine_char='┆'
+let g:indentLine_char='¦'
 
 " neocomplete/deoplete
 if has('nvim')
@@ -93,7 +91,6 @@ if has('nvim')
 else
   let g:neocomplete#enable_at_startup = 1
 endif
-
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -139,8 +136,16 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
+if has('nvim')
+  set cursorline
+endif
 
 " Colors
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+  set t_Co=256
+endif
 set background=dark
 colorscheme hybrid
 
