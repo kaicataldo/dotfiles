@@ -198,20 +198,6 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Buffer navigation
-nnoremap <Leader>k :bnext<CR>
-nnoremap <Leader>j :bprevious<CR>
-
-" Tab navigation
-nnoremap <Leader>K :tabn<CR>
-nnoremap <Leader>J :tabp<CR>
-
-" Split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " Autocomplete
 autocmd CompleteDone * pclose
 
