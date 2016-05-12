@@ -140,9 +140,6 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
-if has('nvim')
-  set cursorline
-endif
 
 " Colors
 if has('nvim')
