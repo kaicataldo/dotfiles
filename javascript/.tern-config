@@ -3,8 +3,8 @@
     "browser"
   ],
   "plugins": {
-      "node": {},
-      "requirejs": {},
-      "es_modules": {}
-    }
+    "node": {},
+    "requirejs": {},
+    "es_modules": {}
+  }
 }

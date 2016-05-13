@@ -30,9 +30,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'tpope/vim-endwise'
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
-  NeoBundle 'Shougo/neocomplete.vim'
-  NeoBundle 'Shougo/deoplete.nvim'
-  NeoBundle 'wellle/tmux-complete.vim'
   NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Language/Syntax
@@ -86,24 +83,6 @@ let g:ag_mapping_message=0
 let g:indentLine_enabled=0
 let g:indentLine_char='¦'
 
-" neocomplete/deoplete
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-else
-  let g:neocomplete#enable_at_startup = 1
-endif
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" tern_for_vim
-if neobundle#tap('ternjs/tern_for_vim') == 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-  autocmd FileType javascript.jsx setlocal omnifunc=tern#Complete
-endif
-
 " Syntastic
 " Set to use locally installed linters only
 function! SetPathSyntasticJSCheckers(checkers)
@@ -132,9 +111,6 @@ let g:vim_json_syntax_conceal = 0
 " vim-hybrid
 let g:hybrid_custom_term_colors=1
 let g:hybrid_reduced_contrast=1
-
-" Spellcheck .md/.txt files
-au BufRead,BufNewFile *.txt,*.md set wrap linebreak nolist spell
 
 " === General settings ===
 filetype plugin indent on
@@ -191,6 +167,24 @@ set splitright
 " No beeping
 set noeb vb t_vb=
 
+" Spellcheck .md/.txt files
+au BufRead,BufNewFile *.txt,*.md set wrap linebreak nolist spell
+
+" Autocomplete
+autocmd CompleteDone * pclose
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript.jsx setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType html,hbs,handlebars,mustache,php setlocal omnifunc=htmlcomplete#CompleteTags
+
+" tern_for_vim
+if neobundle#tap('ternjs/tern_for_vim') == 1
+  autocmd FileType javascript.jsx setlocal omnifunc=tern#Complete
+endif
+
 " === Key mappings ===
 let mapleader="\<Space>"
 imap jj <Esc>
@@ -201,31 +195,8 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Autocomplete
-autocmd CompleteDone * pclose
-
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-
-" neocomplete
-" Return key selects option
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-
-" Close popup menu
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>""
-
-" Smart tab completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ neocomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction "}}}
 
 " indentLine
 map <silent> <Leader>l :IndentLinesToggle<CR>
@@ -234,7 +205,7 @@ map <silent> <Leader>l :IndentLinesToggle<CR>
 nmap <Leader>w :StripWhitespace<CR>
 
 " Clear Highlighing
-nnoremap <silent> <Leader>h :nohlsearch<CR>
+nnoremap <silent> <C-h> :nohlsearch<CR>
 
 " Toggle paste mode
 set pastetoggle=<F6>
