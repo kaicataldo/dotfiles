@@ -57,6 +57,9 @@ createSymlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zs
 createSymlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
 createSymlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 
+# JavaScript
+createSymlink $DOTFILES_DIR/javascript/.tern-config ~/.tern-config
+
 # Ruby
 createSymlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
