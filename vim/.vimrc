@@ -32,22 +32,19 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'Shougo/neocomplete.vim'
   NeoBundle 'Shougo/deoplete.nvim'
+  NeoBundle 'wellle/tmux-complete.vim'
   NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Language/Syntax
-  NeoBundle 'othree/yajs.vim'
-  NeoBundle 'othree/es.next.syntax.vim'
+  NeoBundle 'pangloss/vim-javascript'
   NeoBundle 'othree/javascript-libraries-syntax.vim'
-  NeoBundle 'othree/jsdoc-syntax.vim'
   NeoBundle 'mxw/vim-jsx'
   NeoBundle 'moll/vim-node'
   NeoBundle 'fatih/vim-go'
-  NeoBundle 'tpope/vim-rails'
   NeoBundle 'othree/html5.vim'
   NeoBundle 'cakebaker/scss-syntax.vim'
   NeoBundle 'elzr/vim-json'
   NeoBundle 'ekalinin/Dockerfile.vim'
-  NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'mustache/vim-mustache-handlebars'
   NeoBundle 'plasticboy/vim-markdown'
   NeoBundle 'vim-jsbeautify'
@@ -123,6 +120,9 @@ endfunction
 
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
+"vim-javascript
+set foldmethod=syntax
+
 " vim-jsx
 let g:jsx_ext_required=0
 
@@ -133,6 +133,9 @@ let g:vim_json_syntax_conceal = 0
 let g:hybrid_custom_term_colors=1
 let g:hybrid_reduced_contrast=1
 
+" Spellcheck .md/.txt files
+au BufRead,BufNewFile *.txt,*.md set wrap linebreak nolist spell
+
 " === General settings ===
 filetype plugin indent on
 syntax enable
@@ -140,6 +143,9 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
+if has('nvim')
+  set cursorline
+endif
 
 " Colors
 if has('nvim')
