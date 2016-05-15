@@ -30,7 +30,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'tpope/vim-endwise'
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
-  NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
+  NeoBundle 'christoomey/vim-tmux-navigator'
 
   " Language/Syntax
   NeoBundle 'pangloss/vim-javascript'
@@ -45,6 +45,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'mustache/vim-mustache-handlebars'
   NeoBundle 'plasticboy/vim-markdown'
   NeoBundle 'vim-jsbeautify'
+  NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
