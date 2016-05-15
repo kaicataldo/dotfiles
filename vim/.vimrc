@@ -14,7 +14,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   " Editor Features
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-  NeoBundle 'bling/vim-airline'
+  NeoBundle 'vim-airline/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -31,6 +31,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'ntpeters/vim-better-whitespace'
   NeoBundle 'godlygeek/tabular'
   NeoBundle 'christoomey/vim-tmux-navigator'
+  NeoBundle 'edkolev/tmuxline.vim'
 
   " Language/Syntax
   NeoBundle 'pangloss/vim-javascript'
@@ -45,7 +46,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'mustache/vim-mustache-handlebars'
   NeoBundle 'plasticboy/vim-markdown'
   NeoBundle 'vim-jsbeautify'
-  NeoBundle 'ternjs/tern_for_vim', {'build': {'unix': 'npm install'}}
 
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
@@ -61,10 +61,6 @@ let g:airline_theme='hybridline'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'
@@ -120,6 +116,7 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
+set clipboard=unnamed " Use system clipboard
 if has('nvim')
   set cursorline
 endif
@@ -173,21 +170,9 @@ au BufRead,BufNewFile *.txt,*.md set wrap linebreak nolist spell
 
 " Autocomplete
 autocmd CompleteDone * pclose
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript.jsx setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-autocmd FileType html,hbs,handlebars,mustache,php setlocal omnifunc=htmlcomplete#CompleteTags
-
-" tern_for_vim
-if neobundle#tap('ternjs/tern_for_vim') == 1
-  autocmd FileType javascript.jsx setlocal omnifunc=tern#Complete
-endif
 
 " === Key mappings ===
-let mapleader="\<Space>"
+let mapleader=";"
 imap jj <Esc>
 
 " Line navigation ignores line wrap
@@ -203,10 +188,10 @@ map <C-n> :NERDTreeToggle<CR>
 map <silent> <Leader>l :IndentLinesToggle<CR>
 
 " Better Whitespace
-nmap <Leader>w :StripWhitespace<CR>
+nmap <silent> <Leader>w :StripWhitespace<CR>
 
 " Clear Highlighing
-nnoremap <silent> <C-h> :nohlsearch<CR>
+nnoremap <silent> <CR> :noh<CR>
 
 " Toggle paste mode
 set pastetoggle=<F6>

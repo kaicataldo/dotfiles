@@ -18,7 +18,6 @@ DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 cd $DOTFILES_DIR
 git submodule foreach git pull origin master # pull latest versions of vendor submodules
 
-
 # Create directories if they don't exist
 createDir() {
   if [[ ! -e $1 ]]; then
@@ -35,6 +34,7 @@ createDir ~/.vim/bundle
 createDir ~/.vim/backup
 createDir ~/.vim/swp
 createDir ~/.vim/undo
+createDir ~/.tmux
 
 # Git clone NeoBundle
 if [[ ! -e ~/.vim/bundle/neobundle.vim ]]; then
@@ -57,9 +57,6 @@ createSymlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zs
 createSymlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
 createSymlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 
-# JavaScript
-createSymlink $DOTFILES_DIR/javascript/.tern-config ~/.tern-config
-
 # Ruby
 createSymlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
@@ -73,6 +70,7 @@ createSymlink ~/.vimrc ~/.config/nvim/init.vim
 
 # tmux
 createSymlink $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
+createSymlink $DOTFILES_DIR/tmux/tmux.theme ~/.tmux/tmux.theme
 
 # zsh
 createSymlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
