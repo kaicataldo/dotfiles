@@ -61,6 +61,7 @@ let g:airline_theme='hybridline'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline_powerline_fonts=1
+let g:airline_skip_empty_sections = 1
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'
@@ -181,6 +182,10 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" Tab navigation
+nnoremap <Leader>k :bn<CR>
+nnoremap <Leader>j :bp<CR>
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -192,6 +197,7 @@ nmap <silent> <Leader>w :StripWhitespace<CR>
 
 " Clear Highlighing
 nnoremap <silent> <CR> :noh<CR>
+nnoremap <silent> <Leader>h :noh<CR>
 
 " Toggle paste mode
 set pastetoggle=<F6>
