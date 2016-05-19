@@ -154,6 +154,11 @@ set incsearch
 set hlsearch
 set wildignore+=*/node_modules/*
 
+" Word wrapping
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+
 " Vim directories
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
@@ -167,7 +172,7 @@ set splitright
 set noeb vb t_vb=
 
 " Spellcheck .md/.txt files
-au BufRead,BufNewFile *.txt,*.md set wrap linebreak nolist spell
+au BufRead,BufNewFile *.txt,*.md set spell
 
 " Autocomplete
 autocmd CompleteDone * pclose
