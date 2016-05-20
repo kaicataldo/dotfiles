@@ -201,7 +201,6 @@ map <silent> <Leader>l :IndentLinesToggle<CR>
 nmap <silent> <Leader>w :StripWhitespace<CR>
 
 " Clear Highlighing
-nnoremap <silent> <CR> :noh<CR>
 nnoremap <silent> <Leader>h :noh<CR>
 
 " Toggle paste mode
