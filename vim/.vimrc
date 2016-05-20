@@ -29,7 +29,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'tpope/vim-endwise'
   NeoBundle 'ntpeters/vim-better-whitespace'
-  NeoBundle 'godlygeek/tabular'
   NeoBundle 'christoomey/vim-tmux-navigator'
   NeoBundle 'edkolev/tmuxline.vim'
 
@@ -123,11 +122,7 @@ if has('nvim')
 endif
 
 " Colors
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-else
-  set t_Co=256
-endif
+set t_Co=256
 set background=dark
 colorscheme hybrid
 
