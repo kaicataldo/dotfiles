@@ -78,7 +78,7 @@ let g:ag_mapping_message=0
 
 " indentLine
 let g:indentLine_enabled=0
-let g:indentLine_char='¦'
+let g:indentLine_char='┆'
 
 " Syntastic
 " Set to use locally installed linters only
@@ -95,9 +95,6 @@ function! SetPathSyntasticJSCheckers(checkers)
 endfunction
 
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
-
-"vim-javascript
-set foldmethod=syntax
 
 " vim-jsx
 let g:jsx_ext_required=0
@@ -117,9 +114,6 @@ set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
 set clipboard=unnamed " Use system clipboard
-if has('nvim')
-  set cursorline
-endif
 
 " Colors
 set t_Co=256
