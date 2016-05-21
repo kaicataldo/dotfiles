@@ -36,12 +36,15 @@
   pl = pull
   plom = pull origin master
   plum = pull upstream master
-  preb = !git fetch upstream && git rebase upstream/master
 
   # Push
   p = push
   pom = push origin master
   poh = push origin head
+
+  # Rebase
+  frum = !git fetch upstream && git rebase upstream/master
+  from = !git fetch origin && git rebase origin/master
 
   # Stash
   ss = stash
