@@ -124,13 +124,13 @@ colorscheme hybrid
 set laststatus=2
 
 " Tabs
-set smarttab
-set tabstop=2
-set shiftwidth=2
 set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
 " Indentation
-set smartindent
+set autoindent
 
 " Folding
 set foldmethod=indent
