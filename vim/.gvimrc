@@ -2,13 +2,13 @@
 colorscheme hybrid
 
 " Font
-set guifont=Hack:h14
+set guifont=Hack:h12
 
 " Space between lines
-set linespace=4
+set linespace=2
 
-" vim-airline
-let g:airline_theme='hybridline'
+" Disable bold fonts
+set t_md=
 
 " vim multiple cursors
 set selection=inclusive
