@@ -16,6 +16,7 @@ DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
 
 # Pull latest files from GitHub
 cd $DOTFILES_DIR
+git submodule update --init --recursive # init git submodules
 git submodule foreach git pull origin master # pull latest versions of vendor submodules
 
 # Create directories if they don't exist
@@ -30,17 +31,12 @@ createDir() {
 
 createDir $DOTFILES_DIR/zsh/.zsh/functions
 createDir ~/.vim
+createDir ~/.vim/autoload
 createDir ~/.vim/bundle
 createDir ~/.vim/backup
 createDir ~/.vim/swp
 createDir ~/.vim/undo
 createDir ~/.tmux
-
-# Git clone NeoBundle
-if [[ ! -e ~/.vim/bundle/neobundle.vim ]]; then
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-  echo "NeoBundle installed"
-fi
 
 # Symlink and report creation of link
 createSymlink() {
@@ -61,6 +57,7 @@ createSymlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 createSymlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
 # Vim
+createSymlink $DOTFILES_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
 createSymlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
 createSymlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
 

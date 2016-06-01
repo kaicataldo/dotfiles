@@ -22,3 +22,6 @@
 [submodule "terminal/hack-font"]
 	path = terminal/hack-font
 	url = git@github.com:chrissimpkins/Hack.git
+[submodule "vim/vim-plug"]
+	path = vim/vim-plug
+	url = git@github.com:junegunn/vim-plug.git

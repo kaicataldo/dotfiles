@@ -2,7 +2,7 @@
 set guifont=Hack:h12
 
 " Colors
-colorscheme hybrid_material
+colorscheme hybrid
 
 " Airline
 let g:airline_theme='hybridline'

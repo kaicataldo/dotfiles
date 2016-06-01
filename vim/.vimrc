@@ -1,60 +1,50 @@
-" === NeoBundle ===
-if has('vim_starting')
-  if &compatible
-   set nocompatible
-  endif
-
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
+" vim-plug
+call plug#begin('~/.vim/plugged')
 
   " Plugins
   " Editor Features
-  NeoBundle 'scrooloose/nerdtree'
-  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-  NeoBundle 'vim-airline/vim-airline'
-  NeoBundle 'vim-airline/vim-airline-themes'
-  NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'ctrlpvim/ctrlp.vim'
-  NeoBundle 'rking/ag.vim'
-  NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'qpkorr/vim-bufkill'
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'junegunn/goyo.vim'
-  NeoBundle 'scrooloose/nerdcommenter'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'Raimondi/delimitMate'
-  NeoBundle 'Yggdroot/indentLine'
-  NeoBundle 'tpope/vim-endwise'
-  NeoBundle 'ntpeters/vim-better-whitespace'
-  NeoBundle 'christoomey/vim-tmux-navigator'
-  NeoBundle 'edkolev/tmuxline.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'scrooloose/syntastic'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'rking/ag.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'qpkorr/vim-bufkill'
+  Plug 'tpope/vim-fugitive'
+  Plug 'junegunn/goyo.vim'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/vim-surround'
+  Plug 'Raimondi/delimitMate'
+  Plug 'Yggdroot/indentLine'
+  Plug 'tpope/vim-endwise'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'edkolev/tmuxline.vim'
 
   " Language/Syntax
-  NeoBundle 'othree/yajs.vim'
-  NeoBundle 'othree/es.next.syntax.vim'
-  NeoBundle 'othree/javascript-libraries-syntax.vim'
-  NeoBundle 'mxw/vim-jsx'
-  NeoBundle 'moll/vim-node'
-  NeoBundle 'fatih/vim-go'
-  NeoBundle 'othree/html5.vim'
-  NeoBundle 'cakebaker/scss-syntax.vim'
-  NeoBundle 'elzr/vim-json'
-  NeoBundle 'ekalinin/Dockerfile.vim'
-  NeoBundle 'mustache/vim-mustache-handlebars'
-  NeoBundle 'plasticboy/vim-markdown'
-  NeoBundle 'vim-jsbeautify'
+  Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'fatih/vim-go', { 'for': 'go' }
+  Plug 'elzr/vim-json', { 'for': 'json' }
+  Plug 'othree/html5.vim'
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'plasticboy/vim-markdown'
 
   " Color Schemes
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'kristijanhusak/vim-hybrid-material'
-  NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'mhartington/oceanic-next'
-  NeoBundle 'flazz/vim-colorschemes'
-call neobundle#end()
-NeoBundleCheck
+  Plug 'flazz/vim-colorschemes'
+  Plug 'w0ng/vim-hybrid'
+  Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
 
 " === Plugins Config ===
 " vim-airline
@@ -225,4 +215,3 @@ if executable('ag')
   nnoremap \ :Ag!<Space>
   nnoremap K :Ag! <cword><CR>
 endif
-
