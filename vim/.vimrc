@@ -33,7 +33,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'edkolev/tmuxline.vim'
 
   " Language/Syntax
-  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'othree/yajs.vim'
+  NeoBundle 'othree/es.next.syntax.vim'
   NeoBundle 'othree/javascript-libraries-syntax.vim'
   NeoBundle 'mxw/vim-jsx'
   NeoBundle 'moll/vim-node'
@@ -48,6 +49,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Color Schemes
   NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'kristijanhusak/vim-hybrid-material'
   NeoBundle 'w0ng/vim-hybrid'
   NeoBundle 'mhartington/oceanic-next'
   NeoBundle 'flazz/vim-colorschemes'

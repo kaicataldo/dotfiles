@@ -1,8 +1,11 @@
-" Colors
-colorscheme hybrid
-
 " Font
 set guifont=Hack:h12
+
+" Colors
+colorscheme hybrid_material
+
+" Airline
+let g:airline_theme='hybridline'
 
 " Space between lines
 set linespace=4
