@@ -32,7 +32,6 @@ createDir() {
 createDir $DOTFILES_DIR/zsh/.zsh/functions
 createDir ~/.vim
 createDir ~/.vim/autoload
-createDir ~/.vim/bundle
 createDir ~/.vim/backup
 createDir ~/.vim/swp
 createDir ~/.vim/undo
