@@ -30,13 +30,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'fatih/vim-go', { 'for': 'go' }
-  Plug 'elzr/vim-json', { 'for': 'json' }
+  Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'ekalinin/Dockerfile.vim'
   Plug 'mustache/vim-mustache-handlebars'
+  Plug 'JulesWang/css.vim'
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'fatih/vim-go'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'mitsuhiko/vim-python-combined'
+  Plug 'StanAngeloff/php.vim'
   Plug 'plasticboy/vim-markdown'
+  Plug 'tpope/vim-git'
+  Plug 'ekalinin/Dockerfile.vim'
 
   " Color Schemes
   Plug 'flazz/vim-colorschemes'
