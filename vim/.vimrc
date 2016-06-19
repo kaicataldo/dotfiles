@@ -39,7 +39,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'ekalinin/Dockerfile.vim'
 
   " Color Schemes
-  Plug 'flazz/vim-colorschemes'
   Plug 'w0ng/vim-hybrid'
   Plug 'kristijanhusak/vim-hybrid-material'
   Plug 'altercation/vim-colors-solarized'
@@ -53,6 +52,18 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline_powerline_fonts=1
 let g:airline_skip_empty_sections = 1
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+
+" tmuxline
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'

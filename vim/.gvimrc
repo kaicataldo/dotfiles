@@ -1,11 +1,16 @@
 " Font
-set guifont=Hack:h12
+set guifont=Inconsolata\ for\ Powerline:h14
 
 " Colors
-colorscheme hybrid
+colorscheme hybrid_material
 
 " Airline
-let g:airline_theme='hybridline'
+let g:airline_theme='hybrid'
+
+" Relative numbers in normal mode
+set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
 
 " Space between lines
 set linespace=4
@@ -22,9 +27,3 @@ set guioptions+=c
 
 " Config
 :set cursorline
-
-" Airline
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
