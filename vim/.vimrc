@@ -4,21 +4,16 @@ call plug#begin('~/.vim/plugged')
   " Plugins
   " Editor Features
   Plug 'scrooloose/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/syntastic'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'rking/ag.vim'
   Plug 'airblade/vim-gitgutter'
-  Plug 'qpkorr/vim-bufkill'
   Plug 'tpope/vim-fugitive'
-  Plug 'junegunn/goyo.vim'
+  Plug 'jlanzarotta/bufexplorer'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'tpope/vim-surround'
   Plug 'Raimondi/delimitMate'
-  Plug 'Yggdroot/indentLine'
-  Plug 'tpope/vim-endwise'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'edkolev/tmuxline.vim'
@@ -73,10 +68,6 @@ let g:ag_working_path_mode='r'
 let g:ag_highlight=1
 let g:ag_mapping_message=0
 
-" indentLine
-let g:indentLine_enabled=0
-let g:indentLine_char='┆'
-
 " Syntastic
 " Set to use locally installed linters only
 function! SetPathSyntasticJSCheckers(checkers)
@@ -110,7 +101,6 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
-set clipboard=unnamed " Use system clipboard
 
 " Colors
 set t_Co=256
@@ -130,7 +120,6 @@ set shiftwidth=2
 set autoindent
 
 " Folding
-set foldmethod=indent
 set nofoldenable
 
 " Search
@@ -154,14 +143,14 @@ set undodir=~/.vim/undo//
 set splitbelow
 set splitright
 
-" No beeping
-set noeb vb t_vb=
+" Disable bells
+set noerrorbells
+set novisualbell
+set t_vb=
 
 " Spellcheck .md/.txt files
-au BufRead,BufNewFile *.txt,*.md set spell
-
-" Autocomplete
-autocmd CompleteDone * pclose
+au BufRead,BufNewFile *.txt,*.md setlocal spell
+autocmd FileType gitcommit setlocal spell
 
 " === Key mappings ===
 let mapleader=";"
@@ -173,21 +162,18 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Tab navigation
-nnoremap <Leader>k :bn<CR>
-nnoremap <Leader>j :bp<CR>
+" Retain selection after indenting
+vnoremap <  <gv
+vnoremap >  >gv
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-
-" indentLine
-map <silent> <Leader>l :IndentLinesToggle<CR>
 
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
 
 " Clear Highlighing
-nnoremap <silent> <Leader>h :noh<CR>
+nnoremap <silent> <Leader><Space> :noh<CR>
 
 " Toggle paste mode
 set pastetoggle=<F6>
