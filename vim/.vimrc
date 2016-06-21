@@ -19,17 +19,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'edkolev/tmuxline.vim'
 
   " Language/Syntax
-  Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'moll/vim-node', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
   Plug 'cakebaker/scss-syntax.vim'
+  Plug 'groenewege/vim-less'
   Plug 'fatih/vim-go'
   Plug 'vim-ruby/vim-ruby'
   Plug 'mitsuhiko/vim-python-combined'
@@ -59,11 +57,11 @@ let g:airline_right_alt_sep=''
 
 " tmuxline
 let g:tmuxline_separators = {
-    \ 'left' : '',
-    \ 'left_alt': '',
-    \ 'right' : '',
-    \ 'right_alt' : '',
-    \ 'space' : ' '}
+  \ 'left' : '',
+  \ 'left_alt': '',
+  \ 'right' : '',
+  \ 'right_alt' : '',
+  \ 'space' : ' '}
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'
@@ -116,7 +114,7 @@ set mouse=a " Enable mouse in terminal Vim
 " Colors
 set t_Co=256
 set background=dark
-colorscheme hybrid
+colorscheme hybrid_material
 
 " Status line
 set laststatus=2
@@ -160,7 +158,7 @@ set novisualbell
 set t_vb=
 
 " Spellcheck .md/.txt files
-au BufRead,BufNewFile *.txt,*.md setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 
 " === Key mappings ===
@@ -176,6 +174,10 @@ vnoremap k gk
 " Retain selection after indenting
 vnoremap <  <gv
 vnoremap >  >gv
+
+" Split navigation
+nnoremap <Leader>j :bp<CR>
+nnoremap <Leader>k :bn<CR>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>

@@ -1,5 +1,5 @@
 " Font
-set guifont=Inconsolata-dz\ for\ Powerline:h13
+set guifont=Inconsolata-dz\ for\ Powerline:h12
 
 " Colors
 colorscheme hybrid_material
@@ -11,6 +11,9 @@ let g:airline_theme='hybrid'
 set relativenumber
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
+
+" Line space
+set linespace=1
 
 " Disable bold fonts
 set t_md=
