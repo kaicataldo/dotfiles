@@ -1,5 +1,5 @@
 " Font
-set guifont=Inconsolata-dz\ for\ Powerline:h12
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 
 " Colors
 colorscheme hybrid_material
@@ -13,7 +13,7 @@ autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 
 " Line space
-set linespace=1
+set linespace=4
 
 " Disable bold fonts
 set t_md=
