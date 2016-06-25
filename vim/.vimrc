@@ -163,7 +163,7 @@ autocmd FileType gitcommit setlocal spell
 
 " === Key mappings ===
 let mapleader=";"
-imap jj <Esc>
+inoremap jj <Esc>
 
 " Line navigation ignores line wrap
 nnoremap j gj
@@ -201,6 +201,10 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>nt :call NumberToggle()<CR>
+
+if has('nvim')
+  tnoremap jj <C-\><C-n>
+endif
 
 " === The Silver Searcher ===
 if executable('ag')
