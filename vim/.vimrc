@@ -110,6 +110,7 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
+set ttymouse=xterm2 " Set codes being sent by mouse
 
 " Colors
 set t_Co=256
