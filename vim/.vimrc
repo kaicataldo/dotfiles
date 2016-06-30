@@ -65,7 +65,7 @@ let g:tmuxline_separators = {
 
 " CtrlP
 let g:ctrlp_cmd=':CtrlPMixed'
-let g:ctrlp_working_path_mode='rw'
+let g:ctrlp_working_path_mode='r'
 let g:ctrlp_dont_split='NERD'
 
 " NERDTree
@@ -211,6 +211,8 @@ endif
 
 " === The Silver Searcher ===
 if executable('ag')
+  let g:ag_working_path_mode='r'
+
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
     \ --ignore .git
