@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/syntastic'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'rking/ag.vim'
+  Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'jlanzarotta/bufexplorer'
@@ -72,10 +72,10 @@ let g:ctrlp_dont_split='NERD'
 let NERDTreeShowHidden=1
 let g:NERDTreeChDirMode=2
 
-" ag.vim
-let g:ag_working_path_mode='r'
-let g:ag_highlight=1
-let g:ag_mapping_message=0
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Syntastic
 " Set to use locally installed linters only
@@ -185,6 +185,10 @@ nnoremap <Leader>k :bn<CR>
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" ack.vim
+nnoremap \ :Ack!<Space>
+nnoremap K :Ack! <cword><CR>
+
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
 
@@ -211,8 +215,6 @@ endif
 
 " === The Silver Searcher ===
 if executable('ag')
-  let g:ag_working_path_mode='r'
-
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
     \ --ignore .git
@@ -223,8 +225,4 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching=0
-
-  " Ag shotcut
-  nnoremap \ :Ag!<Space>
-  nnoremap K :Ag! <cword><CR>
 endif
