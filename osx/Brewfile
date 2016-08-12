@@ -18,5 +18,6 @@ brew "tmux"
 brew "vim"
 brew "zsh"
 brew "neovim/neovim/neovim"
+brew "fzf"
 
 cask "caskroom/fonts/font-hack"
