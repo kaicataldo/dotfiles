@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/syntastic'
   Plug 'ctrlpvim/ctrlp.vim'
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
