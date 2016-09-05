@@ -183,6 +183,12 @@ vnoremap >  >gv
 nnoremap <Leader>j :bp<CR>
 nnoremap <Leader>k :bn<CR>
 
+" Copy to clipboard
+nnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
+vnoremap <Leader>y "*y
+vnoremap <Leader>p "*p
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
