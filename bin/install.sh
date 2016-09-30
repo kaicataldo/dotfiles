@@ -20,7 +20,7 @@ git submodule update --init --recursive # init git submodules
 git submodule foreach git pull origin master # pull latest versions of vendor submodules
 
 # Create directories if they don't exist
-createDir() {
+create_dir() {
   if [[ ! -e $1 ]]; then
       mkdir $1
       echo "${1} directory created"
@@ -29,45 +29,45 @@ createDir() {
   fi
 }
 
-createDir $DOTFILES_DIR/zsh/.zsh/functions
-createDir ~/.vim
-createDir ~/.vim/autoload
-createDir ~/.vim/backup
-createDir ~/.vim/swp
-createDir ~/.vim/undo
-createDir ~/.tmux
+create_dir $DOTFILES_DIR/zsh/.zsh/functions
+create_dir ~/.vim
+create_dir ~/.vim/autoload
+create_dir ~/.vim/backup
+create_dir ~/.vim/swp
+create_dir ~/.vim/undo
+create_dir ~/.tmux
 
 # Symlink and report creation of link
-createSymlink() {
+create_symlink() {
   ln -sfn $1 $2
   echo "Symlinked ${1} -> ${2}"
 }
 
 # All the symlinks
 # Pure Prompt
-createSymlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
-createSymlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
+create_symlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
+create_symlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
 
 # Git
-createSymlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
-createSymlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
+create_symlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
+create_symlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 
 # Ruby
-createSymlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
+create_symlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
 # Vim
-createSymlink $DOTFILES_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
-createSymlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
-createSymlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
+create_symlink $DOTFILES_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+create_symlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
+create_symlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
 
 # Neovim
-createSymlink ~/.vim ~/.config/nvim
-createSymlink ~/.vimrc ~/.config/nvim/init.vim
+create_symlink ~/.vim ~/.config/nvim
+create_symlink ~/.vimrc ~/.config/nvim/init.vim
 
 # tmux
-createSymlink $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
-createSymlink $DOTFILES_DIR/tmux/tmux.theme ~/.tmux/tmux.theme
+create_symlink $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
+create_symlink $DOTFILES_DIR/tmux/tmux.theme ~/.tmux/tmux.theme
 
 # zsh
-createSymlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
-createSymlink $DOTFILES_DIR/zsh/.zsh ~/.zsh
+create_symlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
+create_symlink $DOTFILES_DIR/zsh/.zsh ~/.zsh
