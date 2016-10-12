@@ -74,11 +74,7 @@ let g:ctrlp_dont_split='NERD'
 " NERDTree
 let NERDTreeShowHidden=1
 let g:NERDTreeChDirMode=2
-
-" ack.vim
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+let NERDTreeIgnore=['^\.DS_Store$']
 
 " Syntastic
 " Set to use locally installed linters only
@@ -97,17 +93,35 @@ endfunction
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
 " vim-javascript
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow=1
 
 " vim-jsx
 let g:jsx_ext_required=0
 
 " vim-json
-let g:vim_json_syntax_conceal = 0
+let g:vim_json_syntax_conceal=0
 
 " vim-hybrid
 let g:hybrid_custom_term_colors=1
 let g:hybrid_reduced_contrast=1
+
+if executable('ag')
+  " ack.vim
+  let g:ackprg = 'ag --vimgrep'
+
+  " CtrlP
+  " Use ag in CtrlP for listing files. Respects .gitignore!
+  let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching=0
+  let g:ctrlp_clear_cache_on_exit=1
+endif
 
 " === General settings ===
 filetype plugin indent on
@@ -228,20 +242,6 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>nt :call NumberToggle()<CR>
-
-" === The Silver Searcher ===
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
-    \ --ignore .git
-    \ --ignore .svn
-    \ --ignore .hg
-    \ --ignore .DS_Store
-    \ -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching=0
-endif
 
 " === Misc ===
 autocmd BufRead,BufNewFile *.focss set filetype=scss
