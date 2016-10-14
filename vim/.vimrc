@@ -48,15 +48,15 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme='hybridline'
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod=':t'
-let g:airline_powerline_fonts=1
+let g:airline_theme = 'hybridline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 " tmuxline
 let g:tmuxline_separators = {
@@ -64,17 +64,17 @@ let g:tmuxline_separators = {
   \ 'left_alt': '',
   \ 'right' : '',
   \ 'right_alt' : '',
-  \ 'space' : ' '}
+  \ 'space' : ' ' }
 
 " CtrlP
-let g:ctrlp_cmd=':CtrlPMixed'
-let g:ctrlp_working_path_mode='r'
-let g:ctrlp_dont_split='NERD'
+let g:ctrlp_cmd = ':CtrlPMixed'
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_dont_split = 'NERD'
 
 " NERDTree
-let NERDTreeShowHidden=1
-let g:NERDTreeChDirMode=2
-let NERDTreeIgnore=['^\.DS_Store$']
+let NERDTreeShowHidden = 1
+let g:NERDTreeChDirMode = 2
+let NERDTreeIgnore = ['^\.DS_Store$']
 
 " Syntastic
 " Set to use locally installed linters only
@@ -93,17 +93,17 @@ endfunction
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
 
 " vim-javascript
-let g:javascript_plugin_flow=1
+let g:javascript_plugin_flow = 1
 
 " vim-jsx
-let g:jsx_ext_required=0
+let g:jsx_ext_required = 0
 
 " vim-json
-let g:vim_json_syntax_conceal=0
+let g:vim_json_syntax_conceal = 0
 
 " vim-hybrid
-let g:hybrid_custom_term_colors=1
-let g:hybrid_reduced_contrast=1
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 
 if executable('ag')
   " ack.vim
@@ -111,7 +111,7 @@ if executable('ag')
 
   " CtrlP
   " Use ag in CtrlP for listing files. Respects .gitignore!
-  let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     \ --ignore .git
     \ --ignore .svn
     \ --ignore .hg
@@ -119,8 +119,8 @@ if executable('ag')
     \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching=0
-  let g:ctrlp_clear_cache_on_exit=1
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_clear_cache_on_exit = 1
 endif
 
 " === General settings ===
@@ -244,4 +244,5 @@ endfunc
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === Misc ===
-autocmd BufRead,BufNewFile *.focss set filetype=scss
+" .focss files
+autocmd BufRead,BufNewFile *.focss set syntax=scss
