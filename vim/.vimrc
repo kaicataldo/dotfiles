@@ -193,7 +193,6 @@ if has('nvim')
   tnoremap jj <C-\><C-n>
 endif
 
-
 " Line navigation ignores line wrap
 nnoremap j gj
 nnoremap k gk
