@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/syntastic'
+  Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
   Plug 'ctrlpvim/ctrlp.vim'
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   Plug 'mileszs/ack.vim'
@@ -26,6 +27,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
   Plug 'leafgarland/typescript-vim'
+  Plug 'Quramy/tsuquyomi'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
@@ -91,6 +93,10 @@ function! SetPathSyntasticJSCheckers(checkers)
 endfunction
 
 au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
+
+" tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
