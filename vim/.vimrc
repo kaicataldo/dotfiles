@@ -141,7 +141,11 @@ if !has('nvim')
 endif
 
 " Colors
-set t_Co=256
+if has('termguicolors')
+  set termguicolors
+else
+  set t_Co=256
+endif
 set background=dark
 colorscheme hybrid_material
 
