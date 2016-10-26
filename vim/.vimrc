@@ -51,7 +51,7 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'hybridline'
+let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
