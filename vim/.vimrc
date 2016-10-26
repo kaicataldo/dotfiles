@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'edkolev/tmuxline.vim'
+  Plug 'yonchu/accelerated-smooth-scroll'
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -138,6 +139,8 @@ set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
 if !has('nvim')
   set ttymouse=xterm2 " Set codes being sent by mouse
+else
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
 endif
 
 " Colors
