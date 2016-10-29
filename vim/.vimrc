@@ -19,7 +19,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'edkolev/tmuxline.vim'
   Plug 'yonchu/accelerated-smooth-scroll'
 
   " Language/Syntax
@@ -45,13 +44,16 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kristijanhusak/vim-hybrid-material'
-  Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
 " === Plugins Config ===
+" vim-hybrid
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
 " vim-airline
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'hybridline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -60,14 +62,6 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-
-" tmuxline
-let g:tmuxline_separators = {
-  \ 'left' : '',
-  \ 'left_alt': '',
-  \ 'right' : '',
-  \ 'right_alt' : '',
-  \ 'space' : ' ' }
 
 " CtrlP
 let g:ctrlp_cmd = ':CtrlPMixed'
@@ -108,10 +102,6 @@ let g:jsx_ext_required = 0
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
 if executable('ag')
   " ack.vim
   let g:ackprg = 'ag --vimgrep'
@@ -144,11 +134,7 @@ else
 endif
 
 " Colors
-if has('termguicolors')
-  set termguicolors
-else
-  set t_Co=256
-endif
+set t_Co=256
 set background=dark
 colorscheme hybrid_material
 
