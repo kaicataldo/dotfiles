@@ -1,5 +1,6 @@
 " Font
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+set macthinstrokes " Render font with thin strokes
 
 " Colors
 colorscheme hybrid_material
