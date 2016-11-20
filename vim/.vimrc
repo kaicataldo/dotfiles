@@ -6,9 +6,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'scrooloose/syntastic'
   Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
   Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'scrooloose/syntastic'
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
+  Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
   Plug 'leafgarland/typescript-vim'
@@ -80,8 +81,8 @@ function! SetPathSyntasticJSCheckers(checkers)
   silent let l:project_root = substitute(system('git rev-parse --show-toplevel'), '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
   for l:checker in a:checkers
-    let l:checker_path = string(project_root . '/node_modules/.bin/' . checker)
-    execute 'let g:syntastic_javascript_' . checker . '_exec=' . checker_path
+    let l:checker_path = string(l:project_root . '/node_modules/.bin/' . l:checker)
+    execute 'let g:syntastic_javascript_' . l:checker . '_exec=' . l:checker_path
   endfor
 
   let g:syntastic_javascript_checkers = a:checkers
