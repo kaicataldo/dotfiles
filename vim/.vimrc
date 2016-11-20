@@ -76,19 +76,19 @@ let NERDTreeIgnore = ['^\.DS_Store$']
 
 " Syntastic
 " Set to use locally installed linters only
-function! SetPathSyntasticJSCheckers(checkers)
+function! SetLocalJSSyntasticCheckers(lang, checkers)
   " system appends ^@ to the returned string for some reason ¯\_(ツ)_/¯
   silent let l:project_root = substitute(system('git rev-parse --show-toplevel'), '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
   for l:checker in a:checkers
     let l:checker_path = string(l:project_root . '/node_modules/.bin/' . l:checker)
-    execute 'let g:syntastic_javascript_' . l:checker . '_exec=' . l:checker_path
+    execute 'let g:syntastic_' . a:lang . '_' . l:checker . '_exec=' . l:checker_path
   endfor
 
-  let g:syntastic_javascript_checkers = a:checkers
+  execute 'let g:syntastic_' . a:lang . '_checkers=' . string(a:checkers)
 endfunction
 
-au Filetype javascript call SetPathSyntasticJSCheckers(['jscs', 'jshint', 'eslint'])
+au Filetype javascript call SetLocalJSSyntasticCheckers('javascript', ['jscs', 'jshint', 'eslint'])
 
 " tsuquyomi
 let g:tsuquyomi_disable_quickfix = 1
