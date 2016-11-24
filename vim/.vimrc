@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Quramy/tsuquyomi'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
-  Plug 'JulesWang/css.vim'
+  Plug 'hail2u/vim-css3-syntax'
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'groenewege/vim-less'
   Plug 'fatih/vim-go'
@@ -45,16 +45,13 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'trevordmiller/nova-vim'
 
 call plug#end()
 
 " === Plugins Config ===
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
 " vim-airline
-let g:airline_theme = 'hybridline'
+let g:airline_theme = 'nova'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -135,10 +132,23 @@ else
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
 endif
 
-" Colors
-set t_Co=256
+" Visuals
+" Enable true color
+if has('termguicolors')
+  set termguicolors
+else
+  set t_Co=256
+endif
 set background=dark
-colorscheme hybrid_material
+colorscheme nova
+set cursorline
+
+" Line Numbers
+set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+autocmd FocusLost * :set norelativenumber
+autocmd FocusGained * :set relativenumber
 
 " Status line
 set laststatus=2

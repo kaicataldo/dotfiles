@@ -1,12 +1,12 @@
 " Font
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+set guifont=Hack:h12
 set macthinstrokes " Render font with thin strokes
 
 " Colors
-colorscheme hybrid_material
+colorscheme nova
 
 " Airline
-let g:airline_theme='hybrid'
+let g:airline_theme = 'nova'
 
 " Relative numbers in normal mode
 set relativenumber
