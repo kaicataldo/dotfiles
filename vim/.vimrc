@@ -51,7 +51,7 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'nova'
+let g:airline_theme = 'hybridline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -118,6 +118,10 @@ if executable('ag')
   let g:ctrlp_clear_cache_on_exit = 1
 endif
 
+" vim-hybrid
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
 " === General settings ===
 filetype plugin indent on
 syntax enable
@@ -133,14 +137,9 @@ else
 endif
 
 " Visuals
-" Enable true color
-if has('termguicolors')
-  set termguicolors
-else
-  set t_Co=256
-endif
+set t_Co=256
 set background=dark
-colorscheme nova
+colorscheme hybrid
 set cursorline
 
 " Line Numbers

@@ -3,10 +3,10 @@ set guifont=Hack:h12
 set macthinstrokes " Render font with thin strokes
 
 " Colors
-colorscheme nova
+colorscheme hybrid_material
 
 " Airline
-let g:airline_theme = 'nova'
+let g:airline_theme = 'hybrid'
 
 " Relative numbers in normal mode
 set relativenumber
