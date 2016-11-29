@@ -62,7 +62,6 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
 " CtrlP
-let g:ctrlp_cmd = ':CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_dont_split = 'NERD'
 
