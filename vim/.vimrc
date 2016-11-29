@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Quramy/tsuquyomi'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
-  Plug 'hail2u/vim-css3-syntax'
+  Plug 'JulesWang/css.vim'
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'groenewege/vim-less'
   Plug 'fatih/vim-go'
