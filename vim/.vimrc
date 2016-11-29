@@ -139,7 +139,7 @@ endif
 " Visuals
 set t_Co=256
 set background=dark
-colorscheme hybrid
+colorscheme hybrid_material
 set cursorline
 
 " Line Numbers
