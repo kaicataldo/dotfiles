@@ -69,6 +69,7 @@ let g:ctrlp_dont_split = 'NERD'
 let NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
 let NERDTreeIgnore = ['^\.DS_Store$']
+let NERDTreeHighlightCursorline = 0
 
 " Syntastic
 " Set to use locally installed linters only
@@ -139,14 +140,6 @@ endif
 set t_Co=256
 set background=dark
 colorscheme hybrid_material
-set cursorline
-
-" Line Numbers
-set relativenumber
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
-autocmd FocusLost * :set norelativenumber
-autocmd FocusGained * :set relativenumber
 
 " Status line
 set laststatus=2

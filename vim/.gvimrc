@@ -12,6 +12,8 @@ let g:airline_theme = 'hybrid'
 set relativenumber
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
+autocmd FocusLost * :set norelativenumber
+autocmd FocusGained * :set relativenumber
 
 " Line space
 set linespace=4
