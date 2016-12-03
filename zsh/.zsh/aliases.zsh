@@ -7,6 +7,7 @@ alias cp="cp -v"
 # Applications
 alias g=git
 alias dm=docker-machine
+alias dc=docker-compose
 
 # Directory Info
 alias ll="ls -lFh"
