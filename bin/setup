@@ -71,6 +71,3 @@ create_symlink $DOTFILES_DIR/tmux/tmux.theme ~/.tmux/tmux.theme
 # zsh
 create_symlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
 create_symlink $DOTFILES_DIR/zsh/.zsh ~/.zsh
-
-# hyper
-create_symlink $DOTFILES_DIR/hyper/.hyper.js ~/.hyper.js
