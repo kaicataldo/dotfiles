@@ -1,9 +1,7 @@
 # Defaults
-export SHELL=/bin/zsh
 export EDITOR=vim
 
 # Colors
-export TERM=xterm-256color
 export CLICOLOR=1
 
 # History
