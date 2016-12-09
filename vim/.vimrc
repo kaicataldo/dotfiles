@@ -79,8 +79,10 @@ let g:neomake_jsx_enabled_makers = ['eslint_d']
 let g:neomake_vue_enabled_makers = ['eslint_d']
 autocmd! BufWritePost * Neomake
 
-" deoplete.
+" deoplete
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
