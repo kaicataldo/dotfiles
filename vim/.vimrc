@@ -4,12 +4,13 @@ call plug#begin('~/.vim/plugged')
   " Plugins
   " Editor Features
   Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'scrooloose/syntastic'
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+  Plug 'neomake/neomake'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
@@ -23,12 +24,12 @@ call plug#begin('~/.vim/plugged')
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'mxw/vim-jsx'
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
   Plug 'leafgarland/typescript-vim'
-  Plug 'Quramy/tsuquyomi'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
@@ -71,25 +72,15 @@ let g:NERDTreeChDirMode = 2
 let NERDTreeIgnore = ['^\.DS_Store$']
 let NERDTreeHighlightCursorline = 0
 
-" Syntastic
-" Set to use locally installed linters only
-function! SetLocalJSSyntasticCheckers(lang, checkers)
-  " system appends ^@ to the returned string for some reason ¯\_(ツ)_/¯
-  silent let l:project_root = substitute(system('git rev-parse --show-toplevel'), '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" neomake
+let g:neomake_error_sign = { 'text': '✖', 'texthl': 'WarningMsg' }
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_jsx_enabled_makers = ['eslint_d']
+let g:neomake_vue_enabled_makers = ['eslint_d']
+autocmd! BufWritePost * Neomake
 
-  for l:checker in a:checkers
-    let l:checker_path = string(l:project_root . '/node_modules/.bin/' . l:checker)
-    execute 'let g:syntastic_' . a:lang . '_' . l:checker . '_exec=' . l:checker_path
-  endfor
-
-  execute 'let g:syntastic_' . a:lang . '_checkers=' . string(a:checkers)
-endfunction
-
-au Filetype javascript call SetLocalJSSyntasticCheckers('javascript', ['jscs', 'jshint', 'eslint'])
-
-" tsuquyomi
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+" deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -181,6 +172,9 @@ set splitright
 set noerrorbells
 set novisualbell
 set t_vb=
+
+" Disable preview window
+set completeopt-=preview
 
 " Spellcheck .md/.txt files
 autocmd BufRead,BufNewFile *.md setlocal spell
