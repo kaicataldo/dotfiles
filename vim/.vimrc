@@ -46,7 +46,6 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kristijanhusak/vim-hybrid-material'
-  Plug 'trevordmiller/nova-vim'
 
 call plug#end()
 

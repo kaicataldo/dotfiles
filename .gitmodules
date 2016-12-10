@@ -7,12 +7,6 @@
 [submodule "terminal/fonts"]
 	path = terminal/fonts
 	url = git@github.com:powerline/fonts.git
-[submodule "terminal/solarized"]
-	path = terminal/solarized
-	url = git@github.com:altercation/solarized.git
-[submodule "terminal/gnome-terminal-colors-solarized"]
-	path = terminal/gnome-terminal-colors-solarized
-	url = git@github.com:Anthony25/gnome-terminal-colors-solarized.git
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = git@github.com:junegunn/vim-plug.git
