@@ -51,15 +51,11 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'hybridline'
+let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'r'
@@ -110,10 +106,6 @@ if executable('ag')
   let g:ctrlp_clear_cache_on_exit = 1
 endif
 
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
 " === General settings ===
 filetype plugin indent on
 syntax enable
@@ -129,7 +121,11 @@ else
 endif
 
 " Visuals
-set t_Co=256
+if has('termguicolors')
+  set termguicolors
+else
+  set t_Co=256
+endif
 set background=dark
 colorscheme hybrid_material
 

@@ -10,3 +10,6 @@
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = git@github.com:junegunn/vim-plug.git
+[submodule "terminal/vim-hybrid-material"]
+	path = terminal/vim-hybrid-material
+	url = git@github.com:kristijanhusak/vim-hybrid-material.git
