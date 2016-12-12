@@ -86,9 +86,10 @@ module.exports = {
     "hyperterm-tab-icons",
     "hyperlinks",
     "hyperterm-cursor",
-    "hyper-hybrid-reduced-contrast",
     "hyperterm-paste",
-    "hyper-blink"
+    "hyper-blink",
+    "hyper-native",
+    "hyper-hybrid-reduced-contrast"
   ],
 
   // in development, you can create a directory under
