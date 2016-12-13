@@ -119,7 +119,6 @@ syntax enable
 set encoding=utf-8
 set number
 set backspace=indent,eol,start
-set lazyredraw
 set mouse=a " Enable mouse in terminal Vim
 set undofile " Save undo history on buffer close
 if !has('nvim')
