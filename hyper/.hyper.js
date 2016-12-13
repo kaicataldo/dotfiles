@@ -83,7 +83,6 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hypercwd",
-    "hyperterm-tab-icons",
     "hyperlinks",
     "hyperterm-cursor",
     "hyperterm-paste",
