@@ -3,7 +3,11 @@ set guifont=Hack:h12
 set macthinstrokes " Render font with thin strokes
 
 " Colors
-colorscheme hybrid_material
+colorscheme hybrid
+
+" vim-hybrid
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 
 " Airline
 let g:airline_theme = 'hybrid'
