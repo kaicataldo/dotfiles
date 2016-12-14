@@ -4,7 +4,7 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Fira Code, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgb(138,190,183,0.8)',
@@ -25,7 +25,11 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: `
+        x-screen x-row {
+            font-variant-ligatures: initial;
+        }
+    `,
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
@@ -81,15 +85,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [
-    "hypercwd",
-    "hyperlinks",
-    "hyperterm-cursor",
-    "hyperterm-paste",
-    "hyper-blink",
-    "hyper-native",
-    "hyper-hybrid-reduced-contrast"
-  ],
+  plugins: ["hyper-native", "hyper-hybrid-reduced-contrast", "hypercwd"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

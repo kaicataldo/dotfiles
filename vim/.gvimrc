@@ -1,6 +1,6 @@
 " Font
-set guifont=Hack:h12
-set macthinstrokes " Render font with thin strokes
+set guifont=Fira\ Code:h14
+set macligatures " Render ligatures
 
 " Colors
 colorscheme hybrid
@@ -20,7 +20,7 @@ autocmd FocusLost * :set norelativenumber
 autocmd FocusGained * :set relativenumber
 
 " Line space
-set linespace=4
+set linespace=2
 
 " Disable bold fonts
 set t_md=

@@ -74,8 +74,6 @@ autocmd! BufWritePost * Neomake
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -120,10 +118,10 @@ set number
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
 set undofile " Save undo history on buffer close
-if !has('nvim')
-  set ttymouse=xterm2 " Set codes being sent by mouse
-else
+if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
+else
+  set ttymouse=xterm2 " Set codes being sent by mouse
 endif
 
 " Visuals
@@ -213,6 +211,10 @@ nnoremap <Leader>p "*p
 vnoremap <Leader>p "*p
 nnoremap <Leader>P "*P
 vnoremap <Leader>P "*P
+
+" Tab completion
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
