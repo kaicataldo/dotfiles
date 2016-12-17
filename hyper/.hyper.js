@@ -4,13 +4,13 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Fira Code, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Fira Code", "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgb(138,190,183,0.8)',
+    cursorColor: 'rgba(248,28,229,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'BEAM',
+    cursorShape: 'BLOCK',
 
     // color of the text
     foregroundColor: '#fff',
@@ -26,10 +26,19 @@ module.exports = {
 
     // custom css to embed in the terminal window
     termCSS: `
-        x-screen x-row {
-            font-variant-ligatures: initial;
-        }
+        x-screen x-row {font-variant-ligatures: initial;}
+        x-row {font-weight: 500;}
     `,
+
+    // set to `true` if you're using a Linux set up
+    // that doesn't shows native menus
+    // default: `false` on Linux, `true` on Windows (ignored on macOS)
+    showHamburgerMenu: '',
+
+    // set to `false` if you want to hide the minimize, maximize and close buttons
+    // additionally, set to `'left'` if you want them on the left, like in Ubuntu
+    // default: `true` on windows and Linux (ignored on macOS)
+    showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
@@ -68,7 +77,7 @@ module.exports = {
     env: {},
 
     // set to false for no bell
-    bell: false,
+    bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
     copyOnSelect: false,
@@ -77,6 +86,9 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+    alpenglowOptions: {
+      colorScheme: 'alpenglowMonokai'
+    }
   },
 
   // a list of plugins to fetch and install from npm
@@ -85,7 +97,12 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-native", "hyper-hybrid-reduced-contrast", "hypercwd"],
+  plugins: [
+    "hypercwd",
+    "hyperterm-close-on-left",
+    "hyperterm-cursor",
+    "alpenglow-hyper"
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
