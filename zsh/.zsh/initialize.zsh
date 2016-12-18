@@ -34,6 +34,6 @@ if [ -s $HOME/.rbenv ]; then
 fi
 
 # Go
-export GOPATH=$HOME/Projects/go
+export GOPATH=$HOME/Code/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$PATH:/usr/local/opt/go/libexec/bin

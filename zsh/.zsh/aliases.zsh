@@ -1,11 +1,10 @@
 # General
-alias c=clear
-alias h=history
 alias mv="mv -v"
 alias cp="cp -v"
 
 # Applications
 alias g=git
+alias t=tmux
 alias dm=docker-machine
 alias dc=docker-compose
 

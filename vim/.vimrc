@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   Plug 'neomake/neomake'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'mileszs/ack.vim'
@@ -19,16 +18,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'yonchu/accelerated-smooth-scroll'
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
-  Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript', 'do': 'npm install -g tern' }
   Plug 'mxw/vim-jsx'
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
-  Plug 'leafgarland/typescript-vim'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
@@ -39,8 +35,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'mitsuhiko/vim-python-combined'
   Plug 'StanAngeloff/php.vim'
   Plug 'plasticboy/vim-markdown'
-  Plug 'tpope/vim-git'
   Plug 'ekalinin/Dockerfile.vim'
+  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'jsx,', 'vue'], 'do': 'npm install -g tern' }
 
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
@@ -74,6 +70,7 @@ autocmd! BufWritePost * Neomake
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -105,10 +102,6 @@ endif
 " vim-hybrid
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
-
-" accelerated-smooth-scroll
-let g:ac_smooth_scroll_fb_sleep_time_msec = 5
-let g:ac_smooth_scroll_du_sleep_time_msec = 5
 
 " === General settings ===
 filetype plugin indent on
@@ -177,9 +170,8 @@ set t_vb=
 " Disable preview window
 set completeopt-=preview
 
-" Spellcheck .md/.txt files
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd FileType gitcommit setlocal spell
+" Spellcheck
+autocmd FileType gitcommit,markdown setlocal spell
 
 " === Key mappings ===
 let mapleader=";"

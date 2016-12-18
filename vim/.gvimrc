@@ -1,6 +1,6 @@
 " Font
 set guifont=Fira\ Code:h14
-set macligatures " Render ligatures
+set macthinstrokes " Render font with thin strokes
 
 " Colors
 colorscheme hybrid
