@@ -4,9 +4,15 @@ alias cp="cp -v"
 
 # Applications
 alias g=git
-alias t=tmux
+alias tm=tmux
 alias dm=docker-machine
 alias dc=docker-compose
+
+## tmux
+alias tmn="tmux new -s"
+alias tma="tmux a -t"
+alias tmk="tmux kill-session -t"
+alias tml="tmux ls"
 
 # Directory Info
 alias ll="ls -lFh"
