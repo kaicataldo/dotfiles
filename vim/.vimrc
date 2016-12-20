@@ -257,3 +257,11 @@ highlight TermCursor guifg=#02fdff guibg=#232c31
 
 " .focss files
 autocmd BufRead,BufNewFile *.focss set syntax=scss
+
+" Italice comments + HTML attributes
+hi htmlArg cterm=italic ctermfg=173
+hi xmlAttrib cterm=italic ctermfg=173
+hi Comment cterm=italic
+hi htmlArg gui=italic guifg=#de935f
+hi xmlAttrib gui=italic guifg=#de935f
+hi Comment gui=italic
