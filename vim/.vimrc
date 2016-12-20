@@ -41,15 +41,10 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kristijanhusak/vim-hybrid-material'
-  Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
 " === Plugins Config ===
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
 " vim-airline
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
@@ -118,6 +113,8 @@ else
 endif
 
 " Visuals
+set lazyredraw
+set cursorline
 set number
 if has('termguicolors')
   set termguicolors

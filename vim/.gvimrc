@@ -2,12 +2,6 @@
 set guifont=Fira\ Code:h14
 set macthinstrokes " Render font with thin strokes
 
-" Colors
-colorscheme hybrid_material
-
-" Airline
-let g:airline_theme = 'hybrid'
-
 " Relative numbers in normal mode
 set relativenumber
 autocmd InsertEnter * :set norelativenumber

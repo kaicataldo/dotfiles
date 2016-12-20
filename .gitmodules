@@ -10,3 +10,6 @@
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = git@github.com:junegunn/vim-plug.git
+[submodule "terminal/iterm2-material-design"]
+	path = terminal/iterm2-material-design
+	url = git@github.com:MartinSeeler/iterm2-material-design.git
