@@ -40,10 +40,16 @@ call plug#begin('~/.vim/plugged')
 
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
+  Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
 " === Plugins Config ===
+" vim-hybrid
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
 " vim-airline
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
@@ -99,18 +105,12 @@ if executable('ag')
   let g:ctrlp_clear_cache_on_exit = 1
 endif
 
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
 " === General settings ===
-filetype plugin indent on
-syntax enable
 set encoding=utf-8
-set number
+
+" Keyboard/Mouse
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
-set undofile " Save undo history on buffer close
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
 else
@@ -118,13 +118,14 @@ else
 endif
 
 " Visuals
+set number
 if has('termguicolors')
   set termguicolors
 else
   set t_Co=256
 endif
 set background=dark
-colorscheme hybrid
+colorscheme hybrid_material
 
 " Status line
 set laststatus=2
@@ -153,7 +154,8 @@ set wrap
 set linebreak
 set nolist  " list disables linebreak
 
-" Vim directories
+" Undo/backup/swap
+set undofile " Save undo history on buffer close
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 set undodir=~/.vim/undo//

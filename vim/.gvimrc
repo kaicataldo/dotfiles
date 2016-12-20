@@ -3,11 +3,7 @@ set guifont=Fira\ Code:h14
 set macthinstrokes " Render font with thin strokes
 
 " Colors
-colorscheme hybrid
-
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
+colorscheme hybrid_material
 
 " Airline
 let g:airline_theme = 'hybrid'
