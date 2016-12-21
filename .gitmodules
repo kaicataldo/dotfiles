@@ -13,3 +13,6 @@
 [submodule "terminal/iterm2-material-design"]
 	path = terminal/iterm2-material-design
 	url = git@github.com:MartinSeeler/iterm2-material-design.git
+[submodule "terminal/oceanic-next-iterm"]
+	path = terminal/oceanic-next-iterm
+	url = git@github.com:mhartington/oceanic-next-iterm.git

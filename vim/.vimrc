@@ -41,12 +41,13 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'oceanicnext'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -122,7 +123,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme hybrid_material
+colorscheme OceanicNext
 
 " Status line
 set laststatus=2
@@ -235,33 +236,5 @@ endfunc
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === Misc ===
-" Neovim embedded terminal colors vim-hybrid (reduced contrast version)
-" https://github.com/neovim/neovim/issues/4436
-let g:terminal_color_0  = '#2d3c46' " Black
-let g:terminal_color_1  = '#a54242' " Red
-let g:terminal_color_2  = '#8c9440' " Green
-let g:terminal_color_3  = '#de935f' " Yellow
-let g:terminal_color_4  = '#5f819d' " Blue
-let g:terminal_color_5  = '#85678f' " Magenta
-let g:terminal_color_6  = '#5e8d87' " Cyan
-let g:terminal_color_7  = '#6c7a80' " White
-let g:terminal_color_8  = '#425059' " Bright black
-let g:terminal_color_9  = '#cc6666' " Bright red
-let g:terminal_color_10 = '#b5bd67' " Bright green
-let g:terminal_color_11 = '#f0c674' " Bright yellow
-let g:terminal_color_12 = '#81a2be' " Bright blue
-let g:terminal_color_13 = '#b294ba' " Bright Magenta
-let g:terminal_color_14 = '#8abeb7' " Bright cyan
-let g:terminal_color_15 = '#c5c8c6' " Bright white
-highlight TermCursor guifg=#02fdff guibg=#232c31
-
 " .focss files
 autocmd BufRead,BufNewFile *.focss set syntax=scss
-
-" Italice comments + HTML attributes
-hi htmlArg cterm=italic ctermfg=173
-hi xmlAttrib cterm=italic ctermfg=173
-hi Comment cterm=italic
-hi htmlArg gui=italic guifg=#de935f
-hi xmlAttrib gui=italic guifg=#de935f
-hi Comment gui=italic
