@@ -1,14 +1,14 @@
 # zsh config location
-export ZSH=$HOME/.zsh
+export CONFIG_DIR=$HOME/.zsh
 
 # Custom functions path
-fpath=($ZSH/functions $fpath)
+fpath=($CONFIG_DIR/functions $fpath)
 
 # Source all zsh files
-source $ZSH/config.zsh
-source $ZSH/initialize.zsh
-source $ZSH/completion.zsh
-source $ZSH/aliases.zsh
+source $CONFIG_DIR/config.zsh
+source $CONFIG_DIR/initialize.zsh
+source $CONFIG_DIR/completion.zsh
+source $CONFIG_DIR/aliases.zsh
 
 # Source local config file specific to machine if it exists
 if [[ -a ~/.localrc ]]

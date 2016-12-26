@@ -4,10 +4,10 @@ set macthinstrokes " Render font with thin strokes
 
 " Relative numbers in normal mode
 set relativenumber
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
-autocmd FocusLost * :set norelativenumber
-autocmd FocusGained * :set relativenumber
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
+autocmd FocusLost * set norelativenumber
+autocmd FocusGained * set relativenumber
 
 " Line space
 set linespace=2
@@ -23,4 +23,4 @@ set guioptions-=L
 set guioptions+=c
 
 " Config
-:set cursorline
+set cursorline

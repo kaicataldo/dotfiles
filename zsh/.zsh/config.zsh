@@ -17,4 +17,4 @@ setopt hist_ignore_all_dups # Don't save duplicates
 setopt extended_glob # treat #, ~, and ^ as part of patterns for filename generation
 
 # Key bindings
-bindkey -e # zsh's keybinding mode
+bindkey -e # emacs keybindings

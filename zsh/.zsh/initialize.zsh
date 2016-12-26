@@ -1,21 +1,18 @@
 # Load zsh modules
 autoload -U compinit promptinit
 compinit # Initialize completion
-promptinit # Initialize Pure prompt
+promptinit # Initialize prompt
 
 # Pure Prompt
 prompt pure
 
 # z
-. $ZSH/vendor/z/z.sh
+. $CONFIG_DIR/vendor/z/z.sh
 
 # fzf
 if [ -f ~/.fzf.zsh ]; then
   source ~/.fzf.zsh
 fi
-
-# Homebrew
-export PATH="/usr/local/sbin:$PATH"
 
 # nvm
 export NVM_DIR=$HOME/.nvm
@@ -26,10 +23,6 @@ fi
 
 # rbenv
 if [ -s $HOME/.rbenv ]; then
-  if [ $OSTYPE == "linux-gnu" ]; then
-    export PATH=$HOME/.rbenv/bin:$PATH
-  fi
-
   eval "$(rbenv init -)"
 fi
 
