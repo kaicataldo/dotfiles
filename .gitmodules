@@ -4,15 +4,6 @@
 [submodule "zsh/.zsh/vendor/z"]
 	path = zsh/.zsh/vendor/z
 	url = git@github.com:rupa/z.git
-[submodule "terminal/fonts"]
-	path = terminal/fonts
-	url = git@github.com:powerline/fonts.git
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = git@github.com:junegunn/vim-plug.git
-[submodule "terminal/iterm2-material-design"]
-	path = terminal/iterm2-material-design
-	url = git@github.com:MartinSeeler/iterm2-material-design.git
-[submodule "terminal/oceanic-next-iterm"]
-	path = terminal/oceanic-next-iterm
-	url = git@github.com:mhartington/oceanic-next-iterm.git
