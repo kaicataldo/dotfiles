@@ -124,7 +124,7 @@ set lazyredraw
 set cursorline
 set number
 if has('termguicolors')
-  set termguicolors
+  set termguicolors " True colors
 else
   set t_Co=256
 endif
@@ -183,11 +183,6 @@ autocmd FileType gitcommit,markdown setlocal spell
 let mapleader=";"
 inoremap jj <Esc>
 
-" Exit terminal mode
-if has('nvim')
-  tnoremap <Leader>jj <C-\><C-n>
-endif
-
 " Line navigation ignores line wrap
 nnoremap j gj
 nnoremap k gk
@@ -199,6 +194,12 @@ vnoremap <  <gv
 vnoremap >  >gv
 
 " Split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Buffer cycling
 nnoremap <Leader>j :bp<CR>
 nnoremap <Leader>k :bn<CR>
 
@@ -213,6 +214,11 @@ vnoremap <Leader>P "*P
 " Tab completion
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Exit terminal mode
+if has('nvim')
+  tnoremap <Leader>jj <C-\><C-n>
+endif
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -244,3 +250,7 @@ nnoremap <Leader>nt :call NumberToggle()<CR>
 " === Misc ===
 " .focss files
 autocmd BufRead,BufNewFile *.focss set syntax=scss
+
+" TODO: Remove when the following Neovim issue is fixed:
+" https://github.com/neovim/neovim/issues/2048
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>

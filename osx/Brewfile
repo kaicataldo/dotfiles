@@ -20,5 +20,3 @@ brew "zsh"
 brew "neovim/neovim/neovim"
 brew "fzf"
 brew "diff-so-fancy"
-
-cask "caskroom/fonts/font-hack"
