@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'neomake/neomake'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
@@ -18,6 +17,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'Shougo/deoplete.nvim', has('nvim') ? { 'do': ':UpdateRemotePlugins' } : { 'on': [] }
+  Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : { 'on': [] }
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -36,7 +37,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'StanAngeloff/php.vim'
   Plug 'plasticboy/vim-markdown'
   Plug 'ekalinin/Dockerfile.vim'
-  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'jsx,', 'vue'], 'do': 'npm install -g tern' }
+  Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'jsx,', 'vue'], 'do': 'npm install' }
+  Plug 'carlitux/deoplete-ternjs', has('nvim') ? { 'for': ['javascript', 'jsx,', 'vue'], 'do': 'npm install -g tern' } : { 'on': [] }
 
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
@@ -64,15 +66,19 @@ let NERDTreeIgnore = ['^\.DS_Store$']
 let NERDTreeHighlightCursorline = 0
 
 " neomake
-let g:neomake_error_sign = { 'text': '✖', 'texthl': 'WarningMsg' }
 let g:neomake_javascript_enabled_makers = ['eslint_d']
 let g:neomake_jsx_enabled_makers = ['eslint_d']
 let g:neomake_vue_enabled_makers = ['eslint_d']
 autocmd! BufWritePost * Neomake
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
+" deoplete/neocomplete
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#file#enable_buffer_path = 1
+else
+  let g:neocomplete#enable_at_startup = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
 
 " vim-javascript
 let g:javascript_plugin_flow = 1

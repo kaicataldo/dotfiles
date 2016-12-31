@@ -1,6 +1,5 @@
 " Font
-set guifont=Fira\ Code:h14
-set macthinstrokes " Render font with thin strokes
+set guifont=Fira\ Code:h12
 
 " Relative numbers in normal mode
 set relativenumber
