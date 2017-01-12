@@ -16,6 +16,9 @@ if [ -f ~/.fzf.zsh ]; then
   source ~/.fzf.zsh
 fi
 
+# Homebrew
+export PATH=/usr/local/sbin:$PATH
+
 # nvm
 export NVM_DIR=$HOME/.nvm
 
