@@ -97,6 +97,7 @@ set encoding=utf-8
 " Keyboard/Mouse
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
+set clipboard=unnamed " Use OS's clipboard
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
 else
@@ -184,14 +185,6 @@ nnoremap <C-l> <C-w>l
 " Buffer cycling
 nnoremap <Leader>j :bp<CR>
 nnoremap <Leader>k :bn<CR>
-
-" Copy to clipboard
-nnoremap <Leader>y "*y
-vnoremap <Leader>y "*y
-nnoremap <Leader>p "*p
-vnoremap <Leader>p "*p
-nnoremap <Leader>P "*P
-vnoremap <Leader>P "*P
 
 " Tab completion
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
