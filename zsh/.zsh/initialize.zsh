@@ -3,8 +3,6 @@ autoload -U compinit promptinit
 compinit # Initialize completion
 promptinit # Initialize prompt
 
-PURE_PROMPT_SYMBOL="↪ "
-
 # Pure Prompt
 prompt pure
 
