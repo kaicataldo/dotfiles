@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'jlanzarotta/bufexplorer'
   Plug 'Raimondi/delimitMate'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'Shougo/deoplete.nvim', has('nvim') ? { 'do': ':UpdateRemotePlugins' } : { 'on': [] }
+  Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : { 'on': [] }
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -63,6 +65,14 @@ let g:neomake_javascript_enabled_makers = ['eslint_d']
 let g:neomake_jsx_enabled_makers = ['eslint_d']
 let g:neomake_vue_enabled_makers = ['eslint_d']
 autocmd! BufWritePost * Neomake
+
+" deoplete/neocomplete
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#file#enable_buffer_path = 1
+else
+  let g:neocomplete#enable_at_startup = 1
+endif
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -192,7 +202,7 @@ inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Exit terminal mode
 if has('nvim')
-  tnoremap <Leader>jj <C-\><C-n>
+  tnoremap <C-[> <C-\><C-n>
 endif
 
 " NERDTree

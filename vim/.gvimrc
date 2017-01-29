@@ -1,5 +1,5 @@
 " Font
-set guifont=Fira\ Code:h12
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h13
 
 " Relative numbers in normal mode
 set relativenumber
