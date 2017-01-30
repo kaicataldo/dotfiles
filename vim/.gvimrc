@@ -1,5 +1,6 @@
 " Font
-set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h13
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+set macthinstrokes " Render font with thin strokes
 
 " Relative numbers in normal mode
 set relativenumber
