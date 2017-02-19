@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
+  Plug 'carlitux/deoplete-ternjs', has('nvim') ? { 'do': 'npm install -g tern' } : { 'on': [] }
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
@@ -69,7 +70,12 @@ autocmd! BufWritePost * Neomake
 " deoplete/neocomplete
 if has('nvim')
   let g:deoplete#enable_at_startup = 1
+  " file source completion from buffer path instead of CWD
   let g:deoplete#file#enable_buffer_path = 1
+
+  " 'file' = file paths, 'buffer' = words from currently open buffers
+  let g:deoplete#sources = {}
+  let g:deoplete#sources['javascript.jsx'] = ['ternjs', 'buffer', 'file']
 else
   let g:neocomplete#enable_at_startup = 1
 endif
