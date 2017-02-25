@@ -39,13 +39,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'ekalinin/Dockerfile.vim'
 
   " Color Schemes
+  Plug 'w0ng/vim-hybrid'
   Plug 'mhartington/oceanic-next'
+  Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'oceanicnext'
+let g:airline_theme = 'nord'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -107,6 +109,10 @@ if executable('ag')
   let g:ctrlp_clear_cache_on_exit = 1
 endif
 
+" hybrid
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1
+
 " === General settings ===
 set encoding=utf-8
 
@@ -128,7 +134,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme OceanicNext
+colorscheme nord
 
 " Status line
 set laststatus=2
