@@ -186,7 +186,6 @@ autocmd FileType gitcommit,markdown setlocal spell
 
 " === Key mappings ===
 let mapleader=";"
-inoremap jj <Esc>
 
 " Line navigation ignores line wrap
 nnoremap j gj
