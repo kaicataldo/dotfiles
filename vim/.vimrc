@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Shougo/deoplete.nvim', has('nvim') ? { 'do': ':UpdateRemotePlugins' } : { 'on': [] }
   Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : { 'on': [] }
+  Plug 'christoomey/vim-tmux-navigator'
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
