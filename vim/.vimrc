@@ -127,7 +127,6 @@ else
 endif
 
 " Visuals
-set number
 if has('termguicolors')
   set termguicolors " True colors
 else
@@ -135,6 +134,14 @@ else
 endif
 set background=dark
 colorscheme nord
+
+" Numbers
+set number
+set relativenumber
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
+autocmd FocusLost * set norelativenumber
+autocmd FocusGained * set relativenumber
 
 " Status line
 set laststatus=2
@@ -226,8 +233,10 @@ nnoremap K :Ack! <cword><CR>
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
 
-" Clear Highlighing
-nnoremap <silent> <Leader><Space> :noh<CR>
+" Clear highlighting in normal mode
+nnoremap <silent> <Esc> :noh<CR><Esc>
+nnoremap <silent> <C-[> :noh<CR><Esc>
+nnoremap <silent> <C-c> :noh<CR><Esc>
 
 " Toggle paste mode
 set pastetoggle=<F6>
