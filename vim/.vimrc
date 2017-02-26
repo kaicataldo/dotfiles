@@ -41,13 +41,14 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'mhartington/oceanic-next'
+  Plug 'trevordmiller/nova-vim'
   Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'nord'
+let g:airline_theme = 'nova'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -133,7 +134,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme nord
+colorscheme nova
 
 " Numbers
 set number
