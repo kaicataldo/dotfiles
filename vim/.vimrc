@@ -49,7 +49,7 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-airline
-let g:airline_theme = 'nova'
+let g:airline_theme = 'oceanicnext'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -135,7 +135,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme nova
+colorscheme OceanicNext
 
 " Numbers
 set number
@@ -195,6 +195,7 @@ autocmd FileType gitcommit,markdown setlocal spell
 
 " === Key mappings ===
 let mapleader=";"
+inoremap jj <Esc>
 
 " Line navigation ignores line wrap
 nnoremap j gj
