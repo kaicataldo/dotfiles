@@ -1,0 +1,40 @@
+# hybrid + hybridline airline theme
+set -g pane-border-style 'fg=#303030'
+set -g pane-active-border-style 'fg=brightblack'
+set -g status-style 'fg=brightwhite,bg=#282a2e'
+set -g message-style 'fg=brightwhite,bg=#282a2e'
+set -g status-left "#[fg=#005f00,bg=#b5bd68] #S #[fg=#b5bd68,bg=#282a2e,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=#373b40,bg=#282a2e,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#373b40] %Y-%m-%d  %H:%M #[fg=#c5c7c6,bg=#373b40,nobold,nounderscore,noitalics]#[fg=#292a2e,bg=#c5c7c6] #h "
+setw -g window-status-format "#[fg=brightwhite,bg=#282a2e] #I #[fg=brightwhite,bg=#282a2e] #W "
+setw -g window-status-current-format "#[fg=#282a2e,bg=#373b40,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#373b40] #I #[fg=brightwhite,bg=#373b40] #W #[fg=#373b40,bg=#282a2e,nobold,nounderscore,noitalics]"
+
+# hybrid + hybrid airline theme
+# set -g pane-border-style 'fg=#425059'
+# set -g pane-active-border-style 'fg=white'
+# set -g status-style 'fg=white,bg=#425059'
+# set -g message-style 'fg=white,bg=#425059'
+# set -g status-left "#[fg=#d8feaa,bg=#608660] #S #[fg=#608660,bg=#425059,nobold,nounderscore,noitalics]"
+# set -g status-right "#[fg=#2e3c46,bg=#425059,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#2e3c46] %Y-%m-%d  %H:%M #[fg=#608660,bg=#2e3c46,nobold,nounderscore,noitalics]#[fg=#d8feaa,bg=#608660] #h "
+# setw -g window-status-format "#[fg=brightwhite,bg=#425059] #I #[fg=brightwhite,bg=#425059] #W "
+# setw -g window-status-current-format "#[fg=#425059,bg=#2e3c46,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#2e3c46] #I #[fg=brightwhite,bg=#2e3c46] #W #[fg=#2e3c46,bg=#425059,nobold,nounderscore,noitalics]"
+
+# Oceanic Next
+# set -g pane-border-style 'fg=#343d46'
+# set -g pane-active-border-style 'fg=#4f5b66'
+# set -g status-style 'fg=white,bg=#343d46'
+# set -g message-style 'fg=white,bg=#343d46'
+# set -g status-left "#[fg=white,bg=blue] #S #[fg=blue,bg=#343d46,nobold,nounderscore,noitalics]"
+# set -g status-right "#[fg=#65737d,bg=#343d46,nobold,nounderscore,noitalics]#[fg=white,bg=#65737d] %Y-%m-%d  %H:%M #[fg=blue,bg=#65737d,nobold,nounderscore,noitalics]#[fg=white,bg=blue] #h "
+# setw -g window-status-format "#[fg=white,bg=#343d46] #I #[fg=white,bg=#343d46] #W "
+# setw -g window-status-current-format "#[fg=#343d46,bg=#65737d,nobold,nounderscore,noitalics]#[fg=white,bg=#65737d] #I #[fg=white,bg=#65737d] #W #[fg=#65737d,bg=#343d46,nobold,nounderscore,noitalics]"
+
+# Nova
+# set -g pane-border-style 'fg=brightblack,bg=black'
+# set -g pane-active-border-style 'fg=brightwhite,bg=black'
+# set -g status-style 'fg=white,bg=#566872'
+# set -g message-style 'fg=cyan, bg=black'
+# set -g status-left "#[fg=brightwhite,bg=brightblack] #S #[fg=brightblack,bg=#566872,nobold,nounderscore,noitalics]"
+# set -g status-right "#[fg=#6b7d88,bg=#566872,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#6b7d88] %Y-%m-%d  %H:%M #[fg=brightblack,bg=#6b7d88,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=brightblack] #h "
+# setw -g window-status-format "#[fg=black,bg=#566872] #I #[fg=black,bg=#566872] #W "
+# setw -g window-status-current-format "#[fg=#566872,bg=#6b7d88,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#6b7d88] #I #[fg=brightwhite,bg=#6b7d88] #W #[fg=#6b7d88,bg=#566872,nobold,nounderscore,noitalics]"
+

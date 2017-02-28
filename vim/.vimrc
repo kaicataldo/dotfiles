@@ -48,8 +48,12 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " === Plugins Config ===
+" vim-hybrid
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
 " vim-airline
-let g:airline_theme = 'oceanicnext'
+let g:airline_theme = 'hybridline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -111,10 +115,6 @@ if executable('ag')
   let g:ctrlp_clear_cache_on_exit = 1
 endif
 
-" hybrid
-" let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1
-
 " === General settings ===
 set encoding=utf-8
 
@@ -135,7 +135,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme OceanicNext
+colorscheme hybrid
 
 " Numbers
 set number
