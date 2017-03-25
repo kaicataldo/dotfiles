@@ -7,7 +7,9 @@ promptinit # Initialize prompt
 prompt pure
 
 # z
-. $CONFIG_DIR/vendor/z/z.sh
+if [ -f $(brew --prefix)/etc/profile.d/z.sh ]; then
+  source $(brew --prefix)/etc/profile.d/z.sh
+fi
 
 # fzf
 if [ -f ~/.fzf.zsh ]; then
@@ -21,7 +23,7 @@ export PATH=/usr/local/sbin:$PATH
 export NVM_DIR=$HOME/.nvm
 
 if [ -s $NVM_DIR/nvm.sh ]; then
-  . $NVM_DIR/nvm.sh
+  source $NVM_DIR/nvm.sh
 fi
 
 # rbenv

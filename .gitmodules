@@ -1,9 +1,6 @@
-[submodule "zsh/.zsh/vendor/pure"]
-	path = zsh/.zsh/vendor/pure
-	url = git@github.com:sindresorhus/pure.git
-[submodule "zsh/.zsh/vendor/z"]
-	path = zsh/.zsh/vendor/z
-	url = git@github.com:rupa/z.git
-[submodule "vim/vim-plug"]
-	path = vim/vim-plug
+[submodule "submodules/vim-plug"]
+	path = submodules/vim-plug
 	url = git@github.com:junegunn/vim-plug.git
+[submodule "submodules/pure"]
+	path = submodules/pure
+	url = git@github.com:sindresorhus/pure.git

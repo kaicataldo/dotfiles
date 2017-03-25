@@ -45,8 +45,8 @@ create_symlink() {
 
 # All the symlinks
 # Pure Prompt
-create_symlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
-create_symlink $DOTFILES_DIR/zsh/.zsh/vendor/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
+create_symlink $DOTFILES_DIR/submodules/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
+create_symlink $DOTFILES_DIR/submodules/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
 
 # Git
 create_symlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
@@ -56,7 +56,7 @@ create_symlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
 create_symlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
 
 # Vim
-create_symlink $DOTFILES_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+create_symlink $DOTFILES_DIR/submodules/vim-plug/plug.vim ~/.vim/autoload/plug.vim
 create_symlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
 create_symlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
 
