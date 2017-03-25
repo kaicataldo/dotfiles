@@ -11,7 +11,6 @@ source $CONFIG_DIR/completion.zsh
 source $CONFIG_DIR/aliases.zsh
 
 # Source local config file specific to machine if it exists
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
+if [[ -a $HOME/.localrc ]]; then
+  source $HOME/.localrc
 fi

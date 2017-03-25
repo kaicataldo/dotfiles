@@ -12,8 +12,8 @@ if [ -f $(brew --prefix)/etc/profile.d/z.sh ]; then
 fi
 
 # fzf
-if [ -f ~/.fzf.zsh ]; then
-  source ~/.fzf.zsh
+if [ -f $HOME/.fzf.zsh ]; then
+  source $HOME/.fzf.zsh
 fi
 
 # Homebrew

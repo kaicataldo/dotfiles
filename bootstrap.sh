@@ -11,8 +11,7 @@ while true; do
 done
 
 # Get the dotfiles directory's absolute path
-SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
-DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
+DOTFILES_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 
 # Pull latest files from GitHub
 cd $DOTFILES_DIR
@@ -30,12 +29,12 @@ create_dir() {
 }
 
 create_dir $DOTFILES_DIR/zsh/.zsh/functions
-create_dir ~/.vim
-create_dir ~/.vim/autoload
-create_dir ~/.vim/backup
-create_dir ~/.vim/swp
-create_dir ~/.vim/undo
-create_dir ~/.tmux
+create_dir $HOME/.vim
+create_dir $HOME/.vim/autoload
+create_dir $HOME/.vim/backup
+create_dir $HOME/.vim/swp
+create_dir $HOME/.vim/undo
+create_dir $HOME/.tmux
 
 # Symlink and report creation of link
 create_symlink() {
@@ -49,25 +48,25 @@ create_symlink $DOTFILES_DIR/submodules/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/fun
 create_symlink $DOTFILES_DIR/submodules/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
 
 # Git
-create_symlink $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
-create_symlink  $DOTFILES_DIR/git/.gitignore_global ~/.gitignore_global
+create_symlink $DOTFILES_DIR/git/.gitconfig $HOME/.gitconfig
+create_symlink  $DOTFILES_DIR/git/.gitignore_global $HOME/.gitignore_global
 
 # Ruby
-create_symlink $DOTFILES_DIR/ruby/.gemrc ~/.gemrc
+create_symlink $DOTFILES_DIR/ruby/.gemrc $HOME/.gemrc
 
 # Vim
-create_symlink $DOTFILES_DIR/submodules/vim-plug/plug.vim ~/.vim/autoload/plug.vim
-create_symlink $DOTFILES_DIR/vim/.vimrc ~/.vimrc
-create_symlink $DOTFILES_DIR/vim/.gvimrc ~/.gvimrc
+create_symlink $DOTFILES_DIR/submodules/vim-plug/plug.vim $HOME/.vim/autoload/plug.vim
+create_symlink $DOTFILES_DIR/vim/.vimrc $HOME/.vimrc
+create_symlink $DOTFILES_DIR/vim/.gvimrc $HOME/.gvimrc
 
 # Neovim
-create_symlink ~/.vim ~/.config/nvim
-create_symlink ~/.vimrc ~/.config/nvim/init.vim
+create_symlink $HOME/.vim $HOME/.config/nvim
+create_symlink $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # tmux
-create_symlink $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
-create_symlink $DOTFILES_DIR/tmux/.tmux.theme ~/.tmux/.tmux.theme
+create_symlink $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf
+create_symlink $DOTFILES_DIR/tmux/.tmux.theme $HOME/.tmux/.tmux.theme
 
 # zsh
-create_symlink $DOTFILES_DIR/zsh/.zshrc ~/.zshrc
-create_symlink $DOTFILES_DIR/zsh/.zsh ~/.zsh
+create_symlink $DOTFILES_DIR/zsh/.zshrc $HOME/.zshrc
+create_symlink $DOTFILES_DIR/zsh/.zsh $HOME/.zsh
