@@ -1,0 +1,9 @@
+# Oceanic Next
+set -g pane-border-style 'fg=#343d46'
+set -g pane-active-border-style 'fg=#4f5b66'
+set -g status-style 'fg=white,bg=#343d46'
+set -g message-style 'fg=white,bg=#343d46'
+set -g status-left "#[fg=white,bg=blue] #S #[fg=blue,bg=#343d46,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=#65737d,bg=#343d46,nobold,nounderscore,noitalics]#[fg=white,bg=#65737d] %Y-%m-%d  %H:%M #[fg=blue,bg=#65737d,nobold,nounderscore,noitalics]#[fg=white,bg=blue] #h "
+setw -g window-status-format "#[fg=white,bg=#343d46] #I #[fg=white,bg=#343d46] #W "
+setw -g window-status-current-format "#[fg=#343d46,bg=#65737d,nobold,nounderscore,noitalics]#[fg=white,bg=#65737d] #I #[fg=white,bg=#65737d] #W #[fg=#65737d,bg=#343d46,nobold,nounderscore,noitalics]"

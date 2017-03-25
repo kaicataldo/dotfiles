@@ -1,0 +1,9 @@
+# hybrid + hybridline airline theme
+set -g pane-border-style 'fg=#303030'
+set -g pane-active-border-style 'fg=brightblack'
+set -g status-style 'fg=brightwhite,bg=#282a2e'
+set -g message-style 'fg=brightwhite,bg=#282a2e'
+set -g status-left "#[fg=#005f00,bg=#b5bd68] #S #[fg=#b5bd68,bg=#282a2e,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=#373b40,bg=#282a2e,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#373b40] %Y-%m-%d  %H:%M #[fg=#c5c7c6,bg=#373b40,nobold,nounderscore,noitalics]#[fg=#292a2e,bg=#c5c7c6] #h "
+setw -g window-status-format "#[fg=brightwhite,bg=#282a2e] #I #[fg=brightwhite,bg=#282a2e] #W "
+setw -g window-status-current-format "#[fg=#282a2e,bg=#373b40,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#373b40] #I #[fg=brightwhite,bg=#373b40] #W #[fg=#373b40,bg=#282a2e,nobold,nounderscore,noitalics]"

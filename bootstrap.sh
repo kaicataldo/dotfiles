@@ -65,8 +65,7 @@ create_symlink $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # tmux
 create_symlink $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf
-create_symlink $DOTFILES_DIR/tmux/.tmux.theme $HOME/.tmux/.tmux.theme
-
+create_symlink $DOTFILES_DIR/tmux/colorschemes $HOME/.tmux/colorschemes
 # zsh
 create_symlink $DOTFILES_DIR/zsh/.zshrc $HOME/.zshrc
 create_symlink $DOTFILES_DIR/zsh/.zsh $HOME/.zsh

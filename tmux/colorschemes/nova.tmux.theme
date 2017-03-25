@@ -1,0 +1,9 @@
+# Nova
+set -g pane-border-style 'fg=brightblack,bg=black'
+set -g pane-active-border-style 'fg=brightwhite,bg=black'
+set -g status-style 'fg=white,bg=#566872'
+set -g message-style 'fg=cyan, bg=black'
+set -g status-left "#[fg=brightwhite,bg=brightblack] #S #[fg=brightblack,bg=#566872,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=#6b7d88,bg=#566872,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#6b7d88] %Y-%m-%d  %H:%M #[fg=brightblack,bg=#6b7d88,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=brightblack] #h "
+setw -g window-status-format "#[fg=black,bg=#566872] #I #[fg=black,bg=#566872] #W "
+setw -g window-status-current-format "#[fg=#566872,bg=#6b7d88,nobold,nounderscore,noitalics]#[fg=brightwhite,bg=#6b7d88] #I #[fg=brightwhite,bg=#6b7d88] #W #[fg=#6b7d88,bg=#566872,nobold,nounderscore,noitalics]"
