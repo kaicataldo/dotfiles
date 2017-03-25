@@ -44,6 +44,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhartington/oceanic-next'
   Plug 'trevordmiller/nova-vim'
   Plug 'arcticicestudio/nord-vim'
+  Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
