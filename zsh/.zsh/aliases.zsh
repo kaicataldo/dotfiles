@@ -9,7 +9,8 @@ alias dm=docker-machine
 alias dc=docker-compose
 
 ## tmux
-alias tmn="tmux new -s"
+alias tmn="tmux new -s $(basename $PWD)"
+alias tms="tmux new -s"
 alias tma="tmux a -t"
 alias tmk="tmux kill-session -t"
 alias tml="tmux ls"
