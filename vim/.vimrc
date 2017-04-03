@@ -45,16 +45,20 @@ call plug#begin('~/.vim/plugged')
   Plug 'trevordmiller/nova-vim'
   Plug 'arcticicestudio/nord-vim'
   Plug 'altercation/vim-colors-solarized'
+  Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
 " === Plugins Config ===
 " vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1
+
+" ayu-vim
+let ayucolor = 'mirage'
 
 " vim-airline
-let g:airline_theme = 'hybridline'
+let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -136,7 +140,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme hybrid
+colorscheme ayu
 
 " Numbers
 set number
