@@ -269,3 +269,11 @@ autocmd BufRead,BufNewFile *.focss set syntax=scss
  if has('nvim')
    nmap <BS> <C-W>h
  endif
+
+" Italice comments + HTML attributes
+hi htmlArg cterm=italic ctermfg=121
+hi xmlAttrib cterm=italic ctermfg=121
+hi Comment cterm=italic
+hi htmlArg gui=italic guifg=#5CCFE6
+hi xmlAttrib gui=italic guifg=#5CCFE6
+hi Comment gui=italic
