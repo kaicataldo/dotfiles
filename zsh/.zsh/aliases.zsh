@@ -4,6 +4,7 @@ alias cp="cp -v"
 
 # Applications
 alias g=git
+alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias tm=tmux
 alias dm=docker-machine
 alias dc=docker-compose

@@ -1,6 +1,5 @@
 " Font
-set guifont=Roboto\ Mono\ for\ Powerline:h14
-set macthinstrokes " Render font with thin strokes
+set guifont=Hack:h14
 
 " Relative numbers in normal mode
 set relativenumber
