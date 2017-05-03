@@ -51,11 +51,11 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-hybrid
-" let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 
 " ayu-vim
-let ayucolor = 'mirage'
+" let ayucolor = 'mirage'
 
 " vim-airline
 let g:airline_theme = 'hybrid'
@@ -140,7 +140,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme ayu
+colorscheme hybrid
 
 " Numbers
 set number
@@ -260,6 +260,25 @@ endfunc
 
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
+" === Colors ===
+hi Comment cterm=italic
+hi Comment gui=italic
+
+" Hybrid colors
+hi NeomakeErrorSign ctermfg=9 guifg=#cc6666
+hi GitGutterAdd ctermfg=10 guifg=#b5bd68
+hi GitGutterDelete ctermfg=9 guifg=#cc6666
+hi htmlArg cterm=italic ctermfg=3
+hi xmlAttrib cterm=italic ctermfg=3
+hi htmlArg gui=italic guifg=#de935f
+hi xmlAttrib gui=italic guifg=#de935f
+
+" Ayu colors
+" hi htmlArg cterm=italic ctermfg=121
+" hi xmlAttrib cterm=italic ctermfg=121
+" hi htmlArg gui=italic guifg=#5CCFE6
+" hi xmlAttrib gui=italic guifg=#5CCFE6
+
 " === Misc ===
 " .focss files
 autocmd BufRead,BufNewFile *.focss set syntax=scss
@@ -269,11 +288,3 @@ autocmd BufRead,BufNewFile *.focss set syntax=scss
  if has('nvim')
    nmap <BS> <C-W>h
  endif
-
-" Italice comments + HTML attributes
-hi htmlArg cterm=italic ctermfg=121
-hi xmlAttrib cterm=italic ctermfg=121
-hi Comment cterm=italic
-hi htmlArg gui=italic guifg=#5CCFE6
-hi xmlAttrib gui=italic guifg=#5CCFE6
-hi Comment gui=italic
