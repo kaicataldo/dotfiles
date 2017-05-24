@@ -130,6 +130,7 @@ set mouse=a " Enable mouse in terminal Vim
 set clipboard=unnamed " Use OS's clipboard
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
+  set cursorline " highlight current line - disabled in Vim for performance reasons
 else
   set ttymouse=xterm2 " Set codes being sent by mouse
 endif
