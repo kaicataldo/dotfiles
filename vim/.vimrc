@@ -76,9 +76,30 @@ let NERDTreeIgnore = ['^\.DS_Store$']
 let NERDTreeHighlightCursorline = 0
 
 " neomake
-let g:neomake_javascript_enabled_makers = ['eslint_d']
-let g:neomake_jsx_enabled_makers = ['eslint_d']
-let g:neomake_vue_enabled_makers = ['eslint_d']
+function! SetLocalJSMakers()
+  let l:makers = ['eslint', 'flow']
+  let l:file_types = ['javascript', 'jsx', 'vue']
+  let l:used_makers = []
+
+  for l:maker in l:makers
+    let l:local_exe = finddir('node_modules', '.;') . '/.bin/' . l:maker
+
+    if matchstr(l:local_exe, "^\/\\w") == ''
+        let l:local_exe = getcwd() . "/" . l:local_exe
+    endif
+
+    if executable(l:local_exe)
+      execute 'let g:neomake_javascript_' . l:maker . '_exe = ' . string(l:local_exe)
+      let l:used_makers = add(l:used_makers, l:maker)
+    endif
+  endfor
+
+  for l:type in l:file_types
+    execute 'let g:neomake_' . l:type . '_enabled_makers = ' . string(l:used_makers)
+  endfor
+endfunction
+
+au Filetype javascript call SetLocalJSMakers()
 autocmd! BufWritePost * Neomake
 
 " deoplete/neocomplete
