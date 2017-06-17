@@ -1,11 +1,11 @@
 # Defaults
-export EDITOR=nvim
+export EDITOR="vim"
 
 # Colors
 export CLICOLOR=1
 
 # History
-HISTFILE=~/.zsh_history
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 

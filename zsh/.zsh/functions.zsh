@@ -1,5 +1,5 @@
 # tmux
 tmn() {
-  BASE=$(basename $PWD)
+  BASE="$(basename $PWD)"
   tmux new -s $BASE
 }

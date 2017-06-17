@@ -7,31 +7,31 @@ promptinit # Initialize prompt
 prompt pure
 
 # z
-if [ -f $(brew --prefix)/etc/profile.d/z.sh ]; then
-  source $(brew --prefix)/etc/profile.d/z.sh
+if [ -f "$(brew --prefix)/etc/profile.d/z.sh" ]; then
+  source "$(brew --prefix)/etc/profile.d/z.sh"
 fi
 
 # fzf
-if [ -f $HOME/.fzf.zsh ]; then
-  source $HOME/.fzf.zsh
+if [ -f "$HOME/.fzf.zsh" ]; then
+  source "$HOME/.fzf.zsh"
 fi
 
 # Homebrew
-export PATH=/usr/local/sbin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 
 # nvm
-export NVM_DIR=$HOME/.nvm
+export NVM_DIR="$HOME/.nvm"
 
-if [ -s $NVM_DIR/nvm.sh ]; then
-  source $NVM_DIR/nvm.sh
+if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+  source "/usr/local/opt/nvm/nvm.sh"
 fi
 
 # rbenv
-if [ -s $HOME/.rbenv ]; then
+if [ -s "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
 # Go
-export GOPATH=$HOME/Code/go
-export PATH=$GOPATH/bin:$PATH
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH="$HOME/Code/go"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$PATH:/usr/local/opt/go/libexec/bin"

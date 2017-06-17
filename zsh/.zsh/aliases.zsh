@@ -3,11 +3,10 @@ alias mv="mv -v"
 alias cp="cp -v"
 
 # Applications
-alias g=git
-alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias tm=tmux
-alias dm=docker-machine
-alias dc=docker-compose
+alias g="git"
+alias tm="tmux"
+alias dm="docker-machine"
+alias dc="docker-compose"
 
 ## tmux
 alias tms="tmux new -s"
@@ -23,10 +22,10 @@ alias lr="ls -tRFh"  # List recursively
 
 # zshrc config
 alias zshrc="${EDITOR} ${$(cd -P $(dirname $0) && cd ..; pwd -P)}"
-alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
+alias reload="source $HOME/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
 
 #localrc config
-alias localrc="if [[ -a ~/.localrc ]]; then ${EDITOR} ~/.localrc; fi"
+alias localrc="if [[ -a $HOME/.localrc ]]; then ${EDITOR} $HOME/.localrc; fi"
 
 # npm
 alias npmls="npm ls --depth=0"
