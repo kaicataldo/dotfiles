@@ -35,6 +35,7 @@ create_dir $HOME/.vim/backup
 create_dir $HOME/.vim/swp
 create_dir $HOME/.vim/undo
 create_dir $HOME/.tmux
+create_dir $HOME/.config
 
 # Symlink and report creation of link
 create_symlink() {
