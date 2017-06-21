@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'jlanzarotta/bufexplorer'
   Plug 'Raimondi/delimitMate'
+  Plug 'terryma/vim-expand-region'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Shougo/deoplete.nvim', has('nvim') ? { 'do': ':UpdateRemotePlugins' } : { 'on': [] }
   Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : { 'on': [] }
@@ -52,8 +53,8 @@ call plug#end()
 
 " === Plugins Config ===
 " vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1
 
 " ayu-vim
 " let ayucolor = 'mirage'
@@ -284,17 +285,17 @@ endfunc
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === Colors ===
-hi Comment cterm=italic
-hi Comment gui=italic
+" hi Comment cterm=italic
+" hi Comment gui=italic
 
 " Hybrid colors
-hi NeomakeErrorSign ctermfg=9 guifg=#cc6666
-hi GitGutterAdd ctermfg=10 guifg=#b5bd68
-hi GitGutterDelete ctermfg=9 guifg=#cc6666
-hi htmlArg cterm=italic ctermfg=3
-hi xmlAttrib cterm=italic ctermfg=3
-hi htmlArg gui=italic guifg=#de935f
-hi xmlAttrib gui=italic guifg=#de935f
+" hi NeomakeErrorSign ctermfg=9 guifg=#cc6666
+" hi GitGutterAdd ctermfg=10 guifg=#b5bd68
+" hi GitGutterDelete ctermfg=9 guifg=#cc6666
+" hi htmlArg cterm=italic ctermfg=3
+" hi xmlAttrib cterm=italic ctermfg=3
+" hi htmlArg gui=italic guifg=#de935f
+" hi xmlAttrib gui=italic guifg=#de935f
 
 " Ayu colors
 " hi htmlArg cterm=italic ctermfg=121
