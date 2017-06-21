@@ -289,6 +289,9 @@ nnoremap <Leader>nt :call NumberToggle()<CR>
 hi Comment cterm=italic
 hi Comment gui=italic
 
+" Quantum colors
+hi NeomakeErrorSign ctermfg=9 guifg=#dd7186
+
 " Hybrid colors
 " hi NeomakeErrorSign ctermfg=9 guifg=#cc6666
 " hi GitGutterAdd ctermfg=10 guifg=#b5bd68
