@@ -186,7 +186,9 @@ set shiftwidth=2
 set autoindent
 
 " Folding
-set nofoldenable
+set foldmethod=syntax
+" Expand all folds on buffer read
+au BufRead * normal zR
 
 " Search
 set smartcase
@@ -284,8 +286,8 @@ endfunc
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === Colors ===
-" hi Comment cterm=italic
-" hi Comment gui=italic
+hi Comment cterm=italic
+hi Comment gui=italic
 
 " Hybrid colors
 " hi NeomakeErrorSign ctermfg=9 guifg=#cc6666
