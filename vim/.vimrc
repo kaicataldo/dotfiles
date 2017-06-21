@@ -151,7 +151,6 @@ set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
 set clipboard=unnamed " Use OS's clipboard
 if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 " Change cursor shape based on mode
   set cursorline " highlight current line - disabled in Vim for performance reasons
 else
   set ttymouse=xterm2 " Set codes being sent by mouse
@@ -306,9 +305,3 @@ nnoremap <Leader>nt :call NumberToggle()<CR>
 " === Misc ===
 " .focss files
 autocmd BufRead,BufNewFile *.focss set syntax=scss
-
-" TODO: Remove when the following Neovim issue is fixed:
-" https://github.com/neovim/neovim/issues/2048
- if has('nvim')
-   nmap <BS> <C-W>h
- endif
