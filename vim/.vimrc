@@ -187,8 +187,7 @@ set autoindent
 
 " Folding
 set foldmethod=syntax
-" Expand all folds on buffer read
-au BufRead * normal zR
+set foldlevelstart=99 " Open buffer with expanded folds
 
 " Search
 set smartcase
