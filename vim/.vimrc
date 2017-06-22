@@ -285,8 +285,8 @@ endfunc
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === Colors ===
-hi Comment cterm=italic
-hi Comment gui=italic
+" hi Comment cterm=italic
+" hi Comment gui=italic
 
 " Quantum colors
 hi NeomakeErrorSign ctermfg=9 guifg=#dd7186
