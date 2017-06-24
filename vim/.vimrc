@@ -1,4 +1,5 @@
-" vim-plug
+" === vim-plug ===
+
 call plug#begin('~/.vim/plugged')
 
   " Plugins
@@ -7,7 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'neomake/neomake'
+  Plug 'w0rp/ale'
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
@@ -17,8 +18,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Raimondi/delimitMate'
   Plug 'terryma/vim-expand-region'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'Shougo/deoplete.nvim', has('nvim') ? { 'do': ':UpdateRemotePlugins' } : { 'on': [] }
-  Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : { 'on': [] }
+  Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
+  Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : {'on': []}
   Plug 'christoomey/vim-tmux-navigator'
 
   " Language/Syntax
@@ -27,7 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
   Plug 'elzr/vim-json'
-  Plug 'carlitux/deoplete-ternjs', has('nvim') ? { 'do': 'npm install -g tern' } : { 'on': [] }
+  Plug 'carlitux/deoplete-ternjs', has('nvim') ? {'do': 'npm install -g tern'} : {'on': []}
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
@@ -51,13 +52,7 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-" === Plugins Config ===
-" vim-hybrid
-" let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1
-
-" ayu-vim
-" let ayucolor = 'mirage'
+" === Plugin Config ===
 
 " vim-airline
 let g:airline_theme = 'quantum'
@@ -76,32 +71,14 @@ let g:NERDTreeChDirMode = 2
 let NERDTreeIgnore = ['^\.DS_Store$']
 let NERDTreeHighlightCursorline = 0
 
-" neomake
-function! SetLocalJSMakers()
-  let l:makers = ['eslint', 'flow']
-  let l:file_types = ['javascript', 'jsx', 'vue']
-  let l:used_makers = []
-
-  for l:maker in l:makers
-    let l:local_exe = finddir('node_modules', '.;') . '/.bin/' . l:maker
-
-    if matchstr(l:local_exe, "^\/\\w") == ''
-        let l:local_exe = getcwd() . "/" . l:local_exe
-    endif
-
-    if executable(l:local_exe)
-      execute 'let g:neomake_javascript_' . l:maker . '_exe = ' . string(l:local_exe)
-      let l:used_makers = add(l:used_makers, l:maker)
-    endif
-  endfor
-
-  for l:type in l:file_types
-    execute 'let g:neomake_' . l:type . '_enabled_makers = ' . string(l:used_makers)
-  endfor
-endfunction
-
-au Filetype javascript call SetLocalJSMakers()
-autocmd! BufWritePost * Neomake
+" ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {
+  \ 'javascript': ['eslint', 'flow'],
+  \ 'vue': ['eslint', 'stylelint'],
+  \ 'php': ['phpcs']
+\}
+let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
 
 " deoplete/neocomplete
 if has('nvim')
@@ -144,6 +121,7 @@ if executable('ag')
 endif
 
 " === General settings ===
+
 set encoding=utf-8
 
 " Keyboard/Mouse
@@ -223,6 +201,7 @@ set completeopt-=preview
 autocmd FileType gitcommit,markdown setlocal spell
 
 " === Key mappings ===
+
 let mapleader=";"
 inoremap jj <Esc>
 
@@ -262,6 +241,10 @@ map <C-n> :NERDTreeToggle<CR>
 nnoremap \ :Ack!<Space>
 nnoremap K :Ack! <cword><CR>
 
+" ale
+nmap <silent> <Leader>ap <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>an <Plug>(ale_next_wrap)
+
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
 
@@ -284,28 +267,7 @@ endfunc
 
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
-" === Colors ===
-" hi Comment cterm=italic
-" hi Comment gui=italic
-
-" Quantum colors
-hi NeomakeErrorSign ctermfg=9 guifg=#dd7186
-
-" Hybrid colors
-" hi NeomakeErrorSign ctermfg=9 guifg=#cc6666
-" hi GitGutterAdd ctermfg=10 guifg=#b5bd68
-" hi GitGutterDelete ctermfg=9 guifg=#cc6666
-" hi htmlArg cterm=italic ctermfg=3
-" hi xmlAttrib cterm=italic ctermfg=3
-" hi htmlArg gui=italic guifg=#de935f
-" hi xmlAttrib gui=italic guifg=#de935f
-
-" Ayu colors
-" hi htmlArg cterm=italic ctermfg=121
-" hi xmlAttrib cterm=italic ctermfg=121
-" hi htmlArg gui=italic guifg=#5CCFE6
-" hi xmlAttrib gui=italic guifg=#5CCFE6
-
 " === Misc ===
+
 " .focss files
 autocmd BufRead,BufNewFile *.focss set syntax=scss
