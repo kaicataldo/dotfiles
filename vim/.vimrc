@@ -73,6 +73,7 @@ let NERDTreeHighlightCursorline = 0
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_echo_msg_format = '%linter%: %s'
 let g:ale_linters = {
   \ 'javascript': ['eslint', 'flow'],
   \ 'vue': ['eslint', 'stylelint'],
