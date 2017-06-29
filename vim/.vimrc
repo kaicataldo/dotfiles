@@ -27,8 +27,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
-  Plug 'elzr/vim-json'
   Plug 'carlitux/deoplete-ternjs', has('nvim') ? {'do': 'npm install -g tern'} : {'on': []}
+  Plug 'leafgarland/typescript-vim'
+  Plug 'mhartington/nvim-typescript'
+  Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
