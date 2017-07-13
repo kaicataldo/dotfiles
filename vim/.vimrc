@@ -79,8 +79,9 @@ let g:ale_echo_msg_format = '%linter%: %s'
 let g:ale_linters = {
   \ 'javascript': ['eslint', 'flow'],
   \ 'vue': ['eslint', 'stylelint'],
-  \ 'php': ['phpcs']
-\}
+  \ 'php': ['phpcs'],
+  \ 'html': []
+\ }
 let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
 
 " deoplete/neocomplete
@@ -269,6 +270,11 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>nt :call NumberToggle()<CR>
+
+" === Visual ===
+
+hi Comment cterm=italic
+hi Comment gui=italic
 
 " === Misc ===
 
