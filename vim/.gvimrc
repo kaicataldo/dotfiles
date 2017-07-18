@@ -9,7 +9,7 @@ autocmd FocusLost * set norelativenumber
 autocmd FocusGained * set relativenumber
 
 " Line space
-set linespace=2
+set linespace=3
 
 " Disable bold fonts
 set t_md=

@@ -28,7 +28,6 @@
   # Diff
   d = diff
   dc = diff --cached
-  df = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
   # Merge
   m = merge
@@ -64,9 +63,6 @@
   s = status -sb
   st = status
   hist = log --graph --pretty=format:'%C(red)%h%Creset %C(green)%cr %C(yellow)%d%Creset %s %C(magenta)[%an]%Creset' --abbrev-commit --date=relative
-
-  # SHA of latest commit
-  sha = !"echo 'Copying HEAD SHA...' && git rev-parse HEAD | tr -d '\n' | pbcopy"
 
   # Submodules
   subpl = submodule update --init --recursive
