@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
   Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : {'on': []}
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'wellle/targets.vim'
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
