@@ -57,12 +57,20 @@ call plug#end()
 
 " === Plugin Config ===
 
+" vim-hybrid
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
 " vim-airline
-let g:airline_theme = 'quantum'
+let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'r'
@@ -146,7 +154,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme quantum
+colorscheme hybrid
 
 " Numbers
 set number
