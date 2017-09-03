@@ -48,21 +48,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0ng/vim-hybrid'
   Plug 'mhartington/oceanic-next'
   Plug 'trevordmiller/nova-vim'
-  Plug 'arcticicestudio/nord-vim'
   Plug 'altercation/vim-colors-solarized'
-  Plug 'ayu-theme/ayu-vim'
   Plug 'tyrannicaltoucan/vim-quantum'
 
 call plug#end()
 
 " === Plugin Config ===
 
-" vim-hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
 " vim-airline
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'quantum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -154,7 +148,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme hybrid
+colorscheme quantum
 
 " Numbers
 set number
