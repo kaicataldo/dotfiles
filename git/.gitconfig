@@ -4,7 +4,6 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
-  pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
   # Add all
   aa = add --all
