@@ -5,30 +5,30 @@ call plug#begin('~/.vim/plugged')
   " Plugins
   " Editor Features
   Plug 'scrooloose/nerdtree'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug 'itchyny/lightline.vim'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'w0rp/ale'
   Plug 'mileszs/ack.vim'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-commentary'
+  Plug 'junegunn/vim-fnr'
+  Plug 'junegunn/vim-pseudocl'
   Plug 'tpope/vim-surround'
-  Plug 'jlanzarotta/bufexplorer'
-  Plug 'Raimondi/delimitMate'
+  Plug 'wellle/targets.vim'
   Plug 'terryma/vim-expand-region'
+  Plug 'tpope/vim-commentary'
+  Plug 'Raimondi/delimitMate'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'jlanzarotta/bufexplorer'
+  Plug 'tpope/vim-fugitive'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'w0rp/ale'
   Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
   Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : {'on': []}
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'wellle/targets.vim'
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
-  Plug 'carlitux/deoplete-ternjs', has('nvim') ? {'do': 'npm install -g tern'} : {'on': []}
   Plug 'leafgarland/typescript-vim'
   Plug 'mhartington/nvim-typescript'
   Plug 'elzr/vim-json'
@@ -46,29 +46,21 @@ call plug#begin('~/.vim/plugged')
 
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
-  Plug 'mhartington/oceanic-next'
   Plug 'trevordmiller/nova-vim'
   Plug 'altercation/vim-colors-solarized'
   Plug 'tyrannicaltoucan/vim-quantum'
+  Plug 'dracula/vim'
 
 call plug#end()
 
 " === Plugin Config ===
 
-" vim-airline
-let g:airline_theme = 'quantum'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
-
 " CtrlP
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_dont_split = 'NERD'
+
+" lightline
+let g:lightline = {'colorscheme': 'one'}
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -93,10 +85,6 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
   " file source completion from buffer path instead of CWD
   let g:deoplete#file#enable_buffer_path = 1
-
-  " 'file' = file paths, 'buffer' = words from currently open buffers
-  let g:deoplete#sources = {}
-  let g:deoplete#sources['javascript.jsx'] = ['ternjs', 'buffer', 'file']
 else
   let g:neocomplete#enable_at_startup = 1
 endif
