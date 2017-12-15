@@ -47,13 +47,16 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'trevordmiller/nova-vim'
-  Plug 'altercation/vim-colors-solarized'
   Plug 'tyrannicaltoucan/vim-quantum'
   Plug 'dracula/vim'
+  Plug 'kaicataldo/material.vim'
 
 call plug#end()
 
 " === Plugin Config ===
+
+" material.vim
+let g:material_terminal_italics = 1
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'r'
@@ -137,7 +140,7 @@ else
   set t_Co=256
 endif
 set background=dark
-colorscheme quantum
+colorscheme material
 
 " Numbers
 set number
@@ -264,9 +267,6 @@ endfunc
 nnoremap <Leader>nt :call NumberToggle()<CR>
 
 " === Visual ===
-
-hi Comment cterm=italic
-hi Comment gui=italic
 
 " === Misc ===
 
