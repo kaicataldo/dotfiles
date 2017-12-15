@@ -23,3 +23,6 @@ set guioptions+=c
 
 " Config
 set cursorline
+
+" for lightline-bufferline
+set guioptions-=e

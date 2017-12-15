@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
   " Editor Features
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
+  Plug 'mgee/lightline-bufferline'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mileszs/ack.vim'
   Plug 'junegunn/vim-fnr'
@@ -63,7 +64,29 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_dont_split = 'NERD'
 
 " lightline
-let g:lightline = {'colorscheme': 'one'}
+let g:lightline = {
+  \ 'colorscheme': 'material',
+  \ 'active': {
+    \ 'left': [ [ 'mode', 'paste' ],
+      \ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+      \ 'gitbranch': 'fugitive#head',
+      \ 'filename': 'LightLineFilename'
+    \ }
+\ }
+
+" https://github.com/itchyny/lightline.vim/issues/87#issuecomment-119130738
+function! LightLineFilename()
+  return expand('%')
+endfunction
+
+" lightline-bufferline
+let g:lightline#bufferline#show_number = 2
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -154,6 +177,7 @@ autocmd FocusGained * set relativenumber
 set laststatus=2
 
 " Tabs
+set showtabline=2 " ensure tabline always shows for lightline-bufferline
 set expandtab
 set tabstop=2
 set softtabstop=2
@@ -265,6 +289,18 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>nt :call NumberToggle()<CR>
+
+" lightline-bufferline
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " === Visual ===
 
