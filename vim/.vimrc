@@ -65,7 +65,7 @@ let g:ctrlp_dont_split = 'NERD'
 
 " lightline
 let g:lightline = {
-  \ 'colorscheme': 'material',
+  \ 'colorscheme': 'material_vim',
   \ 'active': {
     \ 'left': [ [ 'mode', 'paste' ],
       \ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
