@@ -9,8 +9,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'mgee/lightline-bufferline'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mileszs/ack.vim'
-  Plug 'junegunn/vim-fnr'
-  Plug 'junegunn/vim-pseudocl'
   Plug 'tpope/vim-surround'
   Plug 'wellle/targets.vim'
   Plug 'terryma/vim-expand-region'
@@ -49,7 +47,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0ng/vim-hybrid'
   Plug 'trevordmiller/nova-vim'
   Plug 'tyrannicaltoucan/vim-quantum'
-  Plug 'dracula/vim'
   Plug 'kaicataldo/material.vim'
 
 call plug#end()
@@ -58,10 +55,6 @@ call plug#end()
 
 " material.vim
 let g:material_terminal_italics = 1
-
-" CtrlP
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_dont_split = 'NERD'
 
 " lightline
 let g:lightline = {
@@ -84,9 +77,9 @@ endfunction
 " lightline-bufferline
 let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
+let g:lightline.tabline = {'left': [['buffers']], 'right': []}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline.component_type = {'buffers': 'tabsel'}
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -123,6 +116,10 @@ let g:jsx_ext_required = 0
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+" CtrlP
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_dont_split = 'NERD'
 
 if executable('ag')
   " ack.vim
@@ -195,12 +192,12 @@ set smartcase
 set ignorecase
 set incsearch
 set hlsearch
-set wildignore+=*/node_modules/*
+set wildignore+=*/.git/*,*/node_modules/*
 
 " Word wrapping
 set wrap
 set linebreak
-set nolist  " list disables linebreak
+set nolist " list disables linebreak
 
 " Undo/backup/swap
 set undofile " Save undo history on buffer close
@@ -235,8 +232,8 @@ vnoremap j gj
 vnoremap k gk
 
 " Retain selection after indenting
-vnoremap <  <gv
-vnoremap >  >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " Split navigation
 nnoremap <C-h> <C-w>h
