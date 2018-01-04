@@ -21,7 +21,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'w0rp/ale'
   Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
-  Plug 'Shougo/neocomplete.vim', !has('nvim') ? {} : {'on': []}
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -29,7 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'moll/vim-node'
   Plug 'leafgarland/typescript-vim'
-  Plug 'mhartington/nvim-typescript'
+  Plug 'mhartington/nvim-typescript', has('nvim') ? {} : {'on': []}
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
@@ -99,13 +98,11 @@ let g:ale_linters = {
 \ }
 let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
 
-" deoplete/neocomplete
+" deoplete
 if has('nvim')
   let g:deoplete#enable_at_startup = 1
   " file source completion from buffer path instead of CWD
   let g:deoplete#file#enable_buffer_path = 1
-else
-  let g:neocomplete#enable_at_startup = 1
 endif
 
 " vim-javascript
