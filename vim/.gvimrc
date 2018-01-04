@@ -1,5 +1,5 @@
 " Font
-set guifont=Hack:h14
+set guifont=Operator\ Mono\ SSm\ Book:h15
 
 " Relative numbers in normal mode
 set relativenumber
