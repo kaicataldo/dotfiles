@@ -217,6 +217,11 @@ set completeopt-=preview
 " Spellcheck
 autocmd FileType gitcommit,markdown setlocal spell
 
+" Disable numbers in Neovim terminal buffers
+if has('nvim')
+  autocmd TermOpen * setlocal nonumber norelativenumber
+endif
+
 " === Key mappings ===
 
 let mapleader=";"
@@ -255,7 +260,7 @@ endif
 map <C-n> :NERDTreeToggle<CR>
 
 " ack.vim
-nnoremap \ :Ack!<Space>
+nnoremap \ :Ack!<Space>-Q<Space>
 nnoremap K :Ack! <cword><CR>
 
 " ale
