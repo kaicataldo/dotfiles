@@ -21,10 +21,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-
-if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
-  source "/usr/local/opt/nvm/nvm.sh"
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # rbenv
 if [ -s "$HOME/.rbenv" ]; then
