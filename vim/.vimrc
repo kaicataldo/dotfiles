@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'posva/vim-vue'
+  Plug 'styled-components/vim-styled-components'
   Plug 'moll/vim-node'
   Plug 'leafgarland/typescript-vim'
   Plug 'mhartington/nvim-typescript', has('nvim') ? {} : {'on': []}
