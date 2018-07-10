@@ -304,6 +304,12 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " === Visual ===
 
+" Fix italics in Vim
+if !has('nvim')
+  let &t_ZH="\e[3m"
+  let &t_ZR="\e[23m"
+endif
+
 " === Misc ===
 
 " .focss files
