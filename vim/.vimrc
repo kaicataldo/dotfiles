@@ -126,6 +126,10 @@ if executable('ag')
   let g:ctrlp_clear_cache_on_exit = 1
 endif
 
+" vim-better-whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
 " === General settings ===
 
 set encoding=utf-8
