@@ -20,7 +20,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'airblade/vim-gitgutter'
   Plug 'w0rp/ale'
-  Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -29,7 +28,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'moll/vim-node'
   Plug 'leafgarland/typescript-vim'
-  Plug 'mhartington/nvim-typescript', has('nvim') ? {} : {'on': []}
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
   Plug 'mustache/vim-mustache-handlebars'
@@ -45,8 +43,6 @@ call plug#begin('~/.vim/plugged')
 
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
-  Plug 'trevordmiller/nova-vim'
-  Plug 'tyrannicaltoucan/vim-quantum'
   Plug 'kaicataldo/material.vim'
 
 call plug#end()
@@ -98,13 +94,6 @@ let g:ale_linters = {
   \ 'html': []
 \ }
 let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
-
-" deoplete
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  " file source completion from buffer path instead of CWD
-  let g:deoplete#file#enable_buffer_path = 1
-endif
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -270,11 +259,6 @@ nmap <silent> <Leader>an <Plug>(ale_next_wrap)
 
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
-
-" Clear highlighting in normal mode
-nnoremap <silent> <Esc> :noh<CR><Esc>
-nnoremap <silent> <C-[> :noh<CR><Esc>
-nnoremap <silent> <C-c> :noh<CR><Esc>
 
 " Toggle paste mode
 set pastetoggle=<F6>
