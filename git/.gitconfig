@@ -76,3 +76,5 @@
   helper = osxkeychain
 [hub]
   protocol = ssh
+[includeIf "gitdir:~/Work/"]
+  path = ~/Work/.gitconfig
