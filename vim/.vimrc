@@ -1,8 +1,6 @@
 " === vim-plug ===
 
 call plug#begin('~/.vim/plugged')
-
-  " Plugins
   " Editor Features
   Plug 'scrooloose/nerdtree'
   Plug 'itchyny/lightline.vim'
@@ -44,11 +42,9 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kaicataldo/material.vim'
-
 call plug#end()
 
 " === Plugin Config ===
-
 " material.vim
 let g:material_terminal_italics = 1
 
@@ -245,8 +241,16 @@ nnoremap <Leader>k :bn<CR>
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Exit terminal mode
+" Neovim specific keybindings
 if has('nvim')
+  " Clear search highlighting using Esc
+  " This is bound for Neovim only because mouse clicks are interpretted as
+  " input in Vim with this binding.
+  nnoremap <silent> <Esc> :noh<CR><Esc>
+  nnoremap <silent> <C-[> :noh<CR><Esc>
+  nnoremap <silent> <C-c> :noh<CR><Esc>
+
+  " Exit terminal mode
   tnoremap <C-[> <C-\><C-n>
 endif
 
