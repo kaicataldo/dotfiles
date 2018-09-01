@@ -23,7 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'posva/vim-vue'
-  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+  Plug 'styled-components/vim-styled-components', {'branch': 'main'}
   Plug 'moll/vim-node'
   Plug 'leafgarland/typescript-vim'
   Plug 'elzr/vim-json'
@@ -38,6 +38,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'StanAngeloff/php.vim'
   Plug 'plasticboy/vim-markdown'
   Plug 'ekalinin/Dockerfile.vim'
+
+  " Neovim
+  Plug 'mhartington/nvim-typescript', has('nvim') ? {'do': './install.sh'} : {'on': []}
+  Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
 
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
@@ -125,6 +129,13 @@ endif
 " vim-better-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+
+" deoplete
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  " file source completion from buffer path instead of CWD
+  let g:deoplete#file#enable_buffer_path = 1
+endif
 
 " === General settings ===
 
