@@ -6,14 +6,14 @@ while true; do
   case $yn in
     [Yy]* ) break ;;
     [Nn]* ) exit 0 ;;
-    * ) echo "Please answer yes or no.";;
+    * ) echo "Please answer yes or no." ;;
   esac
 done
 
 # Get the dotfiles directory's absolute path
 DOTFILES_DIR="$(cd "$(dirname "$0")"; cd ..; pwd -P)"
 
-# Pull latest files from GitHub
+# Pull latest Git submodules from GitHub
 echo
 echo "Ensuring Git submodules are up to date..."
 cd $DOTFILES_DIR
@@ -22,12 +22,12 @@ git submodule foreach git pull origin master # pull latest versions of vendor su
 
 # Create and report creation of directories if they don't exist
 create_dir() {
-  if [[ ! -e $1 ]]; then
-      mkdir $1
-      echo "${1} directory created."
-  elif [[ ! -d $1 ]]; then
-      echo "${1} already exists but is not a directory."
-      exit 1
+  if [ ! -e $1 ]; then
+    mkdir $1
+    echo "$1 directory created."
+  elif [ ! -d $1 ]; then
+    echo "$1 already exists but is not a directory."
+    exit 1
   fi
 }
 
@@ -44,7 +44,7 @@ create_dir $HOME/.z
 # Symlink and report creation of link
 create_symlink() {
   ln -sfn $1 $2
-  echo "Symlinked ${1} -> ${2}."
+  echo "Symlinked $1 to $2."
 }
 
 echo
@@ -99,17 +99,18 @@ if [ "$(uname)" == "Darwin" ] && [ ! -x "$(command -v brew)" ]; then
 fi
 
 # Install nvm
-# https://github.com/creationix/nvm#verify-installation
-if [ -z "$(command -v nvm)" ]; then
+# $NVM_DIR is declared and exported in .bashrc
+if [ ! -f "$NVM_DIR/nvm.sh" ]; then
   while true; do
     echo
     read -p "nvm is not installed. Would you like to install it? [y/n] " yn
     case $yn in
       [Yy]* )
         # https://github.com/creationix/nvm#manual-install
-        export NVM_DIR="$HOME/.nvm" && (
-          git clone https://github.com/creationix/nvm.git "$NVM_DIR"
-          cd "$NVM_DIR"
+        (
+          set -x
+          git clone https://github.com/creationix/nvm.git $NVM_DIR
+          cd $NVM_DIR
           git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
         ) && \. "$NVM_DIR/nvm.sh"
         break ;;
