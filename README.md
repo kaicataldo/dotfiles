@@ -4,7 +4,7 @@ Here are my dotfiles. Feel free to use, fork, and modify them!
 
 ## Installation/Update
 
-`bootstrap.sh` clones and updates the included submodules from their respective repos and then creates symlinks in the user's home directory to the files in this repository. Additionally, it will ask if you would like to install some required dependencies and, when running MacOS, it will also ask if you would like to install Homebrew and update the dependencies listed in `homebrew/Brewfile`.
+`bin/bootstrap` clones and updates the included submodules from their respective repos and then creates symlinks in the user's home directory to the files in this repository. Additionally, it will ask if you would like to install some required dependencies and, when running MacOS, it will also ask if you would like to install Homebrew and update the dependencies listed in `homebrew/Brewfile`.
 
 When doing the initial setup with Homebrew, make sure to follow any extra steps that are required (such as running the command to setup `fzf`).
 
