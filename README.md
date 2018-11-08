@@ -1,6 +1,6 @@
 # dotfiles
 
-Here are my dotfiles. Feel free to use, fork, and modify them!
+Here are my [dotfiles](https://dotfiles.github.io). Feel free to use, fork, and modify them!
 
 ## Installation/Update
 
