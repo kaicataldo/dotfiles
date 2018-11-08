@@ -28,14 +28,13 @@ create_dir() {
   fi
 }
 
-create_dir $DOTFILES_DIR/zsh/.zsh/functions
 create_dir $HOME/.vim
 create_dir $HOME/.vim/autoload
 create_dir $HOME/.vim/backup
 create_dir $HOME/.vim/swp
 create_dir $HOME/.vim/undo
-create_dir $HOME/.tmux
 create_dir $HOME/.config
+create_dir $HOME/.z
 
 # Symlink and report creation of link
 create_symlink() {
@@ -44,16 +43,14 @@ create_symlink() {
 }
 
 # All the symlinks
-# Pure Prompt
-create_symlink $DOTFILES_DIR/submodules/pure/pure.zsh $DOTFILES_DIR/zsh/.zsh/functions/prompt_pure_setup
-create_symlink $DOTFILES_DIR/submodules/pure/async.zsh $DOTFILES_DIR/zsh/.zsh/functions/async
+
+# bash
+create_symlink $DOTFILES_DIR/bash/.bashrc $HOME/.bashrc
+create_symlink $DOTFILES_DIR/bash/.bash_profile $HOME/.bash_profile
 
 # Git
 create_symlink $DOTFILES_DIR/git/.gitconfig $HOME/.gitconfig
 create_symlink  $DOTFILES_DIR/git/.gitignore_global $HOME/.gitignore_global
-
-# Ruby
-create_symlink $DOTFILES_DIR/ruby/.gemrc $HOME/.gemrc
 
 # Vim
 create_symlink $DOTFILES_DIR/submodules/vim-plug/plug.vim $HOME/.vim/autoload/plug.vim
@@ -66,7 +63,10 @@ create_symlink $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # tmux
 create_symlink $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf
-create_symlink $DOTFILES_DIR/tmux/colorschemes $HOME/.tmux/colorschemes
-# zsh
-create_symlink $DOTFILES_DIR/zsh/.zshrc $HOME/.zshrc
-create_symlink $DOTFILES_DIR/zsh/.zsh $HOME/.zsh
+
+# z
+create_symlink $DOTFILES_DIR/submodules/z/z.sh $HOME/.z/z.sh
+
+# Ruby
+create_symlink $DOTFILES_DIR/ruby/.gemrc $HOME/.gemrc
+
