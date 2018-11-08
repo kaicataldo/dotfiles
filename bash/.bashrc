@@ -32,9 +32,9 @@ alias tml="tmux ls"
 alias npmls="npm ls --depth=0"
 
 # bash config
-alias bashrc="if [[ -f $HOME/.bashrc ]]; then $EDITOR $HOME/.bashrc; fi"
-alias localrc="if [[ -f $HOME/.localrc ]]; then $EDITOR $HOME/.localrc; fi"
-alias reload="if [[ -f $HOME/.bashrc ]]; then source $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'; fi"
+alias bashrc="if [ -f $HOME/.bashrc ]; then $EDITOR $HOME/.bashrc; fi"
+alias localrc="if [ -f $HOME/.localrc ]; then $EDITOR $HOME/.localrc; fi"
+alias reload="if [ -f $HOME/.bashrc ]; then source $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'; fi"
 
 # === Functions ===
 
@@ -47,12 +47,12 @@ tmn() {
 
 # z
 export _Z_DATA="$HOME/.z/z_data"
-if [[ -f "$HOME/.z/z.sh" ]]; then
+if [ -f "$HOME/.z/z.sh" ]; then
   source "$HOME/.z/z.sh"
 fi
 
 # fzf
-if [[ -f "$HOME/.fzf.bash" ]]; then
+if [ -f "$HOME/.fzf.bash" ]; then
   source "$HOME/.fzf.bash"
 fi
 
@@ -62,6 +62,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Source local config file specific to machine if it exists
-if [[ -f "$HOME/.localrc" ]]; then
+if [ -f "$HOME/.localrc" ]; then
   source "$HOME/.localrc"
 fi
