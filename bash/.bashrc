@@ -3,6 +3,7 @@
 export CLICOLOR=1
 export VISUAL="vim"
 export EDITOR="$VISUAL"
+export PS1="\[\e[34m\]\w\n\[\e[35m\]$\[\e[m\] "
 
 # === Aliases ===
 
@@ -47,21 +48,15 @@ tmn() {
 
 # z
 export _Z_DATA="$HOME/.z/z_data"
-if [ -f "$HOME/.z/z.sh" ]; then
-  source "$HOME/.z/z.sh"
-fi
+[ -f "$HOME/.z/z.sh" ] && . "$HOME/.z/z.sh"
 
 # fzf
-if [ -f "$HOME/.fzf.bash" ]; then
-  source "$HOME/.fzf.bash"
-fi
+[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
 
 # nvm (https://github.com/creationix/nvm#git-install)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
 # Source local config file specific to machine if it exists
-if [ -f "$HOME/.localrc" ]; then
-  source "$HOME/.localrc"
-fi
+[ -f "$HOME/.localrc" ] && . "$HOME/.localrc"
