@@ -123,5 +123,5 @@ if [ ! -f "$NVM_DIR/nvm.sh" ]; then
 fi
 
 echo
-echo "Bootstrapping complete.";
-exit 0;
+echo "Bootstrapping complete."
+exit 0
