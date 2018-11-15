@@ -46,6 +46,11 @@ tmn() {
 
 # === Initializations ===
 
+# Bash completion
+if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 # z
 export _Z_DATA="$HOME/.z/z_data"
 [ -f "$HOME/.z/z.sh" ] && . "$HOME/.z/z.sh"
