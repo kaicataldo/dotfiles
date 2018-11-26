@@ -5,6 +5,14 @@ export VISUAL="vim"
 export EDITOR="$VISUAL"
 export PS1="\[\e[34m\]\w\n\[\e[35m\]$\[\e[m\] "
 
+# History Settings
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+# Append instead of overwrite history
+shopt -s histappend
+# Add commands to history immediately
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 # === Aliases ===
 
 # General
