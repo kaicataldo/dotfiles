@@ -39,10 +39,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'ekalinin/Dockerfile.vim'
 
-  " Neovim
-  Plug 'mhartington/nvim-typescript', has('nvim') ? {'do': './install.sh'} : {'on': []}
-  Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on': []}
-
   " Color Schemes
   Plug 'w0ng/vim-hybrid'
   Plug 'kaicataldo/material.vim'
@@ -86,16 +82,31 @@ let NERDTreeIgnore = ['^\.DS_Store$']
 let NERDTreeHighlightCursorline = 0
 
 " ale
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters_explicit = 1 " Only use linters defined in map
 let g:ale_echo_msg_format = '%linter%: %s'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
+if has('nvim')
+  let g:ale_completion_enabled = 1
+endif
+
+" https://github.com/w0rp/ale/issues/1224#issuecomment-352248157
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_eslint_executable = 'eslint_d'
+
+let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
 let g:ale_linters = {
   \ 'javascript': ['eslint', 'flow'],
   \ 'typescript': ['eslint', 'tslint', 'tsserver'],
   \ 'vue': ['eslint', 'stylelint'],
   \ 'php': ['phpcs'],
-  \ 'html': []
 \ }
-let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
+let g:ale_fixers = {
+  \ 'javascript': ['prettier'],
+  \ 'typescript': ['prettier'],
+  \ 'scss': ['prettier'],
+  \ 'css': ['prettier']
+\ }
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
