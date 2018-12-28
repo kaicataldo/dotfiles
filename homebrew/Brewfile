@@ -1,6 +1,7 @@
 brew "bash"
 brew "diff-so-fancy"
 brew "fzf"
+brew "git"
 brew "hub"
 brew "neovim"
 brew "python"
