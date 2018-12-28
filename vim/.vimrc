@@ -22,16 +22,12 @@ call plug#begin('~/.vim/plugged')
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
-  Plug 'posva/vim-vue'
   Plug 'styled-components/vim-styled-components', {'branch': 'main'}
   Plug 'moll/vim-node'
   Plug 'leafgarland/typescript-vim'
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
-  Plug 'mustache/vim-mustache-handlebars'
   Plug 'JulesWang/css.vim'
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'groenewege/vim-less'
   Plug 'fatih/vim-go'
   Plug 'vim-ruby/vim-ruby'
   Plug 'mitsuhiko/vim-python-combined'
@@ -40,7 +36,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'ekalinin/Dockerfile.vim'
 
   " Color Schemes
-  Plug 'w0ng/vim-hybrid'
   Plug 'kaicataldo/material.vim'
 call plug#end()
 
@@ -93,18 +88,13 @@ endif
 " https://github.com/w0rp/ale/issues/1224#issuecomment-352248157
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_javascript_eslint_executable = 'eslint_d'
-
-let g:ale_linter_aliases = {'vue': ['css', 'javascript']}
 let g:ale_linters = {
   \ 'javascript': ['eslint', 'flow'],
   \ 'typescript': ['eslint', 'tslint', 'tsserver'],
-  \ 'vue': ['eslint', 'stylelint'],
-  \ 'php': ['phpcs'],
 \ }
 let g:ale_fixers = {
   \ 'javascript': ['prettier'],
   \ 'typescript': ['prettier'],
-  \ 'scss': ['prettier'],
   \ 'css': ['prettier']
 \ }
 
