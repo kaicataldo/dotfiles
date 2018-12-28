@@ -44,6 +44,7 @@ call plug#end()
 if !exists('$TMUX')
   let g:material_terminal_italics = 1
 endif
+let g:material_theme_style = 'dark'
 
 " lightline
 let g:lightline = {
@@ -315,8 +316,3 @@ if !has('nvim')
   let &t_ZH="\e[3m"
   let &t_ZR="\e[23m"
 endif
-
-" === Misc ===
-
-" .focss files
-autocmd BufRead,BufNewFile *.focss set syntax=scss
