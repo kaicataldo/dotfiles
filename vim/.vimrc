@@ -3,7 +3,8 @@
 call plug#begin('~/.vim/plugged')
   " Editor Features
   Plug 'scrooloose/nerdtree'
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug '/usr/local/opt/fzf' " Installed with Homebrew
+  Plug 'junegunn/fzf.vim'
   Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mgee/lightline-bufferline'
@@ -104,38 +105,15 @@ let g:jsx_ext_required = 0
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-" CtrlP
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_dont_split = 'NERD'
+" ack.vim
+let g:ackprg = 'ag --vimgrep --hidden --ignore .git'
 
-if executable('ag')
-  " ack.vim
-  let g:ackprg = 'ag --vimgrep'
-
-  " CtrlP
-  " Use ag in CtrlP for listing files. Respects .gitignore!
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-    \ --ignore .git
-    \ --ignore .svn
-    \ --ignore .hg
-    \ --ignore .DS_Store
-    \ -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_clear_cache_on_exit = 1
-endif
+" fzf.vim
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " vim-better-whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
-" deoplete
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  " file source completion from buffer path instead of CWD
-  let g:deoplete#file#enable_buffer_path = 1
-endif
 
 " === General settings ===
 
@@ -267,6 +245,9 @@ endif
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" fzf.vim
+map <C-p> :FZF<CR>
 
 " ack.vim
 nnoremap \ :Ack!<Space>-Q<Space>
