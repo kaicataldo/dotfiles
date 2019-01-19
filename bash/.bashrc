@@ -1,9 +1,28 @@
+# === Functions ===
+
+# Create new tmux session in current directory
+tmn() {
+  tmux new -s "$(basename $PWD)"
+}
+
+# Parse whether Git branch is dirty to show in Bash prompt
+parse_git_dirty() {
+  # "working directory" changed to "working tree" in Git v2.9.1
+  # https://github.com/git/git/blob/master/Documentation/RelNotes/2.9.1.txt
+  [[ ! $(git status 2> /dev/null) =~ working[[:space:]](tree|directory)[[:space:]]clean ]] && echo "*"
+}
+
+# Parse Git branch name to show in Bash prompt
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1$(parse_git_dirty)/"
+}
+
 # === Config ===
 
 export CLICOLOR=1
 export VISUAL="vim"
 export EDITOR="$VISUAL"
-export PS1="\[\e[34m\]\w\n\[\e[35m\]$\[\e[m\] "
+export PS1="\[\033[34m\]\w\[\033[30m\]\$(parse_git_branch)\n\[\033[35m\]$\[\033[00m\] "
 
 # History Settings
 export HISTSIZE=5000
@@ -44,13 +63,6 @@ alias npmls="npm ls --depth=0"
 alias bashrc="if [ -f $HOME/.bashrc ]; then $EDITOR $HOME/.bashrc; fi"
 alias localrc="if [ -f $HOME/.localrc ]; then $EDITOR $HOME/.localrc; fi"
 alias reload="if [ -f $HOME/.bashrc ]; then source $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'; fi"
-
-# === Functions ===
-
-# Create new tmux session in current directory
-tmn() {
-  tmux new -s "$(basename $PWD)"
-}
 
 # === Initializations ===
 
