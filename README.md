@@ -19,7 +19,6 @@ When doing the initial setup with Homebrew, make sure to follow any extra steps 
 - [tmux](https://github.com/tmux/tmux)
 - [fzf](https://github.com/junegunn/fzf)
 - [z](https://github.com/rupa/z)
-- [hub](https://hub.github.com/)
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [Homebrew](https://brew.sh/) (for MacOS only)
 - [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
