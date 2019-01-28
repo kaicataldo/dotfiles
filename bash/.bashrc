@@ -67,9 +67,7 @@ alias reload="if [ -f $HOME/.bashrc ]; then source $HOME/.bashrc && echo 'Shell 
 # === Initializations ===
 
 # Bash completion
-if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+[ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ] && . $(brew --prefix)/etc/bash_completion
 
 # z
 export _Z_DATA="$HOME/.z/z_data"
