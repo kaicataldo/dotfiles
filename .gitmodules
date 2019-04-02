@@ -1,6 +1,3 @@
 [submodule "submodules/vim-plug"]
 	path = submodules/vim-plug
 	url = git@github.com:junegunn/vim-plug.git
-[submodule "submodules/z"]
-	path = submodules/z
-	url = https://github.com/rupa/z

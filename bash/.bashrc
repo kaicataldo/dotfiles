@@ -38,20 +38,19 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 alias mv="mv -v"
 alias cp="cp -v"
 
-# Applications
-alias g="git"
-alias tm="tmux"
-alias dm="docker-machine"
-alias dc="docker-compose"
-
 # Directory Info
 alias ll="ls -lFh"
 alias la="ls -lAFh"  # List all files (including hidden)
 alias lh="ls -ld .*" # List hidden files only
 alias lr="ls -tRFh"  # List recursively
 
+# Applications
+alias g="git"
+alias tm="tmux"
+alias dc="docker-compose"
+
 # tmux
-alias tms="tmux new -s"
+alias tmn="tmux new -s"
 alias tma="tmux a -t"
 alias tmk="tmux kill-session -t"
 alias tml="tmux ls"
@@ -59,19 +58,21 @@ alias tml="tmux ls"
 # npm
 alias npmls="npm ls --depth=0"
 
-# bash config
-alias bashrc="if [ -f $HOME/.bashrc ]; then $EDITOR $HOME/.bashrc; fi"
-alias localrc="if [ -f $HOME/.localrc ]; then $EDITOR $HOME/.localrc; fi"
-alias reload="if [ -f $HOME/.bashrc ]; then source $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'; fi"
+# Bash config
+alias bashrc="[ -f $HOME/.bashrc ] && $EDITOR $HOME/.bashrc"
+alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
+alias reload="[ -f $HOME/.bashrc ] && source $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'"
 
 # === Initializations ===
 
-# Bash completion
-[ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ] && . $(brew --prefix)/etc/bash_completion
+# Utilities installed with Homebrew
+if [ -x "$(command -v brew)" ]; then
+  # Bash completion
+  [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ] && . $(brew --prefix)/etc/profile.d/bash_completion.sh
 
-# z
-export _Z_DATA="$HOME/.z/z_data"
-[ -f "$HOME/.z/z.sh" ] && . "$HOME/.z/z.sh"
+  # z
+  [ -f $(brew --prefix)/etc/profile.d/z.sh ] && . $(brew --prefix)/etc/profile.d/z.sh
+fi
 
 # fzf
 [ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"

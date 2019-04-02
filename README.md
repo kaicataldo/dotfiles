@@ -4,9 +4,9 @@ Here are my [dotfiles](https://dotfiles.github.io). Feel free to use, fork, and 
 
 ## Installation/Update
 
-`bin/bootstrap` clones and updates the included submodules from their respective repos and then creates symlinks in the user's home directory to the files in this repository. 
+`bin/bootstrap` clones and updates the included submodules from their respective repos and then creates symlinks in the user's home directory to the files in this repository.
 
-To install Homebrew dependencies, use the command `brew bundle -v --file=homebrew/Brewfile`. This command will also upgrade any of the listed dependencies if they are already installed. 
+To install Homebrew dependencies, use the command `brew bundle -v --file=homebrew/Brewfile`. This command will also upgrade any of the listed dependencies if they are already installed.
 
 When doing the initial setup with Homebrew, make sure to follow any extra steps that are logged during the installation (such as running the command to setup `fzf`).
 
@@ -15,13 +15,12 @@ When doing the initial setup with Homebrew, make sure to follow any extra steps 
 ## Components
 
 - [Bash](https://www.gnu.org/software/bash/)
-- [Git](https://git-scm.com/)
-- [tmux](https://github.com/tmux/tmux)
 - [fzf](https://github.com/junegunn/fzf)
-- [z](https://github.com/rupa/z)
-- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+- [Git](https://git-scm.com/)
 - [Homebrew](https://brew.sh/) (for MacOS only)
-- [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
-- [Vim](https://www.vim.org/)
 - [Neovim](https://neovim.io/)
+- [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
+- [tmux](https://github.com/tmux/tmux)
+- [Vim](https://www.vim.org/)
 - [vim-plug](https://github.com/junegunn/vim-plug)
+- [z](https://github.com/rupa/z)

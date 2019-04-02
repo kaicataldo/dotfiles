@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Raimondi/delimitMate'
-  Plug 'christoomey/vim-tmux-navigator'
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -24,12 +23,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
-  Plug 'JulesWang/css.vim'
-  Plug 'fatih/vim-go'
-  Plug 'vim-ruby/vim-ruby'
-  Plug 'mitsuhiko/vim-python-combined'
-  Plug 'StanAngeloff/php.vim'
-  Plug 'plasticboy/vim-markdown'
   Plug 'ekalinin/Dockerfile.vim'
 
   " Color Schemes
@@ -37,6 +30,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " === Plugin Config ===
+
 " material.vim
 if !exists('$TMUX')
   let g:material_terminal_italics = 1
@@ -69,10 +63,10 @@ let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type = {'buffers': 'tabsel'}
 
 " NERDTree
-let NERDTreeShowHidden = 1
+let g:NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
-let NERDTreeIgnore = ['^\.DS_Store$']
-let NERDTreeHighlightCursorline = 0
+let g:NERDTreeIgnore = ['^\.DS_Store$']
+let g:NERDTreeHighlightCursorline = 0
 
 " ale
 let g:ale_linters_explicit = 1 " Only use linters defined in map
@@ -84,8 +78,6 @@ if has('nvim')
 endif
 
 " https://github.com/w0rp/ale/issues/1224#issuecomment-352248157
-let g:ale_javascript_eslint_use_global = 1
-let g:ale_javascript_eslint_executable = 'eslint_d'
 let g:ale_linters = {
   \ 'javascript': ['eslint', 'flow'],
   \ 'typescript': ['eslint', 'tslint', 'tsserver'],
