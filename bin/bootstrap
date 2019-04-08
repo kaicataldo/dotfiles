@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# Create and report creation of directories if they don't exist
+create_dir() {
+  if [ ! -e $1 ]; then
+    mkdir $1
+    echo "$1 directory created."
+  elif [ ! -d $1 ]; then
+    echo "$1 already exists but is not a directory."
+    exit 1
+  fi
+}
+
+# Symlink and report creation of link
+create_symlink() {
+  ln -sfn $1 $2
+  echo "Symlinked $1 to $2."
+}
+
 # Warn user this script will overwrite current dotfiles
 while true; do
   read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
@@ -13,26 +30,8 @@ done
 # Get the dotfiles directory's absolute path
 DOTFILES_DIR="$(cd "$(dirname "$0")"; cd ..; pwd -P)"
 
-# Pull latest Git submodules from GitHub
 echo
-echo "Ensuring Git submodules are up to date..."
-cd $DOTFILES_DIR
-git submodule update --init --recursive # init git submodules
-git submodule foreach git pull origin master # pull latest versions of vendor submodules
-
-# Create and report creation of directories if they don't exist
-create_dir() {
-  if [ ! -e $1 ]; then
-    mkdir $1
-    echo "$1 directory created."
-  elif [ ! -d $1 ]; then
-    echo "$1 already exists but is not a directory."
-    exit 1
-  fi
-}
-
-echo
-echo "Creating missing directories..."
+echo "Creating directories for Vim..."
 create_dir $HOME/.vim
 create_dir $HOME/.vim/autoload
 create_dir $HOME/.vim/backup
@@ -40,11 +39,12 @@ create_dir $HOME/.vim/swp
 create_dir $HOME/.vim/undo
 create_dir $HOME/.config
 
-# Symlink and report creation of link
-create_symlink() {
-  ln -sfn $1 $2
-  echo "Symlinked $1 to $2."
-}
+echo
+echo "cURLing vim-plug"
+
+# https://github.com/junegunn/vim-plug#vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo
 echo "Symlinking dotfiles..."
@@ -58,9 +58,7 @@ create_symlink $DOTFILES_DIR/git/.gitconfig $HOME/.gitconfig
 create_symlink $DOTFILES_DIR/git/.gitignore_global $HOME/.gitignore_global
 
 # Vim
-create_symlink $DOTFILES_DIR/submodules/vim-plug/plug.vim $HOME/.vim/autoload/plug.vim
 create_symlink $DOTFILES_DIR/vim/.vimrc $HOME/.vimrc
-create_symlink $DOTFILES_DIR/vim/.gvimrc $HOME/.gvimrc
 
 # Neovim
 create_symlink $HOME/.vim $HOME/.config/nvim
