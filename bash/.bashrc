@@ -1,10 +1,5 @@
 # === Functions ===
 
-# Create new tmux session in current directory
-tmn() {
-  tmux new -s "$(basename $PWD)"
-}
-
 # Parse whether Git branch is dirty to show in Bash prompt
 parse_git_dirty() {
   # "working directory" changed to "working tree" in Git v2.9.1
@@ -15,6 +10,11 @@ parse_git_dirty() {
 # Parse Git branch name to show in Bash prompt
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1$(parse_git_dirty)/"
+}
+
+# Create new tmux session in current directory
+tmn() {
+  tmux new -s "$(basename $PWD)"
 }
 
 # === Config ===
@@ -47,21 +47,22 @@ alias lr="ls -tRFh"  # List recursively
 # Applications
 alias g="git"
 alias tm="tmux"
+alias d="docker"
 alias dc="docker-compose"
-
-# tmux
-alias tmn="tmux new -s"
-alias tma="tmux a -t"
-alias tmk="tmux kill-session -t"
-alias tml="tmux ls"
 
 # npm
 alias npmls="npm ls --depth=0"
 
+# tmux
+alias tms="tmux new -s"
+alias tma="tmux a -t"
+alias tmk="tmux kill-session -t"
+alias tml="tmux ls"
+
 # Bash config
+alias reload="[ -f $HOME/.bashrc ] && . $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'"
 alias bashrc="[ -f $HOME/.bashrc ] && $EDITOR $HOME/.bashrc"
 alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
-alias reload="[ -f $HOME/.bashrc ] && source $HOME/.bashrc && echo 'Shell config reloaded from ~/.bashrc'"
 
 # === Initializations ===
 
