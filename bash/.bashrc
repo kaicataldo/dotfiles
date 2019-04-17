@@ -13,7 +13,7 @@ parse_git_branch() {
 }
 
 # Create new tmux session in current directory
-tmn() {
+tmd() {
   tmux new -s "$(basename $PWD)"
 }
 
@@ -41,7 +41,6 @@ alias cp="cp -v"
 # Directory Info
 alias ll="ls -lFh"
 alias la="ls -lAFh"  # List all files (including hidden)
-alias lh="ls -ld .*" # List hidden files only
 alias lr="ls -tRFh"  # List recursively
 
 # Applications
@@ -54,7 +53,7 @@ alias dc="docker-compose"
 alias npmls="npm ls --depth=0"
 
 # tmux
-alias tms="tmux new -s"
+alias tmn="tmux new -s"
 alias tma="tmux a -t"
 alias tmk="tmux kill-session -t"
 alias tml="tmux ls"
