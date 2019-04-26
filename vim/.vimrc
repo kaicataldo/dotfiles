@@ -35,7 +35,6 @@ call plug#end()
 if !exists('$TMUX')
   let g:material_terminal_italics = 1
 endif
-let g:material_theme_style = 'dark'
 
 " lightline
 let g:lightline = {
