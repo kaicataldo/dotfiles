@@ -59,12 +59,6 @@ if [ "$1" == "--dev-env" ]; then
   create_symlink $HOME/.vim $HOME/.config/nvim
   create_symlink $HOME/.vimrc $HOME/.config/nvim/init.vim
 
-  # vim-plug
-  # https://github.com/junegunn/vim-plug#vim
-  echo "cURLing vim-plug"
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
   # tmux
   echo "Symlinking tmux dotfiles..."
   create_symlink $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf

@@ -65,14 +65,19 @@ alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
 
 # === Initializations ===
 
-# Check if Homebrew prefix is necessary for sourcing env scripts
-ENV_SCRIPTS_PREFIX=$([ -x "$(command -v brew)" ] && echo $(brew --prefix) || echo "")
+if [ $(uname) == "Darwin" && -x "$(command -v brew)" ]; then
+  # Bash completion
+  [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
-# Bash completion
-[ -f "$ENV_SCRIPTS_PREFIX/etc/profile.d/bash_completion.sh" ] && . "$ENV_SCRIPTS_PREFIX/etc/profile.d/bash_completion.sh"
+  # z
+  [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && . "$(brew --prefix)/etc/profile.d/z.sh"
+elif [ $(uname) == "Linux" ]
+  # Bash completion
+  [ -f "/etc/profile.d/bash_completion.sh" ] && . "/etc/profile.d/bash_completion.sh"
 
-# z
-[ -f "$ENV_SCRIPTS_PREFIX/etc/profile.d/z.sh" ] && . "$ENV_SCRIPTS_PREFIX/etc/profile.d/z.sh"
+  # z
+  [ -f "~/z.sh" ] && . "~/z.sh"
+fi
 
 # fzf
 [ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
