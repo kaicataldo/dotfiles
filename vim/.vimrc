@@ -3,7 +3,13 @@
 call plug#begin('~/.vim/plugged')
   " Editor Features
   Plug 'scrooloose/nerdtree'
-  Plug '/usr/local/opt/fzf' " Installed with Homebrew
+  " Install fzf externally, either with Homebrew or Git
+  " https://github.com/junegunn/fzf#installation
+  if isdirectory('/usr/local/opt/fzf')
+    Plug '/usr/local/opt/fzf' " Installed with Homebrew
+  else
+    Plug '~/.fzf' " Installed with Git
+  endif
   Plug 'junegunn/fzf.vim'
   Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
@@ -237,12 +243,12 @@ endif
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" fzf.vim
-map <C-p> :FZF<CR>
-
 " ack.vim
 nnoremap \ :Ack!<Space>-Q<Space>
 nnoremap K :Ack! <cword><CR>
+
+" fzf.vim
+map <C-p> :FZF<CR>
 
 " ale
 nmap <silent> <Leader>ap <Plug>(ale_previous_wrap)
