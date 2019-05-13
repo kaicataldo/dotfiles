@@ -65,18 +65,21 @@ alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
 
 # === Initializations ===
 
-if [ $(uname) == "Darwin" && -x "$(command -v brew)" ]; then
-  # Bash completion
-  [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+# macOS/Linux initializations
+if [ "$(uname)" == "Darwin" ]; then
+  if [ -x "$(command -v brew)" ]; then
+    # Bash completion
+    [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
-  # z
-  [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && . "$(brew --prefix)/etc/profile.d/z.sh"
-elif [ $(uname) == "Linux" ]
+    # z
+    [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && . "$(brew --prefix)/etc/profile.d/z.sh"
+  fi
+elif [ "$(uname)" == "Linux" ]; then
   # Bash completion
   [ -f "/etc/profile.d/bash_completion.sh" ] && . "/etc/profile.d/bash_completion.sh"
 
   # z
-  [ -f "~/z.sh" ] && . "~/z.sh"
+  [ -f "$HOME/z.sh" ] && . "$HOME/z.sh"
 fi
 
 # fzf
