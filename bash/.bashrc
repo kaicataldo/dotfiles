@@ -63,6 +63,12 @@ alias reload="[ -f $HOME/.bashrc ] && . $HOME/.bashrc && echo 'Shell config relo
 alias bashrc="[ -f $HOME/.bashrc ] && $EDITOR $HOME/.bashrc"
 alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
 
+# Linux aliases
+if [ "$(uname)" == "Linux" ]; then
+  # Colorize output
+  alias ls="ls --color=auto"
+fi
+
 # === Initializations ===
 
 # macOS/Linux initializations
