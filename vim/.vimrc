@@ -38,9 +38,7 @@ call plug#end()
 " === Plugin Config ===
 
 " material.vim
-if !exists('$TMUX')
-  let g:material_terminal_italics = 1
-endif
+let g:material_terminal_italics = 1
 
 " lightline
 let g:lightline = {
