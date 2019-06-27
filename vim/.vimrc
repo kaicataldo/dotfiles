@@ -39,18 +39,21 @@ call plug#end()
 
 " material.vim
 let g:material_terminal_italics = 1
+let g:material_theme_style = 'default'
 
 " lightline
 let g:lightline = {
   \ 'colorscheme': 'material_vim',
   \ 'active': {
-    \ 'left': [ [ 'mode', 'paste' ],
-      \ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-      \ 'gitbranch': 'fugitive#head',
-      \ 'filename': 'LightLineFilename'
-    \ }
+    \ 'left': [
+      \ [ 'mode', 'paste' ],
+      \ [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+    \ ]
+  \ },
+  \ 'component_function': {
+    \ 'gitbranch': 'fugitive#head',
+    \ 'filename': 'LightLineFilename'
+  \ }
 \ }
 
 " https://github.com/itchyny/lightline.vim/issues/87#issuecomment-119130738
@@ -61,9 +64,11 @@ endfunction
 " lightline-bufferline
 let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline.tabline = {'left': [['buffers']], 'right': []}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type = {'buffers': 'tabsel'}
+let g:lightline.tabline = { 'left': [ [ 'buffers' ] ], 'right': [] }
+let g:lightline.component_expand = { 'buffers': 'lightline#bufferline#buffers' }
+let g:lightline.component_type = { 'buffers': 'tabsel' }
+
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 " NERDTree
 let g:NERDTreeShowHidden = 1
@@ -118,9 +123,7 @@ set encoding=utf-8
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
 set clipboard=unnamed " Use OS's clipboard
-if has('nvim')
-  set cursorline " highlight current line - disabled in Vim for performance reasons
-else
+if !has('nvim')
   set ttymouse=xterm2 " Set codes being sent by mouse
 endif
 
@@ -132,6 +135,7 @@ else
 endif
 set background=dark
 colorscheme material
+set cursorline " highlight current line - disabled in Vim for performance reasons
 
 " Numbers
 set number
