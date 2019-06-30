@@ -133,7 +133,7 @@ if has('termguicolors')
 else
   set t_Co=256
 endif
-set background=dark
+
 colorscheme material
 set cursorline " highlight current line - disabled in Vim for performance reasons
 
