@@ -229,15 +229,11 @@ nnoremap <Leader>k :bn<CR>
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Clear search highlighting
+nnoremap <silent> <Leader>c :noh<CR>
+
 " Neovim specific keybindings
 if has('nvim')
-  " Clear search highlighting using Esc
-  " This is bound for Neovim only because mouse clicks are interpretted as
-  " input in Vim with this binding.
-  nnoremap <silent> <Esc> :noh<CR><Esc>
-  nnoremap <silent> <C-[> :noh<CR><Esc>
-  nnoremap <silent> <C-c> :noh<CR><Esc>
-
   " Exit terminal mode
   tnoremap <C-[> <C-\><C-n>
 endif
