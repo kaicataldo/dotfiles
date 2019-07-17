@@ -140,10 +140,6 @@ set cursorline " highlight current line - disabled in Vim for performance reason
 " Numbers
 set number
 set relativenumber
-autocmd InsertEnter * set norelativenumber
-autocmd InsertLeave * set relativenumber
-autocmd FocusLost * set norelativenumber
-autocmd FocusGained * set relativenumber
 
 " Status line
 set laststatus=2
