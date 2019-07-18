@@ -68,7 +68,5 @@
 
   # Misc
   aliases = config --get-regexp alias
-[hub]
-  protocol = ssh
 [includeIf "gitdir:~/Work/"]
   path = ~/Work/.gitconfig
