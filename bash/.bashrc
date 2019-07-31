@@ -26,10 +26,8 @@ export PS1="\[\033[34m\]\w\[\033[30m\]\$(parse_git_branch)\n\[\033[35m\]\$\[\033
 
 # History Settings
 export HISTSIZE=5000
-export HISTFILESIZE=10000
-# Append instead of overwrite history
-shopt -s histappend
-# Add commands to history immediately
+export HISTFILESIZE=10000 # Append instead of overwrite history
+shopt -s histappend # Add commands to history immediately
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # === Aliases ===
@@ -40,8 +38,8 @@ alias cp="cp -v"
 
 # Directory Info
 alias ll="ls -lFh"
-alias la="ls -lAFh"  # List all files (including hidden)
-alias lr="ls -tRFh"  # List recursively
+alias la="ls -lAFh" # List all files (including hidden)
+alias lr="ls -tRFh" # List recursively
 
 # Applications
 alias g="git"
