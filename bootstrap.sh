@@ -8,6 +8,8 @@ create_dir() {
   elif [ ! -d $1 ]; then
     echo "$1 already exists but is not a directory."
     exit 1
+  else
+    echo "$1 already exists and was not created."
   fi
 }
 
@@ -17,13 +19,23 @@ create_symlink() {
   echo "Symlinked $1 to $2."
 }
 
+# Print string with a leading newline
+print_leading_newline() {
+  echo -e "\n$1"
+}
+
+# Print string with a trailing newline
+print_trailing_newline() {
+  echo -e "$1\n"
+}
+
 # Warn user this script will overwrite current dotfiles
 while true; do
-  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+  read -p "Friendly warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
   case $yn in
     [Yy]* ) break ;;
     [Nn]* ) exit 0 ;;
-    * ) echo "Please answer yes or no." ;;
+    * ) print_trailing_newline "Please answer [y]es or [n]o." ;;
   esac
 done
 
@@ -31,18 +43,18 @@ done
 DOTFILES_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 
 # Bash
-echo "Symlinking Bash dotfiles..."
+print_leading_newline "Symlinking Bash dotfiles..."
 create_symlink $DOTFILES_DIR/bash/.bashrc $HOME/.bashrc
 create_symlink $DOTFILES_DIR/bash/.bash_profile $HOME/.bash_profile
 
 # Git
-echo "Symlinking Git dotfiles..."
+print_leading_newline "Symlinking Git dotfiles..."
 create_symlink $DOTFILES_DIR/git/.gitconfig $HOME/.gitconfig
 create_symlink $DOTFILES_DIR/git/.gitignore_global $HOME/.gitignore_global
 
 # Bootstrap Vim/Neovim/tmux when run with the --dev-env flag
 if [ "$1" == "--dev-env" ]; then
-  echo "Creating directories for Vim..."
+  print_leading_newline "Creating directories for Vim..."
   create_dir $HOME/.vim
   create_dir $HOME/.vim/autoload
   create_dir $HOME/.vim/backup
@@ -51,18 +63,18 @@ if [ "$1" == "--dev-env" ]; then
   create_dir $HOME/.config
 
   # Vim
-  echo "Symlinking Vim dotfiles..."
+  print_leading_newline "Symlinking Vim dotfiles..."
   create_symlink $DOTFILES_DIR/vim/.vimrc $HOME/.vimrc
 
   # Neovim
-  echo "Symlinking Neovim dotfiles..."
+  print_leading_newline "Symlinking Neovim dotfiles..."
   create_symlink $HOME/.vim $HOME/.config/nvim
   create_symlink $HOME/.vimrc $HOME/.config/nvim/init.vim
 
   # tmux
-  echo "Symlinking tmux dotfiles..."
+  print_leading_newline "Symlinking tmux dotfiles..."
   create_symlink $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf
 fi
 
-echo "Bootstrapping dotfiles complete."
+print_leading_newline "Bootstrapping dotfiles complete!"
 exit 0
