@@ -6,9 +6,9 @@ Here are my [dotfiles](https://dotfiles.github.io). They've been written with a 
 
 ## Installation/Update
 
-### `bin/bootstrap`
+### `bootstrap.sh`
 
-`bin/bootstrap` creates symlinks in the user's home directory to the files in this repository. When run with the `--dev-env` flag, it will also bootstrap Vim, Neovim, and tmux.
+`bootstrap.sh` creates symlinks in the user's home directory to the files in this repository. When run with the `--dev-env` flag, it will also bootstrap Vim, Neovim, and tmux.
 
 *__Warning__: this will overwrite any dotfiles of the same name in your home directory.*
 
