@@ -1,6 +1,6 @@
 [user]
   name = Kai Cataldo
-  email = kaicataldo@gmail.com
+  email = kai@kaicataldo.com
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
