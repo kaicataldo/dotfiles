@@ -24,8 +24,10 @@ call plug#begin('~/.vim/plugged')
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
   Plug 'moll/vim-node'
+  Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+  Plug 'jparise/vim-graphql'
   Plug 'leafgarland/typescript-vim'
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
@@ -98,9 +100,6 @@ let g:ale_fixers = {
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
-
-" vim-jsx
-let g:jsx_ext_required = 0
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
