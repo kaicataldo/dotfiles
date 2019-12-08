@@ -55,7 +55,7 @@ cd ~ && wget https://raw.githubusercontent.com/rupa/z/master/z.sh
 
 #### fzf
 
-fzf can be installed with [Git](https://github.com/junegunn/fzf#using-git):
+fzf is available for many popular distros. If it's not available for yours, it can be installed with [Git](https://github.com/junegunn/fzf#using-git):
 
 ```sh
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

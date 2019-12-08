@@ -84,10 +84,13 @@ elif [ "$(uname)" == "Linux" ]; then
 
   # z
   [ -f "$HOME/z.sh" ] && . "$HOME/z.sh"
-fi
 
-# fzf
-[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+  # fzf
+  [ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ] && . "/usr/share/doc/fzf/examples/key-bindings.bash"
+
+  # fzf installed with Git
+  [ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+fi
 
 # nvm (https://github.com/creationix/nvm#git-install)
 export NVM_DIR="$HOME/.nvm"

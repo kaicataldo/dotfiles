@@ -3,10 +3,13 @@
 call plug#begin('~/.vim/plugged')
   " Editor Features
   Plug 'scrooloose/nerdtree'
-  " Install fzf externally, either with Homebrew or Git
+  " Install fzf externally, either with Homebrew,
+  " a Linux Package Manager (like apt), or Git
   " https://github.com/junegunn/fzf#installation
   if isdirectory('/usr/local/opt/fzf')
     Plug '/usr/local/opt/fzf' " Installed with Homebrew
+  elseif !empty(glob('/usr/bin/fzf'))
+    source /usr/share/doc/fzf/examples/fzf.vim " Installed with Linux Package Manager
   else
     Plug '~/.fzf' " Installed with Git
   endif
