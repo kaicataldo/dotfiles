@@ -50,7 +50,7 @@ While most dependencies can be installed with your distro's package manager, the
 [z](https://github.com/rupa/z) is not available through Linux package managers and must be installed manually:
 
 ```sh
-cd ~ && wget https://raw.githubusercontent.com/rupa/z/master/z.sh
+mkdir ~/.z && cd ~/.z && wget https://raw.githubusercontent.com/rupa/z/master/z.sh
 ```
 
 #### fzf

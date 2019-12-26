@@ -83,7 +83,9 @@ elif [ "$(uname)" == "Linux" ]; then
   [ -f "/etc/profile.d/bash_completion.sh" ] && . "/etc/profile.d/bash_completion.sh"
 
   # z
-  [ -f "$HOME/z.sh" ] && . "$HOME/z.sh"
+  Z_DIR="$HOME/.z"
+  export _Z_DATA="$Z_DIR/data"
+  [ -f "$Z_DIR/z.sh" ] && . "$Z_DIR/z.sh"
 
   # fzf
   [ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ] && . "/usr/share/doc/fzf/examples/key-bindings.bash"
