@@ -22,7 +22,7 @@ tmd() {
 export CLICOLOR=1
 export VISUAL="vim"
 export EDITOR="$VISUAL"
-export PS1="\[\033[34m\]\w\[\033[30m\]$(parse_git_branch)\n\[\033[35m\]\$\[\033[00m\] "
+export PS1="\[\033[34m\]\w\[\033[30m\]\$(parse_git_branch)\n\[\033[35m\]\$\[\033[00m\] "
 
 # History Settings
 export HISTSIZE=5000
