@@ -11,8 +11,8 @@
   # Commit
   cm = commit -m
   ca = !git add --all && git commit -m
-  amend = commit --amend
-  amend-all = !git add --all && git commit --amend --reuse-message=HEAD
+  am = commit --amend
+  amo = !git add --all && git commit --amend --reuse-message=HEAD
 
   # Clone
   cl = clone
