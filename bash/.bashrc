@@ -87,12 +87,12 @@ elif [ "$(uname)" == "Linux" ]; then
   export _Z_DATA="$Z_DIR/data"
   [ -f "$Z_DIR/z.sh" ] && . "$Z_DIR/z.sh"
 
-  # fzf
+  # fzf installed with apt
   [ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ] && . "/usr/share/doc/fzf/examples/key-bindings.bash"
-
-  # fzf installed with Git
-  [ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
 fi
+
+# fzf installed with Homebrew or Git
+[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
 
 # nvm (https://github.com/creationix/nvm#git-install)
 export NVM_DIR="$HOME/.nvm"
