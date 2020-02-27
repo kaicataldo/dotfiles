@@ -1,0 +1,11 @@
+# Dracula Theme
+
+set -g clock-mode-colour '#BD93F9'
+set -g pane-border-style 'fg=#6272A4'
+set -g pane-active-border-style 'fg=#FF79C6'
+set -g status-style 'fg=#F8F8F2,bg=#44475A'
+set -g message-style 'fg=#F8F8F2,bg=#44475A'
+set -g status-left "#[fg=#8BE9FD,bg=#44475A] #S "
+set -g status-right "#[bg=#6272A4] %Y-%m-%d %H:%M #[fg=#282A36,bg=#BD93F9] #(echo $USER)@#H "
+setw -g window-status-format "#[fg=#6272A4,bg=#44475A] #I | #W "
+setw -g window-status-current-format "#[fg=#8BE9FD,bg=#282A36] #I | #W "

@@ -1,0 +1,11 @@
+# Material Theme (default)
+
+set -g clock-mode-colour cyan
+set -g pane-border-style 'fg=#37474f'
+set -g pane-active-border-style 'fg=#546e7a'
+set -g status-style 'fg=#65738e,bg=#2c3b41'
+set -g message-style 'fg=#eeffff,bg=#37474f'
+set -g status-left "#[fg=#263238,bg=cyan] #S "
+set -g status-right "#[fg=#eeffff,bg=#37474f] %Y-%m-%d %H:%M #[fg=#263238,bg=cyan] #(echo $USER)@#H "
+setw -g window-status-format "#[fg=#65738e,bg=#2c3b41] #I | #W "
+setw -g window-status-current-format "#[fg=#eeffff,bg=#37474f] #I | #W "

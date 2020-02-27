@@ -71,9 +71,13 @@ if [ "$1" == "--dev-env" ]; then
   create_symlink $HOME/.vim $HOME/.config/nvim
   create_symlink $HOME/.vimrc $HOME/.config/nvim/init.vim
 
+  print_leading_newline "Creating directories for tmux..."
+  create_dir $HOME/.tmux
+
   # tmux
   print_leading_newline "Symlinking tmux dotfiles..."
   create_symlink $DOTFILES_DIR/tmux/.tmux.conf $HOME/.tmux.conf
+  create_symlink $DOTFILES_DIR/tmux/themes $HOME/.tmux/themes
 fi
 
 print_leading_newline "Bootstrapping dotfiles complete!"
