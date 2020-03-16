@@ -39,6 +39,12 @@ while true; do
   esac
 done
 
+# Enable Windows symlinks in Git Bash. Otherwise, `ln -s` simply copies over the files.
+# https://superuser.com/questions/550732/use-mklink-in-msys
+if [ $OSTYPE == "msys" ]; then
+  export MSYS="winsymlinks:nativestrict"
+fi
+
 # Get the dotfiles directory's absolute path
 DOTFILES_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 

@@ -33,6 +33,10 @@ export HISTFILESIZE=10000 # Append instead of overwrite history
 shopt -s histappend # Add commands to history immediately
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+if [ $OSTYPE == "msys" ]; then
+  export MSYS="winsymlinks:nativestrict"
+fi
+
 # === Aliases ===
 
 # General
