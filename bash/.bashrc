@@ -65,7 +65,7 @@ alias bashrc="[ -f $HOME/.bashrc ] && $EDITOR $HOME/.bashrc"
 alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
 
 # Linux aliases
-if [ "$(uname)" == "Linux" ]; then
+if [ $OSTYPE == "linux-gnu" ]; then
   # Colorize output
   alias ls="ls --color=auto"
 fi
@@ -73,7 +73,7 @@ fi
 # === Initializations ===
 
 # macOS/Linux initializations
-if [ "$(uname)" == "Darwin" ]; then
+if [ $OSTYPE == "darwin" ]; then
   if [ -x "$(command -v brew)" ]; then
     # Bash completion
     [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
@@ -81,7 +81,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # z
     [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && . "$(brew --prefix)/etc/profile.d/z.sh"
   fi
-elif [ "$(uname)" == "Linux" ]; then
+elif [ $OSTYPE == "linux-gnu" ]; then
   # Bash completion
   [ -f "/etc/profile.d/bash_completion.sh" ] && . "/etc/profile.d/bash_completion.sh"
 
@@ -92,6 +92,29 @@ elif [ "$(uname)" == "Linux" ]; then
 
   # fzf installed with apt
   [ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ] && . "/usr/share/doc/fzf/examples/key-bindings.bash"
+elif [ $OSTYPE == "msys" ]; then
+  # https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
+  env=~/.ssh/agent.env
+
+  agent_load_env() { test -f "$env" && . "$env" >| /dev/null ; }
+
+  agent_start() {
+      (umask 077; ssh-agent >| "$env")
+      . "$env" >| /dev/null ; }
+
+  agent_load_env
+
+  # agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+  agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+  if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+      agent_start
+      ssh-add
+  elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+      ssh-add
+  fi
+
+  unset env
 fi
 
 # fzf installed with Homebrew or Git
