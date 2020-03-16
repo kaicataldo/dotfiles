@@ -22,7 +22,10 @@ tmd() {
 export CLICOLOR=1
 export VISUAL="vim"
 export EDITOR="$VISUAL"
-export PS1="\[\033[34m\]\w\[\033[1;30m\]\$(parse_git_branch)\n\[\033[35m\]\$\[\033[00m\] "
+# \$(parse_git_branch) must be escaped so that it isn't evaluated immediately when a new session is created.
+# We could use single quotes instead, but using double quotes allows for the colors to be evaluated only once.
+# https://stackoverflow.com/questions/21517281/ps1-command-substitution-fails-when-containing-newlines-on-msys-bash
+export PS1="\[\033[34m\]\w\[\033[1;30m\]\$(parse_git_branch)"$'\n'"\[\033[35m\]\$\[\033[00m\] "
 
 # History Settings
 export HISTSIZE=5000
