@@ -1,7 +1,7 @@
 # dotfiles
 
 Here are my [dotfiles](https://dotfiles.github.io). They've been written with a few goals in mind:
- * Easily portable across macOS systems, Windows, and Linux environments
+ * Portable across modern macOS, Windows (Git Bash), and Linux environments
  * Quick, easy setup for a reproducible environment
 
 ## Installation/Update
