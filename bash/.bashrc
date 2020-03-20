@@ -12,10 +12,23 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1$(parse_git_dirty)/"
 }
 
+# Calculate the current OS for OS-specific initializations
+current_os() {
+  case $OSTYPE in
+    darwin* ) echo "darwin" ;;
+    linux-gnu* ) echo "linux-gnu" ;;
+    msys* ) echo "msys" ;;
+  esac
+}
+
 # Create new tmux session in current directory
 tmd() {
   tmux new -s "$(basename $PWD)"
 }
+
+# === Local Variables ===
+
+CURRENT_OS=$(current_os)
 
 # === Config ===
 
@@ -33,7 +46,7 @@ export HISTFILESIZE=10000 # Append instead of overwrite history
 shopt -s histappend # Add commands to history immediately
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-if [ $OSTYPE == "msys" ]; then
+if [ $CURRENT_OS == "msys" ]; then
   export MSYS="winsymlinks:nativestrict"
 fi
 
@@ -69,7 +82,7 @@ alias bashrc="[ -f $HOME/.bashrc ] && $EDITOR $HOME/.bashrc"
 alias localrc="[ -f $HOME/.localrc ] && $EDITOR $HOME/.localrc"
 
 # Linux aliases
-if [ $OSTYPE == "linux-gnu" ]; then
+if [ $CURRENT_OS == "linux-gnu" ]; then
   # Colorize output
   alias ls="ls --color=auto"
 fi
@@ -77,7 +90,7 @@ fi
 # === Initializations ===
 
 # macOS/Linux initializations
-if [ $OSTYPE == "darwin" ]; then
+if [ $CURRENT_OS == "darwin" ]; then
   if [ -x "$(command -v brew)" ]; then
     # Bash completion
     [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
@@ -85,7 +98,7 @@ if [ $OSTYPE == "darwin" ]; then
     # z
     [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && . "$(brew --prefix)/etc/profile.d/z.sh"
   fi
-elif [ $OSTYPE == "linux-gnu" ]; then
+elif [ $CURRENT_OS == "linux-gnu" ]; then
   # Bash completion
   [ -f "/etc/profile.d/bash_completion.sh" ] && . "/etc/profile.d/bash_completion.sh"
 
@@ -96,7 +109,7 @@ elif [ $OSTYPE == "linux-gnu" ]; then
 
   # fzf installed with apt
   [ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ] && . "/usr/share/doc/fzf/examples/key-bindings.bash"
-elif [ $OSTYPE == "msys" ]; then
+elif [ $CURRENT_OS == "msys" ]; then
   # https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
   env=~/.ssh/agent.env
 
@@ -131,3 +144,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Source local config file specific to machine if it exists
 [ -f "$HOME/.localrc" ] && . "$HOME/.localrc"
+
+# === Cleanup ===
+
+unset CURRENT_OS
+
