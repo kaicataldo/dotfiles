@@ -71,6 +71,18 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+#### Copying in Vim/tmux
+
+The version of Vim provided by your distro's package registry may not be compiled with clipboard support. If that's the case, follow the following instructions:
+
+For Ubuntu >=19.10, install `vim-gtk` instead of `vim`. This installs a version of Vim compiled with clipboard support.
+
+```sh
+sudo apt install vim-gtk xclip
+```
+
+Note that both Vim & tmux rely on `xclip` in this setup.
+
 ## Components
 
 - [Bash](https://www.gnu.org/software/bash/)

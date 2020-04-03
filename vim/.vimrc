@@ -126,10 +126,13 @@ set encoding=utf-8
 " Keyboard/Mouse
 set backspace=indent,eol,start
 set mouse=a " Enable mouse in terminal Vim
-set clipboard=unnamed " Use OS's clipboard
 if !has('nvim')
   set ttymouse=xterm2 " Set codes being sent by mouse
 endif
+
+" Use OS's clipboard
+" https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
+set clipboard^=unnamed,unnamedplus
 
 " Visuals
 if has('termguicolors')
