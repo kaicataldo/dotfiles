@@ -36,7 +36,7 @@ export PS1="\[\033[34m\]\w\[\033[1;30m\]\$(_parse_git_branch)"$'\n'"\[\033[35m\]
 export HISTSIZE=5000
 export HISTFILESIZE=10000 # Append instead of overwrite history
 shopt -s histappend # Add commands to history immediately
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r;"
 
 if [[ $OSTYPE =~ msys* ]]; then
   export MSYS='winsymlinks:nativestrict'
