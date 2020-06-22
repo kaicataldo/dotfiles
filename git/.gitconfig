@@ -70,3 +70,5 @@
   aliases = config --get-regexp alias
 [includeIf "gitdir:~/Work/"]
   path = ~/Work/.gitconfig
+[credential]
+  helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
