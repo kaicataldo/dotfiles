@@ -81,7 +81,7 @@ fi
 
 # === Initializations ===
 
-# macOS/Linux initializations
+# macOS
 if [[ $OSTYPE =~ darwin* ]]; then
   if [[ -x $(command -v brew) ]]; then
     # Bash completion
@@ -90,6 +90,8 @@ if [[ $OSTYPE =~ darwin* ]]; then
     # z
     _source_if_exists "$(brew --prefix)/etc/profile.d/z.sh"
   fi
+
+# Linux
 elif [[ $OSTYPE =~ linux-gnu* ]]; then
   # Bash completion
   _source_if_exists '/etc/profile.d/bash_completion.sh'
@@ -101,6 +103,14 @@ elif [[ $OSTYPE =~ linux-gnu* ]]; then
 
   # fzf installed with apt
   _source_if_exists '/usr/share/doc/fzf/examples/key-bindings.bash'
+
+  # WSL
+  if [[ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]]; then
+    # keychain
+    eval `keychain --eval --agents ssh id_rsa`
+  fi
+
+# Windows
 elif [[ $OSTYPE =~ msys* ]]; then
   # https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
   env="$HOME/.ssh/agent.env"
