@@ -35,6 +35,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'elzr/vim-json'
   Plug 'othree/html5.vim'
   Plug 'ekalinin/Dockerfile.vim'
+  Plug 'rust-lang/rust.vim'
 
   " Color Schemes
   Plug 'kaicataldo/material.vim'
@@ -108,6 +109,9 @@ let g:javascript_plugin_flow = 1
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+" rust.vim
+let g:rustfmt_autosave = 1
 
 " ack.vim
 let g:ackprg = 'ag --vimgrep --hidden --ignore .git'
