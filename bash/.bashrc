@@ -136,9 +136,11 @@ elif [[ $OSTYPE =~ msys* ]]; then
   unset env
 fi
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # fzf installed with Homebrew or Git
 _source_if_exists "$HOME/.fzf.bash"
-
 
 # nvm (https://github.com/creationix/nvm#git-install)
 export NVM_DIR="$HOME/.nvm"
