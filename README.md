@@ -50,7 +50,8 @@ While most dependencies can be installed with your distro's package manager, the
 [z](https://github.com/rupa/z) is not available through Linux package managers and must be installed manually:
 
 ```sh
-mkdir ~/.z && cd ~/.z && wget https://raw.githubusercontent.com/rupa/z/master/z.sh
+curl -fLo ~/.z/z.sh --create-dirs \
+      https://raw.githubusercontent.com/rupa/z/master/z.sh
 ```
 
 #### fzf
@@ -82,6 +83,21 @@ sudo apt install vim-gtk xclip
 ```
 
 Note that both Vim & tmux rely on `xclip` in this setup.
+
+### Windows (Git Bash)
+
+#### Git
+
+Download and run the [Git for Windows Installer](https://git-scm.com/downloads).
+
+#### z
+
+[z](https://github.com/rupa/z) must be installed manually:
+
+```sh
+curl -fLo ~/.z/z.sh --create-dirs \
+      https://raw.githubusercontent.com/rupa/z/master/z.sh
+```
 
 ## Components
 

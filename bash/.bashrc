@@ -112,6 +112,12 @@ elif [[ $OSTYPE =~ linux-gnu* ]]; then
 
 # Windows
 elif [[ $OSTYPE =~ msys* ]]; then
+  # z
+  Z_DIR="$HOME/.z"
+  export _Z_DATA="$Z_DIR/data"
+  _source_if_exists "$Z_DIR/z.sh"
+
+  # Auto-launch ssh-agent
   # https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
   env="$HOME/.ssh/agent.env"
 
