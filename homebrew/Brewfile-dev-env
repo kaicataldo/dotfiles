@@ -1,4 +1,8 @@
+brew "golang"
 brew "neovim"
+brew "node"
+brew "python"
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
+brew "yarn"

@@ -145,6 +145,9 @@ fi
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Go
+export GOPATH=$HOME/Code/go
+
 # fzf installed with Homebrew or Git
 _source_if_exists "$HOME/.fzf.bash"
 
