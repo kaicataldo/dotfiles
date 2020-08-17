@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rust-lang/rust.vim'
 
   " Color Schemes
-  Plug 'kaicataldo/material.vim'
+  Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
@@ -51,7 +51,7 @@ let g:material_theme_style = 'default'
 " lightline
 " Options include: ['material_vim', 'dracula']
 let g:lightline = {
-  \ 'colorscheme': 'dracula',
+  \ 'colorscheme': 'material_vim',
   \ 'active': {
     \ 'left': [
       \ [ 'mode', 'paste' ],
@@ -146,7 +146,7 @@ else
 endif
 
 " Options include: ['material', 'dracula']
-colorscheme dracula
+colorscheme material
 set cursorline " highlight current line - disabled in Vim for performance reasons
 
 " Numbers
