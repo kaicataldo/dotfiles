@@ -4,6 +4,8 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
+[pull]
+  ff = only
 [alias]
   # Add all
   aa = add --all
