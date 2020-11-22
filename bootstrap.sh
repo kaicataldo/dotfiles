@@ -71,6 +71,7 @@ if [ "$1" == "--dev-env" ]; then
   # Vim
   print_leading_newline "Symlinking Vim dotfiles..."
   create_symlink $DOTFILES_DIR/vim/.vimrc $HOME/.vimrc
+  create_symlink $DOTFILES_DIR/vim/coc-settings.json $HOME/.vim/coc-settings.json
 
   # Neovim
   print_leading_newline "Symlinking Neovim dotfiles..."

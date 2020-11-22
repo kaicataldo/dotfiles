@@ -1,0 +1,23 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "rust",
+    "html",
+    "css",
+    "markdown",
+    "json",
+    "yaml"
+  ],
+  "coc.preferences.formatOnType": false,
+  "prettier.requireConfig": true,
+  "eslint.run": "onSave",
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}

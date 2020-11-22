@@ -12,6 +12,21 @@ Here are my [dotfiles](https://dotfiles.github.io). They've been written with a 
 
 *__Warning__: this will overwrite any dotfiles of the same name in your home directory.*
 
+### coc.nvim
+
+After running vim-plug's `:PlugUpdate` command, install the following CoC extensions:
+
+- [coc-eslint](https://github.com/neoclide/coc-eslint)
+- [coc-styled-components](https://github.com/fannheyward/coc-styled-components)
+- [coc-prettier](https://github.com/neoclide/coc-prettier)
+- [coc-tsserver](https://github.com/neoclide/coc-tsserver)
+- [coc-yaml](https://github.com/neoclide/coc-yaml)
+- [coc-json](https://github.com/neoclide/coc-json)
+- [coc-rls](https://github.com/neoclide/coc-rls)
+- [coc-flow](https://github.com/amiralies/coc-flow)
+- [coc-git](https://github.com/neoclide/coc-git)
+- [coc-go](https://github.com/josa42/coc-go)
+
 ### macOS
 
 #### Homebrew

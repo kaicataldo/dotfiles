@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Raimondi/delimitMate'
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -31,9 +32,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-  Plug 'jparise/vim-graphql'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'rust-lang/rust.vim'
   Plug 'othree/html5.vim'
+  Plug 'jparise/vim-graphql'
   Plug 'elzr/vim-json'
   Plug 'cespare/vim-toml'
   Plug 'ekalinin/Dockerfile.vim'
@@ -84,6 +86,20 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['^\.DS_Store$']
 let g:NERDTreeHighlightCursorline = 0
+
+" coc.nvim
+let g:coc_global_extensions = [
+  \ 'coc-eslint',
+  \ 'coc-styled-components',
+  \ 'coc-prettier',
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ 'coc-json',
+  \ 'coc-rls',
+  \ 'coc-flow',
+  \ 'coc-git',
+  \ 'coc-go'
+\ ]
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -250,6 +266,10 @@ nnoremap K :Ack! <cword><CR>
 
 " fzf.vim
 map <C-p> :FZF<CR>
+
+" coc.nvim
+nmap <silent> <Leader>ap <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>an <Plug>(coc-diagnostic-next)
 
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
