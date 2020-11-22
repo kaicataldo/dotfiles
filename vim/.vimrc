@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mgee/lightline-bufferline'
-  Plug 'w0rp/ale'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
@@ -27,15 +26,17 @@ call plug#begin('~/.vim/plugged')
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
+  Plug 'maxmellon/vim-jsx-pretty'
   Plug 'moll/vim-node'
-  Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'peitalin/vim-jsx-typescript'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'jparise/vim-graphql'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'elzr/vim-json'
-  Plug 'othree/html5.vim'
-  Plug 'ekalinin/Dockerfile.vim'
   Plug 'rust-lang/rust.vim'
+  Plug 'othree/html5.vim'
+  Plug 'elzr/vim-json'
+  Plug 'cespare/vim-toml'
+  Plug 'ekalinin/Dockerfile.vim'
 
   " Color Schemes
   Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -46,7 +47,7 @@ call plug#end()
 
 " material.vim
 let g:material_terminal_italics = 1
-let g:material_theme_style = 'default'
+let g:material_theme_style = 'default-community'
 
 " lightline
 " Options include: ['material_vim', 'dracula']
@@ -84,28 +85,11 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['^\.DS_Store$']
 let g:NERDTreeHighlightCursorline = 0
 
-" ale
-let g:ale_linters_explicit = 1 " Only use linters defined in map
-let g:ale_echo_msg_format = '%linter%: %s'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_fix_on_save = 1
-if has('nvim')
-  let g:ale_completion_enabled = 1
-endif
-
-" https://github.com/w0rp/ale/issues/1224#issuecomment-352248157
-let g:ale_linters = {
-  \ 'javascript': ['eslint', 'flow'],
-  \ 'typescript': ['eslint', 'tslint', 'tsserver'],
-\ }
-let g:ale_fixers = {
-  \ 'javascript': ['prettier'],
-  \ 'typescript': ['prettier'],
-  \ 'css': ['prettier']
-\ }
-
 " vim-javascript
 let g:javascript_plugin_flow = 1
+
+" vim-jsx-pretty
+let g:vim_jsx_pretty_highlight_close_tag = 1
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
@@ -118,6 +102,17 @@ let g:ackprg = 'ag --vimgrep --hidden --ignore .git'
 
 " fzf.vim
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let g:fzf_colors = {
+  \ 'bg+': ['bg', 'CursorLine'],
+  \ 'hl': ['fg', 'Function'],
+  \ 'hl+': ['fg', 'Function'],
+  \ 'pointer': ['fg', 'Statement'],
+  \ 'prompt': ['fg', 'Statement'],
+  \ 'info': ['fg', 'Comment'],
+  \ 'marker': ['fg', 'Statement'],
+  \ 'gutter': ['bg', 'CursorLine'],
+  \ 'border':  ['bg', 'ColorColumn'],
+\ }
 
 " vim-better-whitespace
 let g:better_whitespace_enabled=1
@@ -255,10 +250,6 @@ nnoremap K :Ack! <cword><CR>
 
 " fzf.vim
 map <C-p> :FZF<CR>
-
-" ale
-nmap <silent> <Leader>ap <Plug>(ale_previous_wrap)
-nmap <silent> <Leader>an <Plug>(ale_next_wrap)
 
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
