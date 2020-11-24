@@ -12,12 +12,13 @@
     "yaml"
   ],
   "coc.preferences.formatOnType": false,
-  "prettier.requireConfig": true,
   "eslint.run": "onSave",
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "tsserver.enableJavascript": false,
+  "prettier.requireConfig": true
 }
