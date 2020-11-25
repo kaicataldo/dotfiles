@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mgee/lightline-bufferline'
-  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
