@@ -267,8 +267,12 @@ nnoremap K :Ack! <cword><CR>
 map <C-p> :FZF<CR>
 
 " coc.nvim
-nmap <silent> <Leader>ap <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>an <Plug>(coc-diagnostic-next)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Better Whitespace
 nmap <silent> <Leader>w :StripWhitespace<CR>
