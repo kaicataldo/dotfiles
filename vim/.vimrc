@@ -1,6 +1,7 @@
 " === vim-plug ===
 
 call plug#begin('~/.vim/plugged')
+
   " Editor Features
   Plug 'scrooloose/nerdtree'
   " Install fzf externally, either with Homebrew,
@@ -14,7 +15,6 @@ call plug#begin('~/.vim/plugged')
     Plug '~/.fzf' " Installed with Git
   endif
   Plug 'junegunn/fzf.vim'
-  Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mgee/lightline-bufferline'
   Plug 'tpope/vim-surround'
@@ -23,6 +23,22 @@ call plug#begin('~/.vim/plugged')
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Raimondi/delimitMate'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+  Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'amiralies/coc-flow', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'fannheyward/coc-styled-components', {'do': 'yarn install --frozen-lockfile'}
 
   " Language/Syntax
   Plug 'pangloss/vim-javascript'
@@ -42,6 +58,7 @@ call plug#begin('~/.vim/plugged')
   " Color Schemes
   Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
 
 " === Plugin Config ===
@@ -85,20 +102,6 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['^\.DS_Store$']
 let g:NERDTreeHighlightCursorline = 0
-
-" coc.nvim
-let g:coc_global_extensions = [
-  \ 'coc-eslint',
-  \ 'coc-styled-components',
-  \ 'coc-prettier',
-  \ 'coc-tsserver',
-  \ 'coc-yaml',
-  \ 'coc-json',
-  \ 'coc-rls',
-  \ 'coc-flow',
-  \ 'coc-git',
-  \ 'coc-go'
-\ ]
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
@@ -259,12 +262,9 @@ endif
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" ack.vim
-nnoremap \ :Ack!<Space>-Q<Space>
-nnoremap K :Ack! <cword><CR>
-
 " fzf.vim
 map <C-p> :FZF<CR>
+nnoremap <C-k> :Ag<CR>
 
 " coc.nvim
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
