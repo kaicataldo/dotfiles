@@ -20,7 +20,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
-  Plug 'ntpeters/vim-better-whitespace'
   Plug 'Raimondi/delimitMate'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
@@ -132,10 +131,6 @@ let g:fzf_colors = {
   \ 'border':  ['bg', 'ColorColumn'],
 \ }
 
-" vim-better-whitespace
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-
 " === General settings ===
 
 set encoding=utf-8
@@ -216,6 +211,18 @@ set completeopt-=preview
 " Spellcheck
 autocmd FileType gitcommit,markdown setlocal spell
 
+" Remove trailing whitespace
+function! RemoveTrailingWhitespace()
+  if (s:isremovingwhitespace == 1)
+    let l = line('.')
+    let c = col('.')
+    %s/\s\+$//e
+    call cursor(l, c)
+  endif
+endfun
+
+autocmd BufWritePre * call RemoveTrailingWhitespace()
+
 " Disable numbers in Neovim terminal buffers
 if has('nvim')
   autocmd TermOpen * setlocal nonumber norelativenumber
@@ -223,7 +230,7 @@ endif
 
 " === Key mappings ===
 
-let mapleader=";"
+let mapleader=';'
 inoremap jj <Esc>
 
 " Line navigation ignores line wrap
@@ -274,11 +281,18 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Better Whitespace
-nmap <silent> <Leader>w :StripWhitespace<CR>
-
 " Toggle paste mode
 set pastetoggle=<F6>
+
+" Toggle remove trailing whitespace
+let s:isremovingwhitespace = 1
+
+function! ToggleRemoveTrailingWhitespace()
+  let s:isremovingwhitespace = !s:isremovingwhitespace
+  echo 'Remove trailing whitespace toggled ' . (s:isremovingwhitespace ? 'on' : 'off')
+endfunc
+
+nnoremap <Leader>tw :call ToggleRemoveTrailingWhitespace()<CR>
 
 " Relative Number Toggle
 function! NumberToggle()
@@ -289,7 +303,7 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <Leader>nt :call NumberToggle()<CR>
+nnoremap <Leader>tn :call NumberToggle()<CR>
 
 " lightline-bufferline
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
