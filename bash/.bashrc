@@ -107,7 +107,7 @@ elif [[ $OSTYPE =~ linux-gnu* ]]; then
   # WSL
   if [[ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]]; then
     # keychain
-    eval `keychain --eval --agents ssh id_rsa`
+    eval $(keychain --eval --quiet)
   fi
 
 # Windows
