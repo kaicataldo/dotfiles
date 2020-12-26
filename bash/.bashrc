@@ -108,6 +108,9 @@ elif [[ $OSTYPE =~ linux-gnu* ]]; then
   if [[ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]]; then
     # keychain
     eval $(keychain --eval --quiet)
+
+    # Go
+    export PATH=$PATH:/usr/local/go/bin
   fi
 
 # Windows
