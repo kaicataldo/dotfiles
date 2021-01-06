@@ -107,7 +107,7 @@ elif [[ $OSTYPE =~ linux-gnu* ]]; then
   # WSL
   if [[ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]]; then
     # keychain
-    eval $(keychain --eval --quiet)
+    eval $(keychain --eval --quiet --agents ssh id_ed25519)
 
     # Go
     export PATH=$PATH:/usr/local/go/bin
