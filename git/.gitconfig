@@ -7,17 +7,11 @@
 [pull]
   ff = only
 [alias]
-  # Add all
-  aa = add --all
-
   # Commit
   cm = commit -m
   ca = !git add --all && git commit -m
   am = commit --amend
   amo = !git add --all && git commit --amend --reuse-message=HEAD
-
-  # Clone
-  cl = clone
 
   # Branch
   b = branch
@@ -26,43 +20,26 @@
   co = checkout
   cb = checkout -b
 
-  # Diff
-  d = diff
-  dc = diff --cached
-
-  # Merge
-  m = merge
-
-  # Pull
-  pl = pull
-  plom = pull origin master
-  plum = pull upstream master
-
-  # Push
-  p = push
-  pom = push origin master
-  poh = push origin head
-
-  # Rebase
-  frum = !git fetch upstream && git rebase upstream/master
-  from = !git fetch origin && git rebase origin/master
-
-  # Stash
-  ss = stash
-  ssp = stash pop
-
-  # Reset
-  unstage = reset HEAD
-  uncommit = reset --soft HEAD^
+  # Undo
+  uncommit = reset --soft HEAD
+  force-clean = "!f() { \
+    while true; do \
+      read -p 'Friendly warning: you will lose all changes since the last commit. Continue? [y/n] ' yn; \
+      case $yn in \
+        [Yy]* ) git reset --hard HEAD~1 && git clean -df; break;; \
+        [Nn]* ) exit 0;; \
+        * ) print_trailing_newline 'Please answer [y]es or [n]o.';; \
+      esac; \
+    done; \
+  }; \
+  f"
 
   # Remote
   r = remote -v
 
   # Status/Logging
-  l = log
-  lp = log -p
+  l = log -p
   s = status -sb
-  st = status
   hist = log --graph --pretty=format:'%C(red)%h%Creset %C(green)%cr %C(yellow)%d%Creset %s %C(magenta)[%an]%Creset' --abbrev-commit --date=relative
 
   # Submodules

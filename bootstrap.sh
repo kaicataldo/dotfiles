@@ -33,9 +33,9 @@ print_trailing_newline() {
 while true; do
   read -p "Friendly warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
   case $yn in
-    [Yy]* ) break ;;
-    [Nn]* ) exit 0 ;;
-    * ) print_trailing_newline "Please answer [y]es or [n]o." ;;
+    [Yy]* ) break;;
+    [Nn]* ) exit 0;;
+    * ) print_trailing_newline "Please answer [y]es or [n]o.";;
   esac
 done
 
