@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'Raimondi/delimitMate'
+
+  " coc.nvim
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
